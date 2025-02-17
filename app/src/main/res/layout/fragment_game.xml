@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/game_background_phone"
+    tools:context=".MainActivity">
+
+
+
+    <View
+        android:id="@+id/imageView_TargetRectangle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:translationZ="4dp"
+        android:background="@drawable/rectangle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:elevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.14"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.011"
+        app:layout_constraintWidth_percent="0.011" />
+
+    <com.example.game.Thermometer
+        android:id="@+id/thermometer"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.30"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.42" />
+
+    <com.example.game.HotWaterTank
+        android:id="@+id/hotWaterTank"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.23"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.86" />
+
+    <Button
+        android:id="@+id/button_heat"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/heat"
+        android:textSize="11sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.124"
+        app:layout_constraintHorizontal_bias="0.373"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.885"
+        app:layout_constraintWidth_percent="0.12" />
+
+    <TextView
+        android:id="@+id/textView_LevelLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Level: "
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.01"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15" />
+
+    <TextView
+        android:id="@+id/textView_LevelValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="2dp"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_LevelLabel"
+        app:layout_constraintStart_toEndOf="@+id/textView_LevelLabel"
+        app:layout_constraintTop_toTopOf="@+id/textView_LevelLabel" />
+
+    <TextView
+        android:id="@+id/textView_CO2SavingsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/co2_savings"
+        android:textSize="14sp"
+        android:padding="2dp"
+
+        app:layout_constraintStart_toStartOf="@+id/textView_LevelLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textView_LevelLabel" />
+
+    <TextView
+        android:id="@+id/textView_ComfortLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/comfort"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/textView_CO2SavingsLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textView_CO2SavingsLabel" />
+
+    <TextView
+        android:id="@+id/textView_TimeLeftLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/time"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.88"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.925" />
+
+    <ProgressBar
+        android:id="@+id/progressBar_TimeLeft"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:max="100"
+        android:scaleY="3"
+        tools:visibility="gone"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_TimeLeftLabel"
+        app:layout_constraintStart_toEndOf="@+id/textView_TimeLeftLabel"
+        app:layout_constraintTop_toTopOf="@+id/textView_TimeLeftLabel"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintWidth_percent="0.08" />
+
+    <com.example.game.CircularProgressBar
+        android:id="@+id/circularProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+
+
+        app:layout_constraintBottom_toBottomOf="@+id/textView_TimeLeftLabel"
+        app:layout_constraintStart_toEndOf="@+id/textView_TimeLeftLabel"
+        app:layout_constraintTop_toTopOf="@+id/textView_TimeLeftLabel"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintHeight_percent="0.12"
+        app:layout_constraintWidth_percent="0.10" />
+
+
+    <ProgressBar
+        android:id="@+id/progressBar_CO2Savings"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:max="100"
+        android:scaleY="3"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_CO2SavingsLabel"
+        app:layout_constraintStart_toEndOf="@+id/textView_CO2SavingsLabel"
+        app:layout_constraintTop_toTopOf="@+id/textView_CO2SavingsLabel"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintWidth_percent="0.17" />
+
+    <FrameLayout
+        android:id="@+id/goal_stroke"
+        android:layout_width="2dp"
+        android:layout_height="20dp"
+        android:background="#47443a"
+        app:layout_constraintBottom_toBottomOf="@+id/progressBar_CO2Savings"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar_CO2Savings"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/progressBar_CO2Savings"
+        app:layout_constraintTop_toTopOf="@+id/progressBar_CO2Savings"
+        app:layout_constraintVertical_bias="0.5"></FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/goal_stroke_comfort"
+        android:layout_width="2dp"
+        android:layout_height="20dp"
+        android:elevation="1dp"
+        android:background="#47443a"
+        app:layout_constraintBottom_toBottomOf="@+id/progressBar_ComfortLevel"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar_ComfortLevel"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/progressBar_ComfortLevel"
+        app:layout_constraintTop_toTopOf="@+id/progressBar_ComfortLevel"
+        app:layout_constraintVertical_bias="0.5"></FrameLayout>
+
+
+
+    <ProgressBar
+        android:id="@+id/progressBar_ComfortLevel"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:max="100"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_ComfortLabel"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar_CO2Savings"
+        android:scaleY="3"
+        app:layout_constraintStart_toStartOf="@+id/progressBar_CO2Savings"
+        app:layout_constraintTop_toTopOf="@+id/textView_ComfortLabel"
+
+        app:layout_constraintWidth_percent="0.17" />
+
+    <TextView
+        android:id="@+id/textView_ScoreTotalCO2Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="@string/c02_savings_total"
+        android:textSize="12sp"
+        android:padding="2dp"
+        app:layout_constraintStart_toStartOf="@+id/textView_ComfortLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textView_ComfortLabel" />
+
+    <TextView
+        android:id="@+id/textView_ScoreTotalCO2Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView_ScoreTotalCO2Label"
+        app:layout_constraintStart_toStartOf="@+id/textView_ScoreTotalCO2Label"
+        app:layout_constraintTop_toBottomOf="@+id/textView_ScoreTotalCO2Label" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch_Storage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rotation="90"
+        android:theme="@style/SwitchStyle"
+
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.610"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45" />
+
+
+    <FrameLayout
+        android:id="@+id/cycleContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.742"
+        app:layout_constraintWidth_percent="0.1">
+
+        <!-- Cycle image -->
+        <ImageView
+            android:id="@+id/cycleImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/heat_pump_cycle" />
+
+        <!-- Fan image positioned relative to the cycle -->
+        <ImageView
+            android:id="@+id/fan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="4dp"
+            android:src="@drawable/heat_pump_fan" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textView_pointsSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintVertical_bias="0.7"
+        android:layout_marginLeft="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar_ComfortLevel"
+        android:textSize="35dp"
+        app:layout_constraintStart_toEndOf="@+id/progressBar_CO2Savings"
+        app:layout_constraintTop_toTopOf="@+id/progressBar_CO2Savings" />
+
+    <TextView
+        android:id="@+id/textView_warningTemperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Temperature too high!"
+        android:textStyle="bold"
+        android:textSize="10sp"
+        android:layout_marginRight="4dp"
+        app:layout_constraintVertical_bias="0.67"
+        app:layout_constraintBottom_toBottomOf="@+id/thermometer"
+        app:layout_constraintEnd_toStartOf="@+id/thermometer"
+        app:layout_constraintTop_toTopOf="@+id/thermometer" />
+
+    <TextView
+        android:id="@+id/textView_warningHotWater"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Warm water level too high!"
+        android:textStyle="bold"
+        android:layout_marginTop="7dp"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toStartOf="@+id/thermometer"
+
+        app:layout_constraintTop_toBottomOf="@+id/textView_warningTemperature" />
+
+    <ImageView
+        android:id="@+id/imageView_warning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/textView_warningTemperature"
+
+        app:layout_constraintEnd_toStartOf="@+id/thermometer"
+        android:layout_marginRight="25dp"
+        app:srcCompat="@drawable/baseline_warning_amber_24" />
+
+    <ImageView
+        android:id="@+id/imageView_windTurbinePole"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.35"
+        app:layout_constraintHorizontal_bias="0.058"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.97"
+        app:layout_constraintWidth_percent="0.11"
+        app:srcCompat="@drawable/pole_vector" />
+
+    <ImageView
+        android:id="@+id/imageView_windTurbineBlade"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/imageView_windTurbinePole"
+        app:layout_constraintEnd_toEndOf="@+id/imageView_windTurbinePole"
+        app:layout_constraintHeight_percent="0.35"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView_windTurbinePole"
+        app:layout_constraintWidth_percent="0.11"
+        app:srcCompat="@drawable/wind_turbine_blades_3" />
+
+    <ImageView
+        android:id="@+id/imageView_hotWaterShower"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.691"
+        app:layout_constraintHeight_percent="0.06"
+        app:layout_constraintWidth_percent="0.06"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.764"
+        app:srcCompat="@drawable/hot_water_shower" />
+
+    <ImageView
+        android:id="@+id/imageView_sun"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.19"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.186"
+        app:layout_constraintWidth_percent="0.16"
+
+        app:srcCompat="@drawable/sun" />
+
+    <ImageView
+        android:id="@+id/imageView_sunRays"
+
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.11"
+        app:layout_constraintHorizontal_bias="0.73"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.169"
+        app:layout_constraintWidth_percent="0.11"
+        app:srcCompat="@drawable/sun_rays" />
+
+    <ImageView
+        android:id="@+id/imageView_openWindow"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.17"
+        app:layout_constraintHorizontal_bias="0.70"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.500"
+        app:layout_constraintWidth_percent="0.10"
+        app:srcCompat="@drawable/window_open" />
+
+    <TextView
+        android:id="@+id/textView_Goal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/goal"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/goal_stroke"
+        app:layout_constraintEnd_toEndOf="@+id/goal_stroke"
+        app:layout_constraintStart_toStartOf="@+id/goal_stroke" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

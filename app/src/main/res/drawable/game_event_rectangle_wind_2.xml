@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="5dp" />
+            <solid android:color="#5bd970" />
+        </shape>
+    </item>
+    <item
+        android:drawable="@drawable/baseline_air_24"
+        android:width="26dp"
+        android:height="26dp"
+        android:right="1dp"
+        android:gravity="left|center_vertical" />
+</layer-list>

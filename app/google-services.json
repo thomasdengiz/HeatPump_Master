@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "248974012708",
+    "project_id": "heatinggamehighscores",
+    "storage_bucket": "heatinggamehighscores.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:248974012708:android:3f93234ba2066ed41643b1",
+        "android_client_info": {
+          "package_name": "com.example.game"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCABthrgCzl5S_SWIxdx2I4A2YDlZBZ0Rk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FR_Options">
+
+    <!-- ScrollView for vertical scrolling -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <!-- The main content of the layout -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/button_heat"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@string/heat"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.10"
+                app:layout_constraintHorizontal_bias="0.143"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView1_consume_electricity"
+                app:layout_constraintVertical_bias="0.01"
+                app:layout_constraintWidth_percent="0.10" />
+
+            <TextView
+                android:id="@+id/textView1_consume_electricity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="1. Consume electricity to heat up the building or the hot water tank"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.079"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.09" />
+
+            <TextView
+                android:id="@+id/textView_heat_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:textSize="17sp"
+                android:text="Press this button to heat"
+                app:layout_constraintBottom_toBottomOf="@+id/button_heat"
+                app:layout_constraintStart_toEndOf="@+id/button_heat"
+                app:layout_constraintTop_toTopOf="@+id/button_heat" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_Storage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:rotation="90"
+                android:theme="@style/SwitchStyle"
+                android:translationZ="90dp"
+                android:layout_marginTop="3dp"
+                android:scaleX="1.4"
+                android:scaleY="1.4"
+                app:layout_constraintEnd_toEndOf="@+id/button_heat"
+                app:layout_constraintHorizontal_bias="0.610"
+                app:layout_constraintStart_toStartOf="@+id/button_heat"
+                app:layout_constraintTop_toBottomOf="@+id/button_heat" />
+
+            <TextView
+                android:id="@+id/textView_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:text="Switch between heating the building or the hot water tank"
+                app:layout_constraintBottom_toBottomOf="@+id/switch_Storage"
+                app:layout_constraintStart_toStartOf="@+id/textView_heat_button"
+                app:layout_constraintTop_toBottomOf="@+id/button_heat" />
+
+            <TextView
+                android:id="@+id/textView2_solar_wind_electricity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                android:text="2. Only use electricity from solar and wind to save CO2"
+                app:layout_constraintStart_toStartOf="@+id/textView1_consume_electricity"
+                app:layout_constraintTop_toBottomOf="@+id/switch_Storage" />
+
+            <ImageView
+                android:id="@+id/solar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/game_event_rectangle_solar_1"
+                android:paddingEnd="20dp"
+                android:layout_marginTop="9dp"
+                app:layout_constraintStart_toStartOf="@+id/switch_Storage"
+                app:layout_constraintTop_toBottomOf="@+id/textView2_solar_wind_electricity" />
+
+            <ImageView
+                android:id="@+id/wind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="9dp"
+                android:background="@drawable/game_event_rectangle_wind_1"
+                app:layout_constraintStart_toEndOf="@+id/solar"
+                app:layout_constraintTop_toBottomOf="@+id/textView2_solar_wind_electricity" />
+
+            <TextView
+                android:id="@+id/textView3_no_coal_gas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:textSize="20sp"
+                android:text="3. Avoid electricity from gas and coal"
+                app:layout_constraintStart_toStartOf="@+id/textView2_solar_wind_electricity"
+                app:layout_constraintTop_toBottomOf="@+id/solar" />
+
+            <ImageView
+                android:id="@+id/gas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/game_event_rectangle_gas_1"
+                android:paddingEnd="20dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toStartOf="@+id/switch_Storage"
+                app:layout_constraintTop_toBottomOf="@+id/textView3_no_coal_gas" />
+
+            <ImageView
+                android:id="@+id/coal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="7dp"
+                android:background="@drawable/game_event_rectangle_coal_1"
+                app:layout_constraintStart_toEndOf="@+id/solar"
+                app:layout_constraintTop_toBottomOf="@+id/textView3_no_coal_gas" />
+
+            <TextView
+                android:id="@+id/textView4_target_rectangle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:textSize="20sp"
+                android:text="4. Use solar and wind when the element are under the red line in the middle of the screen "
+                app:layout_constraintStart_toStartOf="@+id/textView3_no_coal_gas"
+                app:layout_constraintTop_toBottomOf="@+id/gas" />
+
+            <View
+                android:id="@+id/imageView_TargetRectangle"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="7dp"
+                android:background="@drawable/rectangle"
+                app:layout_constraintHeight_percent="0.05"
+                app:layout_constraintStart_toStartOf="@+id/gas"
+                app:layout_constraintTop_toBottomOf="@+id/textView4_target_rectangle"
+                app:layout_constraintWidth_percent="0.01" />
+
+            <TextView
+                android:id="@+id/textView_air"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="5. Air the room or have a shower to get a better comfort score by pressing on the flying buttons.\n  This decreases the temperature in the building and the water in the hot water tank"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/textView4_target_rectangle"
+                app:layout_constraintTop_toBottomOf="@+id/imageView_TargetRectangle" />
+
+            <ImageView
+                android:id="@+id/air"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:background="@drawable/flying_button_air_1"
+                app:layout_constraintStart_toStartOf="@+id/imageView_TargetRectangle"
+                app:layout_constraintTop_toBottomOf="@+id/textView_air" />
+
+            <ImageView
+                android:id="@+id/shower"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="80dp"
+                android:background="@drawable/flying_button_shower_1"
+                app:layout_constraintStart_toEndOf="@+id/imageView_TargetRectangle"
+                app:layout_constraintTop_toBottomOf="@+id/textView_air" />
+
+            <TextView
+                android:id="@+id/textView_how_to_play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/how_to_play"
+                android:textSize="34sp"
+                app:layout_constraintBottom_toTopOf="@+id/textView1_consume_electricity"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.499"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</FrameLayout>

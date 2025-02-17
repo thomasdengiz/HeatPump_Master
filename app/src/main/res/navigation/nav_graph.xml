@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FR_Menu">
+
+    <fragment
+        android:id="@+id/FR_Game"
+        android:name="com.example.game.FR_Game"
+        android:label="FR_Game" >
+        <action
+            android:id="@+id/action_FR_Game_to_dialogFR_LevelEnd"
+            app:destination="@id/dialogFR_LevelEnd" >
+            <argument
+                android:name="currentCO2SavingsThisLevel"
+                app:argType="integer"
+                 />
+            <argument
+                android:name="neededCO2SavingsInTheLevel"
+                app:argType="integer"
+                 />
+            <argument
+                android:name="currentLevel"
+                app:argType="integer"
+                 />
+            <argument
+                android:name="comfortPercentage"
+                app:argType="integer"
+                 />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/FR_Options"
+        android:name="com.example.game.FR_Options"
+        android:label="FR_Options" />
+
+    <fragment
+        android:id="@+id/FR_HowToPlay"
+        android:name="com.example.game.FR_HowToPlay"
+        android:label="FR_HighScores" />
+    <fragment
+        android:id="@+id/FR_Menu"
+        android:name="com.example.game.FR_Menu"
+        android:label="FR_Menu" >
+        <action
+            android:id="@+id/action_FR_Menu_to_FR_Game"
+            app:destination="@id/FR_Game" />
+
+        <action
+            android:id="@+id/action_FR_Menu_to_FR_HowToPlay"
+            app:destination="@id/FR_HowToPlay" />
+        <action
+            android:id="@+id/action_FR_Menu_to_FR_InterestingFacts"
+            app:destination="@id/FR_InterestingFacts" />
+        <action
+            android:id="@+id/action_FR_Menu_to_FR_Options"
+            app:destination="@id/FR_Options" />
+        <action
+            android:id="@+id/action_FR_Menu_to_FR_Test"
+            />
+        <action
+            android:id="@+id/action_FR_Menu_to_FR_RV_Level_Selection_Menu"
+            app:destination="@id/FR_RV_Level_Selection_Menu" />
+    </fragment>
+    <fragment
+        android:id="@+id/FR_InterestingFacts"
+        android:name="com.example.game.FR_InterestingFacts"
+        android:label="FR_InterestingFacts" />
+    <fragment
+        android:id="@+id/FR_RV_Level_Selection_Menu"
+        android:name="com.example.game.FR_RV_Level_Selection_Menu"
+        android:label="FR_RV_Level_Selection_Menu" >
+        <action
+            android:id="@+id/action_FR_RV_Level_Selection_Menu_to_FR_Game"
+            app:destination="@id/FR_Game" />
+    </fragment>
+    <dialog
+        android:id="@+id/dialogFR_LevelEnd"
+        android:name="com.example.game.DialogFR_LevelEnd"
+        android:label="DialogFR_LevelEnd" >
+        <argument
+            android:name="currentCO2SavingsThisLevel"
+            app:argType="integer" />
+        <argument
+            android:name="neededCO2SavingsInTheLevel"
+            app:argType="integer" />
+        <argument
+            android:name="currentLevel"
+            app:argType="integer" />
+        <argument
+            android:name="comfortPercentage"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_dialogFR_LevelEnd_to_FR_Game"
+            app:destination="@id/FR_Game" />
+        <action
+            android:id="@+id/action_dialogFR_LevelEnd_to_FR_Menu"
+            app:destination="@id/FR_Menu" />
+    </dialog>
+    <fragment
+        android:id="@+id/FR_Test"
+        android:name="com.example.game.FR_Test"
+        android:label="FR_Test" />
+
+</navigation>

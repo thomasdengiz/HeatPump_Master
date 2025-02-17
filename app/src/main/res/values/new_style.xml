@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomAlertDialogTheme" parent="ThemeOverlay.Material3.Dialog">
+        <item name="windowFixedWidthMajor">50%</item><!--for landscape-->
+        <item name="windowFixedWidthMinor">50%</item><!--for portrait-->
+        <!--You can also create different dimen values for different screen sizes and assign the dimen to above-->
+    </style>
+
+</resources>

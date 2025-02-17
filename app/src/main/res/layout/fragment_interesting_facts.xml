@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FR_Options">
+
+    <!-- HorizontalScrollView for scrolling horizontally -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"> <!-- Ensures it uses full width even if content is small -->
+
+        <!-- LinearLayout inside to arrange items horizontally -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"> <!-- Set orientation to horizontal for scrolling -->
+
+            <!-- First item: Caption, ImageView and TextView stacked vertically -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <!-- Caption TextView -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/cap_efficiency"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/imageEfficiency"
+                    android:layout_width="350dp"
+                    android:layout_height="220dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/facts_efficiency_english" />
+
+                <TextView
+                    android:id="@+id/tv_facts_efficiency"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="8dp"
+                    android:text="@string/info_efficiency_link"
+                    android:textColor="@android:color/black"/>
+            </LinearLayout>
+
+            <!-- Second item: Caption, ImageView and TextView -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <!-- Caption TextView -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/cap_energy_consumption"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/imageHeating"
+                    android:layout_width="350dp"
+                    android:layout_height="220dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/facts_heatingstats_english" />
+
+                <TextView
+                    android:id="@+id/tv_facts_heating"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="8dp"
+                    android:text="@string/info_heating_link"
+                    android:textColor="@android:color/black"
+
+                    />
+            </LinearLayout>
+
+            <!-- Third item: Caption, ImageView and TextView -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <!-- Caption TextView -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/cap_emissions"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/imageEmissions"
+                    android:layout_width="350dp"
+                    android:layout_height="220dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/facts_emissions_english" />
+
+                <TextView
+                    android:id="@+id/tv_facts_emissions"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="8dp"
+                    android:text="@string/info_emissions_link"
+                    android:textColor="@android:color/black"
+                    />
+            </LinearLayout>
+
+            <!-- Fourth item: Caption, ImageView and TextView -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <!-- Caption TextView -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/cap_grid"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/imageGrid"
+                    android:layout_width="350dp"
+                    android:layout_height="220dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/facts_grid" />
+
+                <TextView
+                    android:id="@+id/tv_facts_grid"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/info_stabilizing_grids_link"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="8sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</FrameLayout>

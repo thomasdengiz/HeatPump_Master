@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/right_outer_constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.50"
+        app:layout_constraintHeight_percent="0.72"
+        android:orientation="vertical"
+        android:background="@drawable/rim"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.98"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="10dp"
+        app:layout_constraintVertical_bias="0.8">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/rigthInnerConstraintLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/right_outer_constraintLayout"
+            app:layout_constraintEnd_toEndOf="@+id/right_outer_constraintLayout"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/right_outer_constraintLayout"
+
+            app:layout_constraintTop_toTopOf="@+id/right_outer_constraintLayout"
+            app:layout_constraintVertical_bias="1.0">
+
+
+            <LinearLayout
+                android:id ="@+id/linearLayoutForButtons"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                >
+
+
+                <ToggleButton
+                    android:id="@+id/tbutton_highScore_lastWeek"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/tbutton_selector"
+                    android:textAllCaps="false"
+                    android:textOff="@string/last_week"
+                    android:textOn="@string/last_week"
+                    android:textSize="11sp"
+                    android:checked="true"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <View
+                    android:id="@+id/line1"
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="#bcbcbc" />
+
+                <ToggleButton
+                    android:id="@+id/tbutton_highScore_lastMonth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/tbutton_selector"
+                    android:textAllCaps="false"
+                    android:textOff="@string/last_month"
+                    android:textOn="@string/last_month"
+                    android:textSize="11sp"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <View
+                    android:id="@+id/line2"
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+
+                    android:background="#bcbcbc" />
+
+                <ToggleButton
+                    android:id="@+id/tbutton_highScore_overall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/tbutton_selector"
+                    android:textAllCaps="false"
+                    android:textOff="@string/overall"
+                    android:textOn="@string/overall"
+                    android:textSize="11sp"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_highScoreStatisticsToBeDisplayed"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/linearLayoutForButtons" />
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+    <TextView
+        android:id="@+id/textView_LevelFinished"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/level_finished"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.50"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.010" />
+
+    <ImageView
+        android:id="@+id/imageView_CloseSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_LevelFinished"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toEndOf="@+id/textView_LevelFinished"
+        app:layout_constraintTop_toTopOf="@+id/textView_LevelFinished"
+        app:layout_constraintVertical_bias="0.512"
+        app:srcCompat="@drawable/ic_close_symbol_foreground" />
+
+    <ImageView
+        android:id="@+id/imageView_Checkmark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_LevelFinished"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toEndOf="@+id/textView_LevelFinished"
+        app:layout_constraintTop_toTopOf="@+id/textView_LevelFinished"
+        app:srcCompat="@drawable/ic_check_mark_foreground" />
+
+    <TextView
+        android:id="@+id/textView_LevelFinishedMessageCO2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="11sp"
+        android:layout_marginTop="2dp"
+        android:text="You needed to save x g of CO2 and you got y g"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_LevelFinished" />
+
+    <TextView
+        android:id="@+id/textView_LevelFinishedMessageGas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="You saved 10 kWh of Gas"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView_LevelFinishedMessageCO2"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="@+id/textView_LevelFinishedMessageCO2"
+        app:layout_constraintTop_toBottomOf="@+id/textView_LevelFinishedMessageCO2" />
+
+    <ImageView
+        android:id="@+id/imageViewGasSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@null"
+        app:layout_constraintEnd_toEndOf="@+id/textView_LevelFinishedMessageGas"
+        app:layout_constraintStart_toStartOf="@+id/textView_LevelFinishedMessageGas"
+        app:layout_constraintTop_toBottomOf="@+id/textView_LevelFinishedMessageGas"
+        app:layout_constraintVertical_bias="0.9"
+        app:srcCompat="@drawable/gas2" />
+
+    <ImageView
+        android:id="@+id/imageView_NextLevelSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/textView_RepeatLevel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toStartOf="@+id/textView_LevelFinishedMessageCO2"
+        app:layout_constraintTop_toTopOf="@+id/imageView_RepeatSymbol"
+        app:srcCompat="@drawable/ic_arrow_forward_foreground" />
+
+    <ImageView
+        android:id="@+id/imageView_RepeatSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_HighscoreMessagePositions"
+        app:srcCompat="@drawable/ic_repeat_symbol_foreground" />
+
+    <TextView
+        android:id="@+id/textView_RepeatLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/repeat_level"
+        android:textStyle="bold"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView_RepeatSymbol"
+        app:layout_constraintStart_toStartOf="@+id/imageView_RepeatSymbol"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_RepeatSymbol" />
+
+    <ImageView
+        android:id="@+id/imageView_goToMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView_RepeatSymbol"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView_RepeatSymbol"
+        app:srcCompat="@drawable/baseline_menu_24" />
+
+
+    <TextView
+        android:id="@+id/textView_goToMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/menu"
+        android:textStyle="bold"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView_goToMenu"
+        app:layout_constraintStart_toStartOf="@+id/imageView_goToMenu"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_goToMenu" />
+
+
+    <TextView
+        android:id="@+id/textView_NextLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next_level"
+        android:textStyle="bold"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView_NextLevelSymbol"
+        app:layout_constraintStart_toStartOf="@+id/imageView_NextLevelSymbol"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_NextLevelSymbol" />
+
+    <ImageView
+        android:id="@+id/imageView_leaf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintBottom_toTopOf="@+id/textView_LevelFinishedMessageGas"
+        app:layout_constraintEnd_toEndOf="@+id/textView_LevelFinishedMessageCO2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/textView_LevelFinishedMessageCO2"
+        app:layout_constraintTop_toBottomOf="@+id/textView_LevelFinishedMessageCO2"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/leaf" />
+
+    <TextView
+        android:id="@+id/textView_TopScores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/top_scores_for_this_level"
+        android:textSize="15sp"
+        android:layout_marginBottom="3dp"
+        app:layout_constraintBottom_toTopOf="@+id/right_outer_constraintLayout"
+        app:layout_constraintEnd_toEndOf="@+id/right_outer_constraintLayout"
+        app:layout_constraintStart_toStartOf="@+id/right_outer_constraintLayout" />
+
+    <TextView
+        android:id="@+id/textView_HighscoreMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/made_to_highscore"
+        android:textSize="11sp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView_LevelFinishedMessageCO2"
+        app:layout_constraintStart_toStartOf="@+id/textView_LevelFinishedMessageCO2"
+        app:layout_constraintTop_toBottomOf="@+id/textView_totalScore" />
+
+    <TextView
+        android:id="@+id/textView_HighscoreMessagePositions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Position 1 last Week\nPosition 2 last Month\nPosition 3 Overall"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView_HighscoreMessage"
+
+        app:layout_constraintStart_toStartOf="@+id/textView_HighscoreMessage"
+        app:layout_constraintTop_toBottomOf="@+id/textView_HighscoreMessage" />
+
+    <Button
+        android:id="@+id/button_submit"
+
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/submit"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_HighscoreMessagePositions"
+        app:layout_constraintEnd_toStartOf="@+id/right_outer_constraintLayout"
+        app:layout_constraintHeight_percent="0.13"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toEndOf="@+id/textView_HighscoreMessagePositions"
+        app:layout_constraintTop_toTopOf="@+id/textView_HighscoreMessagePositions"
+        app:layout_constraintWidth_percent="0.12" />
+
+    <TextView
+        android:id="@+id/textViewHishScoreSubmitMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textSize="9sp"
+        app:layout_constraintEnd_toEndOf="@+id/button_submit"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/button_submit"
+        app:layout_constraintTop_toBottomOf="@+id/button_submit" />
+
+    <TextView
+        android:id="@+id/textView_comfortResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="Your comfort score is 77% --> Bonus points: 1024"
+        android:textSize="11sp"
+        android:textColor="#FF5733"
+        app:layout_constraintEnd_toEndOf="@+id/textView_LevelFinishedMessageCO2"
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toStartOf="@+id/textView_LevelFinishedMessageCO2"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewGasSymbol" />
+
+    <TextView
+        android:id="@+id/textView_totalScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="Total Score: 10243 g"
+        app:layout_constraintHorizontal_bias="0.7"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textView_LevelFinishedMessageCO2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_comfortResult" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

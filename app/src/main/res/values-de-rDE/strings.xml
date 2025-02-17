@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Wärmepumpen Regelung Spiel</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="start_game">Starte Spiel</string>
+    <string name="options">Optionen</string>
+    <string name="tutorial">Tutorial</string>
+    <string name="highscores">Highscores</string>
+    <string name="interesting_facts">Interessante Infos</string>
+    <string name="about">Über die App</string>
+    <string name="exit">Beenden</string>
+
+    <string name="temperature_too_high_warning">Temperature zu hoch!</string>
+    <string name="temperature_too_low_warning">Temperature zu niedrig!</string>
+
+    <string name="water_too_much_warning">Zu viel warmes Wasser!</string>
+    <string name="water_not_engough_warning">Zu wenig warmes Wasser!</string>
+    <string name="goal">Ziel</string>
+    <string name="time">Zeit</string>
+    <string name="repeat_level">Level wiederholen</string>
+    <string name="next_level">Nächstes Level</string>
+    <string name="co2_savings_semicolon">CO<sub><small>2</small></sub> Einsparung: </string>
+    <string name="last_week">Letzte Woche</string>
+    <string name="last_month">Letzten Monat</string>
+    <string name="overall">Insgesamt</string>
+
+    <string name="co2_savings_total_semicolon">CO₂ Einsparung gesamt:</string>
+    <string name="gas_savings_total_semicolon">Gas Einsparung total:</string>
+    <string name="best_result_semicolon">Bestes Ergebnis:</string>
+
+    <string name="play">Spielen</string>
+    <string name="menu">Menü</string>
+    <string name="submit">Senden</string>
+    <string name="back">Zurück</string>
+    <string name="highscore_submitted">Highscore gesendet</string>
+    <string name="co2_savings">CO<sub><small>2</small></sub>-Einsparung</string>
+    <string name="comfort">Komfort</string>
+    <string name="c02_savings_total">CO<sub><small>2</small></sub>-Einsparung gesamt</string>
+    <string name="heat">Heizen</string>
+    <string name="level_finished">Level beendet</string>
+    <string name="how_to_play">Anweisungen</string>
+
+    <string name="level_selection">Level Auswahl</string>
+
+    <string name="cap_efficiency">Effizienz verschiedener Heiztechnologien</string>
+    <string name="cap_energy_consumption">Energieverbrauch in Haushalten</string>
+    <string name="cap_emissions">Emissionen verschiedener Heiztechnologien</string>
+    <string name="cap_grid">Netzstabilisierung</string>
+
+    <string name="top_scores_for_this_level">Beste Ergebnisse für dieses Level</string>
+
+
+    <string name="info_efficiency_link">
+<![CDATA[
+&#8226; Wärmepumpen sind bei weitem die effizienteste Heiztechnologie.<br/><br/>
+&#8226; Sie wandeln 1 kWh Strom in 3-4 kWh Wärme um.<br/><br/>
+&#8226; Erdwärmepumpen sind effizienter als Luftwärmepumpen, aber auch teurer.<br/><br/>
+&#8226; Übrigens: Kühlschränke und Gefriergeräte nutzen die gleiche Technologie wie eine Wärmepumpe, indem sie Wärme aus dem Inneren des Geräts nach außen transportieren.<br/><br/>
+&#8226; Quellen: <a href="https://www.entega.de/blog/wirkungsgrad-waermepumpe/">Prof. Dipl. –Ing. W. Schenk, Hochschule München, 2020</a> (abgerufen am 19.10.2024).
+<a href="https://www.energie-experten.org/heizung/waermepumpe/waermepumpenheizung/wirkungsgrad">Greenhouse Media GmbH, 2022</a> (abgerufen am 19.10.2024).<br/><br/>
+]]>
+</string>
+
+    <string name="info_heating_link">
+<![CDATA[
+&#8226; In der EU wird der größte Teil der Energie in Haushalten für das Heizen von Wohnräumen verwendet, gefolgt von der Warmwasserbereitung.<br/><br/>
+&#8226; Der Haushaltssektor machte 2022 etwa 26 % des Endenergieverbrauchs in der EU aus.<br/><br/>
+&#8226; Quelle: <a href="https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20240605-2">Eurostat, 2024</a> (abgerufen am 19.10.2024).<br/><br/>
+]]>
+</string>
+
+    <string name="info_emissions_link">
+<![CDATA[
+&#8226; Der Umstieg von fossilen Brennstoffen auf eine Wärmepumpe kann die CO2-Emissionen erheblich reduzieren.<br/><br/>
+&#8226; Mit Strom aus erneuerbaren Quellen können Wärmepumpen nahezu klimaneutral betrieben werden.<br/><br/>
+&#8226; Je höher der Anteil erneuerbarer Energien im Netz, desto weniger Treibhausgaseemissionen werden verursacht.<br/><br/>
+&#8226; Quelle: <a href="https://www.waermepumpe.de/waermepumpe/klimaschutz/">Bundesverband Wärmepumpe (BWP) e.V., 2024</a> (abgerufen am 19.10.2024).<br/><br/>
+]]>
+</string>
+
+    <string name="info_stabilizing_grids_link">
+<![CDATA[
+&#8226; Wärmepumpen können zur Stabilisierung des Stromnetzes beitragen, indem sie das Angebot und die Nachfrage ausgleichen, insbesondere in Verbindung mit Smart-Grid-Technologien.<br/><br/>
+&#8226; Sie können Wärme speichern, wenn die Produktion erneuerbarer Energien hoch ist, und sie freigeben, wenn die Nachfrage höher ist.<br/><br/>
+&#8226; Die Integration von Wärmepumpen mit erneuerbaren Energiequellen verringert den Bedarf an fossilen Reservekraftwerken.<br/><br/>
+&#8226; Quelle: <a href="https://commons.wikimedia.org/wiki/File:Himberg_-_Hochspannungs-Freileitungen.JPG">Wikipedia - C.Stadler/Bwag, 2019</a> (abgerufen am 19.10.2024). Lizenz: <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0</a>.<br/><br/>
+]]>
+</string>
+
+
+    <string name="made_to_highscore">Gratulation! Du hast es in die Bestenliste geschafft!</string>
+
+</resources>

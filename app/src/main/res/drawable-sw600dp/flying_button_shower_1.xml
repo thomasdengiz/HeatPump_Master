@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="27dp" />
+            <solid android:color="#c92718" />
+        </shape>
+    </item>
+    <item
+        android:drawable="@drawable/baseline_shower_40"
+        android:width="55dp"
+        android:height="55dp"
+        android:gravity="left|center_vertical" />
+</layer-list>

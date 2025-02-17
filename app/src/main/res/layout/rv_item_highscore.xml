@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/highscoreItem"
+
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:foreground="@drawable/cardview_foreground_rim_selected"
+
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="0dp"
+
+
+    app:cardUseCompatPadding="false"
+    app:contentPadding="1dp"
+    app:cardPreventCornerOverlap="false"
+
+
+    app:contentPaddingBottom="0dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="2dp"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/tv_position"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_percent="0.08"
+            android:text="10."
+            android:textSize="13dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_position"
+            android:background="#bcbcbc" />
+
+        <TextView
+            android:id="@+id/tv_playerName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Player Name 1"
+            android:textStyle="bold"
+            android:textSize="11dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_position"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.50"
+            app:layout_constraintWidth_percent="0.35" />
+
+        <View
+            android:id="@+id/line2"
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_playerName"
+            android:background="#bcbcbc" />
+
+
+
+        <TextView
+            android:id="@+id/tv_CO2SavingsScoreLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/co2_savings_semicolon"
+            android:textSize="9sp"
+            android:padding="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/line2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <TextView
+            android:id="@+id/tv_CO2SavingsScoreValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="112 g"
+
+            android:textSize="9sp"
+            android:textStyle="bold
+"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_CO2SavingsScoreLabel"
+            app:layout_constraintStart_toEndOf="@+id/tv_CO2SavingsScoreLabel"
+            app:layout_constraintTop_toTopOf="@+id/tv_CO2SavingsScoreLabel" />
+
+        <View
+            android:id="@+id/line3"
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="4dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_CO2SavingsScoreValue"
+            android:background="#bcbcbc" />
+
+        <TextView
+            android:id="@+id/tv_Date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12.12.2022"
+            android:textSize="8sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_CO2SavingsScoreValue"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+

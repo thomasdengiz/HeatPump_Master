@@ -1,0 +1,98 @@
+<resources>
+    <string name="app_name">Heat Pump Control Game</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="start_game">Start Game</string>
+    <string name="options">Options</string>
+    <string name="tutorial">Tutorial</string>
+    <string name="how_to_play">How to play</string>
+    <string name="highscores">Highscores</string>
+    <string name="interesting_facts">Interesting Facts</string>
+    <string name="about">About</string>
+    <string name="exit">Exit</string>
+
+    <string name="temperature_too_high_warning">Temperature too high!</string>
+    <string name="temperature_too_low_warning">Temperature too low!</string>
+
+    <string name="water_too_much_warning">Too much warm water!</string>
+    <string name="water_not_engough_warning">Not enough warm water!</string>
+
+    <string name="goal">Goal</string>
+    <string name="time">Time</string>
+
+    <string name="repeat_level">Repeat Level</string>
+    <string name="next_level">Next Level</string>
+    <string name="co2_savings_semicolon">CO<sub><small>2</small></sub>-Savings: </string>
+    <string name="last_week">Last Week</string>
+    <string name="last_month">Last Month</string>
+    <string name="overall">Overall</string>
+
+    <string name="co2_savings_total_semicolon">CO₂ savings total:</string>
+    <string name="gas_savings_total_semicolon">Gas savings total:</string>
+    <string name="best_result_semicolon">Best result:</string>
+
+    <string name="play">Play</string>
+    <string name="menu">Menu</string>
+    <string name="submit">Submit</string>
+    <string name="back">Back</string>
+    <string name="highscore_submitted">Highscore submitted</string>
+    <string name="co2_savings">CO<sub><small>2</small></sub>-Savings</string>
+    <string name="comfort">Comfort</string>
+    <string name="c02_savings_total">CO<sub><small>2</small></sub>-Savings total: </string>
+    <string name="heat">Heat</string>
+    <string name="level_finished">Level finished</string>
+
+
+    <string name="level_selection">Select level</string>
+
+    <string name="cap_efficiency">Efficiency of different heating technologies</string>
+    <string name="cap_energy_consumption">Energy consumption in households</string>
+    <string name="cap_emissions">Emissions of different heating technologies</string>
+    <string name="cap_grid">Grid stabilization</string>
+
+    <string name="top_scores_for_this_level">Top scores for this level</string>
+
+    <string name="info_efficiency_link">
+
+
+
+    <![CDATA[
+    &#8226; Heat pumps are by far the most efficient heating technology.<br/><br/>
+    &#8226; They convert 1 kWh of electricity into 3-4 kWh of heat.<br/><br/>
+    &#8226; Ground-source heat pumps are more efficient than air-source heat pumps but also more expensive.<br/><br/>
+    &#8226; By the way: Fridges and freezers use a process similar to a heat pump, moving heat from inside the appliance to the outside.<br/><br/>
+    &#8226; Sources: <a href="https://www.entega.de/blog/wirkungsgrad-waermepumpe/">Prof. Dipl. –Ing. W. Schenk, Hochschule München, 2020</a> (accessed on 19.10.2024).
+    <a href="https://www.energie-experten.org/heizung/waermepumpe/waermepumpenheizung/wirkungsgrad">Greenhouse Media GmbH, 2022</a> (accessed on 19.10.2024).<br/><br/>
+    ]]>
+    </string>
+
+
+    <string name="info_heating_link">
+    <![CDATA[
+    &#8226; In the EU, the main use of energy by households is for heating homes, followed by water heating.<br/><br/>
+    &#8226; The residential sector represented 26% of final energy consumption in the EU in 2022.<br/><br/>
+       &#8226; Source: <a href="https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20240605-2">Eurostat, 2024</a> (accessed on 19.10.2024).<br/><br/>
+    ]]>
+    </string>
+
+    <string name="info_emissions_link">
+    <![CDATA[
+    &#8226; Switching from fossil-fuel heating to a heat pump can significantly reduce CO2 emissions.<br/><br/>
+    &#8226; Using electricity from renewable sources, heat pumps can operate almost greenhouse gas-neutral.<br/><br/>
+    &#8226; The higher the share of renewable energy in the grid, the fewer greenhouse gases are emitted.<br/><br/>
+    &#8226; Source: <a href="https://www.waermepumpe.de/waermepumpe/klimaschutz/">Bundesverband Wärmepumpe (BWP) e.V., 2024</a> (accessed on 19.10.2024).<br/><br/>
+    ]]>
+    </string>
+
+    <string name="info_stabilizing_grids_link">
+    <![CDATA[
+    &#8226; Heat pumps can help stabilize the power grid by balancing supply and demand, especially when paired with smart grid technology.<br/><br/>
+    &#8226; They can store heat during periods of high renewable energy production and release it when demand is higher.<br/><br/>
+    &#8226; Integrating heat pumps with renewable energy sources reduces the need for fossil-fuel-based backup power.<br/><br/>
+    &#8226; Source: <a href="https://commons.wikimedia.org/wiki/File:Himberg_-_Hochspannungs-Freileitungen.JPG">Wikipedia - C.Stadler/Bwag, 2019</a> (accessed on 19.10.2024). License: <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0</a>.<br/><br/>
+    ]]>
+    </string>
+    <string name="made_to_highscore">Congratulations! You made it to the High Score list!</string>
+
+
+
+</resources>
