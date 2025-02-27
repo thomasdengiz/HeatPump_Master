@@ -11,7 +11,7 @@ public class View_Game_Event_Rectangle extends View {
     private int numberOfTimeSlotsAfterFinishing;
     private final String eventType;
     private final int startingTimeSlot;
-    private int duration;
+    private final int duration;
 
 
     public View_Game_Event_Rectangle(Context context, String eventType, int startingTimeSlot, int duration ) {

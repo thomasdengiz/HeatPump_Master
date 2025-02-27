@@ -36,10 +36,10 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.example.game.databinding.FragmentGameBinding;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -210,6 +210,48 @@ public class FR_Game extends Fragment  {
                              Bundle savedInstanceState) {
         binding = FragmentGameBinding.inflate(inflater, container, false);
 
+
+        //Load the background with glide
+        View rootView = binding.getRoot();
+
+        // Decide which background to load based on screen size.
+        String drawableName;
+        if (getResources().getConfiguration().smallestScreenWidthDp >= 600) {
+            drawableName = "game_background_tablet";
+        } else {
+            drawableName = "game_background_phone";
+        }
+
+        // Get the drawable resource ID by name.
+        int drawableId;
+        if (getResources().getConfiguration().smallestScreenWidthDp >= 600) {
+            drawableId = R.drawable.game_background_tablet;
+        } else {
+            drawableId = R.drawable.game_background_phone;
+        }
+        // Proceed only if the drawable exists.
+        if (drawableId != 0) {
+
+            int width = rootView.getLayoutParams().width;   // From XML
+            int height = rootView.getLayoutParams().height; // From XML
+
+            // Use Glide to load and resize the drawable, then set it as the background.
+            Glide.with(this)
+                    .load(drawableId)
+                    .override(width, height) // resize to the dimensions defined in XML
+                    .into(new CustomTarget<Drawable>() {
+                        @Override
+                        public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                            rootView.setBackground(resource);
+                        }
+                        @Override
+                        public void onLoadCleared(@Nullable Drawable placeholder) {
+                            // Optionally handle cleanup.
+                        }
+                    });
+        }
+
+
         WindowManager wm =  requireActivity().getWindowManager();
         Display display = wm.getDefaultDisplay();
         Point size = new Point();
@@ -243,7 +285,7 @@ public class FR_Game extends Fragment  {
 
         // Define and register RepeatListener on the heat button
         binding.buttonHeat.setOnTouchListener(new RepeatListener(30, 30, this.getContext(), view -> {
-            rotationAngle -= 11.0;
+            rotationAngle -= 11.0F;
             binding.fan.setRotation(-rotationAngle);
             currentlyActiveEventRectangleInTarget = checkPositionsOfActiveElements(true);
 
@@ -358,7 +400,6 @@ public class FR_Game extends Fragment  {
     int helpCounterCorrectTicks = 0;
     int helpCounterOverallNumberTicks = 0;
     public View_Game_Event_Rectangle checkPositionsOfActiveElements (boolean performGameStep) {
-        Log.e("LogTag_Points", "currentTimeSlot: " + currentTimeSlot);
         boolean gameEventInTargetRectangle = false;
         String activeElementType = "";
         View_Game_Event_Rectangle activeElement = null;
@@ -375,8 +416,6 @@ public class FR_Game extends Fragment  {
         }
 
         helpCounterOverallNumberTicks++;
-        Log.e("LogTag_Points", "performGameStep: " + performGameStep);
-        Log.e("LogTag_Points", "helpIndicatorPointsAlreadyCountedDuringCurrentTimeSlot: " + helpIndicatorPointsAlreadyCountedDuringCurrentTimeSlot);
         if (performGameStep && !helpIndicatorPointsAlreadyCountedDuringCurrentTimeSlot) {
 
             if (!gameEventInTargetRectangle) {
@@ -437,9 +476,7 @@ public class FR_Game extends Fragment  {
             }
             helpIndicatorPointsAlreadyCountedDuringCurrentTimeSlot = true;
         }
-        Log.e("LogTag_Points", "currentPointsThisLevel: " + currentPointsThisLevel);
-        Log.e("LogTag_Points", "helpCounterCorrectTicks: " + helpCounterCorrectTicks);
-        Log.e("LogTag_Points", "helpCounterOverallNumberTicks: " + helpCounterOverallNumberTicks);
+
         return  activeElement;
     }
 
@@ -516,7 +553,7 @@ public class FR_Game extends Fragment  {
          currentCO2SavingsThisLevel = (int) (((double) currentPointsThisLevel / perfectScoreInTheLevel) * PERFECT_CO2SCORE_GRAM);
 
         //Display the points for this level
-        binding.textViewScoreTotalCO2Value.setText("" + currentCO2SavingsThisLevel + " g");
+        binding.textViewScoreTotalCO2Value.setText(currentCO2SavingsThisLevel + " g");
         constraintLayout.bringChildToFront(binding.imageViewTargetRectangle);
 
         //Change progress bar
@@ -559,7 +596,7 @@ public class FR_Game extends Fragment  {
 
         //Check temperature and hot water level
         if (binding.thermometer.getPositionOfTemperatureBar() > binding.thermometer.value_positionOfTemperatureBar_20Degrees) {
-            binding.textViewWarningTemperature.setText("" + getString(R.string.temperature_too_low_warning));
+            binding.textViewWarningTemperature.setText(getString(R.string.temperature_too_low_warning));
             currentComfortHelpValue = currentComfortHelpValue - 0.6;
             visibilityWarningThermometer = true;
         }
@@ -577,14 +614,14 @@ public class FR_Game extends Fragment  {
 
 
         if (binding.hotWaterTank.getPositionOfWaterBar() > binding.hotWaterTank.value_positionOfWaterBar_Empty) {
-            binding.textViewWarningHotWater.setText("" + getString(R.string.water_not_engough_warning));
+            binding.textViewWarningHotWater.setText(getString(R.string.water_not_engough_warning));
             currentComfortHelpValue = currentComfortHelpValue - 0.6;
             binding.imageViewWarning.setVisibility(View.VISIBLE);
             visibilityWarningHotWaterTank = true;
         }
 
         if (binding.hotWaterTank.getPositionOfWaterBar() < binding.hotWaterTank.value_positionOfWaterBar_Full) {
-            binding.textViewWarningHotWater.setText("" + getString(R.string.water_too_much_warning));
+            binding.textViewWarningHotWater.setText(getString(R.string.water_too_much_warning));
             currentComfortHelpValue = currentComfortHelpValue - 0.6;
             binding.imageViewWarning.setVisibility(View.VISIBLE);
             visibilityWarningHotWaterTank = true;
@@ -991,8 +1028,8 @@ public class FR_Game extends Fragment  {
         float startingPositionX = flyingButton.getX();
         float startingPositionY = flyingButton.getY();
 
-        float translationXDestination = (float) (Math.random() * 0.5 * screenWidth);
-        float translationYDestination = (float) (Math.random() * 0.5 * screenHeight);
+        float translationXDestination;
+        float translationYDestination;
 
         //Determine direction
         boolean animateFromRightToLeft = false;
@@ -1030,18 +1067,18 @@ public class FR_Game extends Fragment  {
                 .setInterpolator(new LinearInterpolator())
                 .setListener(new Animator.AnimatorListener() {
                     @Override
-                    public void onAnimationStart(Animator animation) {}
+                    public void onAnimationStart(@NonNull Animator animation) {}
 
                     @Override
-                    public void onAnimationEnd(Animator animation) {
+                    public void onAnimationEnd(@NonNull Animator animation) {
 
                     }
 
                     @Override
-                    public void onAnimationCancel(Animator animation) {}
+                    public void onAnimationCancel(@NonNull Animator animation) {}
 
                     @Override
-                    public void onAnimationRepeat(Animator animation) {}
+                    public void onAnimationRepeat(@NonNull Animator animation) {}
                 })
                 .start();
 

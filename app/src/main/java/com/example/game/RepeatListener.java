@@ -3,7 +3,6 @@ package com.example.game;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -75,13 +74,13 @@ public class RepeatListener implements View.OnTouchListener {
     public boolean onTouch(View view, MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                Log.e("LogTagRepeat", "Inside Repeat DOWN");
+
                 handler.removeCallbacks(handlerRunnable);
                 handler.postDelayed(handlerRunnable, initialInterval);
                 touchedView = view;
                 touchedView.setPressed(true);
                 clickListener.onClick(view);
-                Log.e("LogTagRepeat", "currentlyActiveGameRectangle: " + currentlyActiveGameRectangle);
+
                 if (currentlyActiveGameRectangle !=null) {
                     if(currentlyActiveGameRectangle.getEventType().equals(FR_Game.VIEW_EVENT_RECTANGLE_SOLAR)) {
                         currentlyActiveGameRectangle.setBackground(ContextCompat.getDrawable(context, R.drawable.game_event_rectangle_solar_2));
@@ -98,7 +97,7 @@ public class RepeatListener implements View.OnTouchListener {
                 }
                 return true;
             case MotionEvent.ACTION_UP:
-                Log.e("LogTagRepeat", "Inside Repeat UP");
+
                 if (currentlyActiveGameRectangle !=null) {
                     if(currentlyActiveGameRectangle.getEventType().equals(FR_Game.VIEW_EVENT_RECTANGLE_SOLAR)) {
                         currentlyActiveGameRectangle.setBackground(ContextCompat.getDrawable(context, R.drawable.game_event_rectangle_solar_1));

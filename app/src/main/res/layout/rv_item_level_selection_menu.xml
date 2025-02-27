@@ -3,9 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="160dp"
-    android:layout_height="160dp"
-    android:padding="5dp">
+    android:layout_width="162dp"
+    android:layout_height="138dp"
+    android:layout_marginHorizontal="5dp"
+    android:padding="2dp">
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -31,8 +32,8 @@
 
         <ImageView
             android:id="@+id/imageView_levelImage"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
+            android:layout_width="67dp"
+            android:layout_height="67dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.507"
             app:layout_constraintStart_toStartOf="parent"

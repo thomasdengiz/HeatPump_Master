@@ -11,6 +11,8 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+
 public class HotWaterTank extends View {
     private Paint mInnerCirclePaint;
     private int innerCircleCenter;
@@ -140,7 +142,7 @@ public class HotWaterTank extends View {
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(@NonNull Canvas canvas) {
         super.onDraw(canvas);
 
         drawThermometer(canvas);

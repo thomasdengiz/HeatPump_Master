@@ -241,7 +241,6 @@ public class DB_SQLite_Helper extends SQLiteOpenHelper {
             is = context.getAssets().open(DATABASE_NAME);
         } catch (IOException e) {
             Log.e("CPYDB FAIL - NO ASSET","Failed to open the Asset file " + DATABASE_NAME);
-            e.printStackTrace();
             return false;
         }
 
@@ -249,7 +248,6 @@ public class DB_SQLite_Helper extends SQLiteOpenHelper {
             os = new FileOutputStream(DBPATH);
         } catch (IOException e) {
             Log.e("CPYDB FAIL - OPENDB","Failed to open the Database File at " + DBPATH);
-            e.printStackTrace();
             return false;
         }
         Log.d("CPYDBINFO","Initiating copy from asset file" + DATABASE_NAME + " to " + DBPATH);
@@ -262,7 +260,6 @@ public class DB_SQLite_Helper extends SQLiteOpenHelper {
                                 bytes_read +
                                 " bytes read successfully."
                 );
-                e.printStackTrace();
                 return false;
             }
             bytes_read = bytes_read + length;
@@ -274,7 +271,6 @@ public class DB_SQLite_Helper extends SQLiteOpenHelper {
                         ". " +
                         bytes_written +
                         " bytes written successfully.");
-                e.printStackTrace();
                 return false;
 
             }
@@ -295,7 +291,6 @@ public class DB_SQLite_Helper extends SQLiteOpenHelper {
                     bytes_written +
                     " bytes written."
             );
-            e.printStackTrace();
             return false;
         }
         return true;

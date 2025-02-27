@@ -107,7 +107,7 @@
         android:id="@+id/textView_ComfortLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="8dp"
         android:text="@string/comfort"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/textView_CO2SavingsLabel"

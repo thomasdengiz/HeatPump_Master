@@ -36,8 +36,8 @@
 
                 <ImageView
                     android:id="@+id/imageEfficiency"
-                    android:layout_width="350dp"
-                    android:layout_height="220dp"
+                    android:layout_width="340dp"
+                    android:layout_height="200dp"
                     android:layout_marginTop="10dp"
                     android:src="@drawable/facts_efficiency_english" />
 
@@ -45,12 +45,14 @@
                     android:id="@+id/tv_facts_efficiency"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textSize="8dp"
+                    android:textSize="9dp"
                     android:text="@string/info_efficiency_link"
                     android:textColor="@android:color/black"/>
             </LinearLayout>
 
             <!-- Second item: Caption, ImageView and TextView -->
+
+            <!-- Third item: Caption, ImageView and TextView -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -69,8 +71,8 @@
 
                 <ImageView
                     android:id="@+id/imageHeating"
-                    android:layout_width="350dp"
-                    android:layout_height="220dp"
+                    android:layout_width="340dp"
+                    android:layout_height="200dp"
                     android:layout_marginTop="10dp"
                     android:src="@drawable/facts_heatingstats_english" />
 
@@ -78,14 +80,13 @@
                     android:id="@+id/tv_facts_heating"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textSize="8dp"
                     android:text="@string/info_heating_link"
                     android:textColor="@android:color/black"
+                    android:textSize="9dp"
 
                     />
             </LinearLayout>
 
-            <!-- Third item: Caption, ImageView and TextView -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -104,8 +105,8 @@
 
                 <ImageView
                     android:id="@+id/imageEmissions"
-                    android:layout_width="350dp"
-                    android:layout_height="220dp"
+                    android:layout_width="340dp"
+                    android:layout_height="200dp"
                     android:layout_marginTop="10dp"
                     android:src="@drawable/facts_emissions_english" />
 
@@ -113,7 +114,7 @@
                     android:id="@+id/tv_facts_emissions"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textSize="8dp"
+                    android:textSize="9dp"
                     android:text="@string/info_emissions_link"
                     android:textColor="@android:color/black"
                     />
@@ -138,8 +139,8 @@
 
                 <ImageView
                     android:id="@+id/imageGrid"
-                    android:layout_width="350dp"
-                    android:layout_height="220dp"
+                    android:layout_width="330dp"
+                    android:layout_height="190dp"
                     android:layout_marginTop="10dp"
                     android:src="@drawable/facts_grid" />
 
@@ -150,7 +151,7 @@
                     android:text="@string/info_stabilizing_grids_link"
                     android:layout_marginTop="8dp"
                     android:textColor="@android:color/black"
-                    android:textSize="8sp" />
+                    android:textSize="9sp" />
             </LinearLayout>
         </LinearLayout>
     </HorizontalScrollView>

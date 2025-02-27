@@ -8,8 +8,9 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
+
+import androidx.annotation.NonNull;
 
 public class Thermometer extends View {
     private Paint mInnerCirclePaint;
@@ -86,7 +87,7 @@ public class Thermometer extends View {
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(@NonNull Canvas canvas) {
         super.onDraw(canvas);
 
         drawThermometer(canvas);
@@ -162,11 +163,8 @@ public class Thermometer extends View {
 
 
         lineStartY = ((int)(bitmap.getHeight() / 4.6f) + top) + (int) (positionOfTemperatureBar * bitmap.getHeight());
-        //lineStartY = (int)(bitmap.getHeight());
         lineEndY = 10+ (top + bitmap.getHeight()) - (int)(bitmap.getHeight() / 4f);
-        Log.e("LogTag_Ther", "Method changeTemperature - lineStartY: " + lineStartY);
-        Log.e("LogTag_Ther", "Method changeTemperature - lineEndY: " + lineEndY);
-        //lineEndY = -20;
+
     }
 
     public void setTemperature( double setTemperatureDegreesCelsius) {
@@ -179,7 +177,6 @@ public class Thermometer extends View {
 
 
         lineStartY = -100+ ((int)(bitmap.getHeight() / 4.6f) + top) + (int) (positionOfTemperatureBar * bitmap.getHeight());
-        //lineStartY = (int)(bitmap.getHeight());
         lineEndY = (top + bitmap.getHeight()) ;
     }
 

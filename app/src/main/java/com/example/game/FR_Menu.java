@@ -9,11 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.game.databinding.FragmentMenuBinding;
 
@@ -53,10 +50,6 @@ public class FR_Menu extends Fragment implements View.OnClickListener{
         binding.buttonLevelSelection.setOnClickListener(this);
 
 
-
-        Log.d("FR_Menu", "buttonGame id: " + binding.buttonGame.getId());
-
-        Log.e("LogTag_Menu", "Method onCreateView - this: " + this);
         return binding.getRoot();
     }
 

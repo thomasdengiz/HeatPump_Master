@@ -280,7 +280,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/top_scores_for_this_level"
-        android:textSize="15sp"
+        android:textSize="14sp"
         android:layout_marginBottom="3dp"
         app:layout_constraintBottom_toTopOf="@+id/right_outer_constraintLayout"
         app:layout_constraintEnd_toEndOf="@+id/right_outer_constraintLayout"
@@ -305,6 +305,7 @@
         android:text="Position 1 last Week\nPosition 2 last Month\nPosition 3 Overall"
         android:textSize="11sp"
         app:layout_constraintEnd_toEndOf="@+id/textView_HighscoreMessage"
+        app:layout_constraintHorizontal_bias="0.4"
 
         app:layout_constraintStart_toStartOf="@+id/textView_HighscoreMessage"
         app:layout_constraintTop_toBottomOf="@+id/textView_HighscoreMessage" />
@@ -315,11 +316,11 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/submit"
-        android:textSize="10sp"
+        android:textSize="9sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView_HighscoreMessagePositions"
         app:layout_constraintEnd_toStartOf="@+id/right_outer_constraintLayout"
         app:layout_constraintHeight_percent="0.13"
-        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.31"
         app:layout_constraintStart_toEndOf="@+id/textView_HighscoreMessagePositions"
         app:layout_constraintTop_toTopOf="@+id/textView_HighscoreMessagePositions"
         app:layout_constraintWidth_percent="0.12" />

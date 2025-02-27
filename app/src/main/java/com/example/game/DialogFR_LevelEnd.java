@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 
-import android.app.BroadcastOptions;
 import android.content.Context;
 import android.graphics.Insets;
 import android.graphics.Point;
@@ -53,10 +52,6 @@ import java.util.Objects;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-import com.example.game.DialogFR_LevelEndDirections;
-
-
-
 
 public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickListener {
 
@@ -100,9 +95,9 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
         Objects.requireNonNull(getDialog()).setOnShowListener(
                 dialog -> {
                     Point availableDisplaySize = getAvailableDisplaySize(requireActivity());
-                    int targetWidth = (int) (availableDisplaySize.x * .91f);
+                    int targetWidth = (int) (availableDisplaySize.x * .95f);
                     int targetHeight = (int) (availableDisplaySize.y * .91f);
-                    WindowManager.LayoutParams params = getDialog().getWindow().getAttributes();
+                    WindowManager.LayoutParams params = Objects.requireNonNull(getDialog().getWindow()).getAttributes();
                     params.width = targetWidth;
                     params.height = targetHeight;
                     getDialog().getWindow().setAttributes(params);
@@ -160,7 +155,7 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
         //Display the results
         binding.textViewComfortResult.setText("Your comfort score is " + endComfortPercentage + "%" + " --> Bonus points: " + (int) actualComfortBonus);
         binding.textViewTotalScore.setText("Total Score: " + (int) (co2SavingsScoreCurrentRun ) + " (Result optimality: " + resultPercentage + "%)");
-        binding.textViewLevelFinishedMessageCO2.setText("You needed to save " + (int) neededCO2SavingsScore+ " g of CO2 and you got " + (int) (co2SavingsScoreCurrentRun - actualComfortBonus  ) + " g + " + (int) actualComfortBonus + " g");
+        binding.textViewLevelFinishedMessageCO2.setText("You needed to save " + (int) neededCO2SavingsScore+ " g of CO₂ and you got " + (int) (co2SavingsScoreCurrentRun - actualComfortBonus  ) + " g + " + (int) actualComfortBonus + " g");
         double gasSavingsKWH = Math.round(((co2SavingsScoreCurrentRun - actualComfortBonus) / FR_Game.PERFECT_CO2SCORE_GRAM * FR_Game.PERFECT_GAS_SAVING_KWH) * 10.0) / 10.0;
 
         binding.textViewLevelFinishedMessageGas.setText("You saved " + gasSavingsKWH + " kWh of Gas");
@@ -169,7 +164,7 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
         if(FR_Options.getLanguage(requireContext()).equals("de")) {
             binding.textViewComfortResult.setText("Dein Komfort Score ist " + endComfortPercentage + "%" + " --> Bonus Punkte: " + (int) actualComfortBonus);
             binding.textViewTotalScore.setText("Gesamtpunktzahl: " + (int) (co2SavingsScoreCurrentRun ) + " (Ergebniss Optimalität: " + resultPercentage + "%)");
-            binding.textViewLevelFinishedMessageCO2.setText("Du musstest " + (int) neededCO2SavingsScore+ " g CO2 einsparen und du hast " + (int) (co2SavingsScoreCurrentRun -actualComfortBonus) + " g +" + (int) actualComfortBonus + " g");
+            binding.textViewLevelFinishedMessageCO2.setText("Du musstest " + (int) neededCO2SavingsScore+ " g CO₂ einsparen und du hast " + (int) (co2SavingsScoreCurrentRun -actualComfortBonus) + " g +" + (int) actualComfortBonus + " g");
             binding.textViewLevelFinishedMessageGas.setText("Du hast " + gasSavingsKWH + " kWh Gas eingespart");
 
         }
@@ -241,14 +236,13 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
         viewModel = new ViewModelProvider(this).get(ViewModel_DialogFR_LevelEnd.class);
         viewModel.setFirebaseNodeLevel(currentLevel);
         viewModel.setPastTimeMillis(pastDaysForDisplayingScores);
-        Log.e("Tag_Dialog", "pastDaysForDisplayingScores: " + pastDaysForDisplayingScores);
-        Log.e("Tag_Dialog", "currentLevel: " + currentLevel);
+
         liveData = viewModel.getData();
-        Log.e("Tag_Dialog", "Before observe");
+
         liveData.observe(this, dataSnapshot -> {
             // Clear the previous data
             arrayList_HighScore.clear();
-            Log.e("Tag_Dialog", "DialogFragment: On Change Called Called");
+
 
             // Check if the snapshot is not null
             if (dataSnapshot != null) {
@@ -298,8 +292,6 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
 
 
             //Filter the arrayList such that it only contains the n best items with highest co2Score
-            Log.e("Tag_Dialog", "arrayList_HighScore.size:" + arrayList_HighScore.size());
-
 
             // Convert the filtered list back to ArrayList if required
             // Limit to the first n items
@@ -327,7 +319,6 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
         binding.buttonSubmit.setOnClickListener(this);
 
         //Check Highscore
-        Log.e("Tag_Dialog", "Call checkHighscore");
         checkHighScore(co2SavingsScoreCurrentRun);
 
         return binding.getRoot();
@@ -347,7 +338,6 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
         ArrayList<RV_Item_Highscore> arrayList_HighScore_Overall = new ArrayList<>();
 
         String firebaseNodeLevel = "level_" + currentLevel;
-        Log.e("Tag_Dialog", "firebaseNodeLevel:" + firebaseNodeLevel);
         rootRef_Firebase.child(firebaseNodeLevel).orderByChild(FIREBASE_DATE_IN_MILLISECONDS).addListenerForSingleValueEvent(new ValueEventListener() {
             @SuppressLint("SetTextI18n")
             @Override
@@ -462,9 +452,8 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
 
     @Override
     public void onClick(View view) {
-        if (view instanceof ToggleButton) {
+        if (view instanceof ToggleButton clickedButton) {
             //Only one Toggle Button should be activated at a time
-            ToggleButton clickedButton = (ToggleButton) view;
             if (clickedButton == binding.tbuttonHighScoreLastWeek) {
                 binding.tbuttonHighScoreLastMonth.setChecked(false);
                 binding.tbuttonHighScoreOverall.setChecked(false);

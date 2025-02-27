@@ -21,9 +21,8 @@ public class ViewModel_DialogFR_LevelEnd extends ViewModel {
 
     public void setPastTimeMillis (int pastDaysForDisplayingScores) {
         long pastTimeMillis = System.currentTimeMillis() - (pastDaysForDisplayingScores * 24L * 60 * 60 * 1000);
-        Log.e("Tag_Dialog", "ViewModel: pastTimeMillis:" + pastTimeMillis);
         Query QUERY_DATE = FirebaseDatabase.getInstance(FIREBASE_URL).getReference().child(FIREBASE_NODE_LEVEL).orderByChild(FIREBASE_DATE_IN_MILLISECONDS).startAt(pastTimeMillis);
-        Log.e("Tag_Dialog", "ViewModel: QUERY_DATE:" + QUERY_DATE);
+
         liveData.changeQuery(QUERY_DATE);
     }
 

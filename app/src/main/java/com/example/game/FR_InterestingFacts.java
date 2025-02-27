@@ -10,6 +10,9 @@ import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import com.bumptech.glide.Glide;
+
 import androidx.core.text.HtmlCompat;
 import com.example.game.databinding.FragmentInterestingFactsBinding;
 import java.util.Locale;
@@ -37,10 +40,13 @@ public class FR_InterestingFacts extends Fragment {
         // Determine the current locale
         boolean isGerman = Locale.getDefault().getLanguage().equals("de");
 
-        // Set images based on the locale
-        binding.imageEfficiency.setImageResource(getDrawableId(isGerman ? "facts_efficiency_german" : "facts_efficiency_english"));
-        binding.imageHeating.setImageResource(getDrawableId(isGerman ? "facts_heatingstats_german" : "facts_heatingstats_english"));
-        binding.imageEmissions.setImageResource(getDrawableId(isGerman ? "facts_emissions_german" : "facts_emissions_english"));
+
+        // Load images with Glide based on the locale
+        loadImage(binding.imageEfficiency, isGerman ? "facts_efficiency_german" : "facts_efficiency_english");
+        loadImage(binding.imageHeating, isGerman ? "facts_heatingstats_german" : "facts_heatingstats_english");
+        loadImage(binding.imageEmissions, isGerman ? "facts_emissions_german" : "facts_emissions_english");
+        loadImage(binding.imageGrid, "facts_grid"); // No language variation
+
 
         // Format the TextViews with HTML tags and links
         String formattedTextEfficiency = getString(R.string.info_efficiency_link);
@@ -61,6 +67,23 @@ public class FR_InterestingFacts extends Fragment {
 
         return binding.getRoot();
     }
+
+    /**
+     * Load images dynamically with Glide, respecting the correct dimensions from XML.
+     */
+    private void loadImage(ImageView imageView, String drawableName) {
+        int drawableId = getDrawableId(drawableName);
+        if (drawableId != 0) {
+            int width = imageView.getLayoutParams().width;  // Get width from XML
+            int height = imageView.getLayoutParams().height; // Get height from XML
+
+            Glide.with(this)
+                    .load(drawableId)
+                    .override(width, height) // Uses the actual layout-defined size
+                    .into(imageView);
+        }
+    }
+
 
     /**
      * Helper method to get drawable resource ID by name.

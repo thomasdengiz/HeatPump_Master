@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="13sp"
-                android:text="1. Consume electricity to heat up the building or the hot water tank"
+                android:text="@string/_1_consume_electricity_to_heat_up_the_building_or_the_hot_water_tank"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.079"
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:textSize="11sp"
-                android:text="Press this button to heat"
+                android:text="@string/press_this_button_to_heat"
                 app:layout_constraintBottom_toBottomOf="@+id/button_heat"
                 app:layout_constraintStart_toEndOf="@+id/button_heat"
                 app:layout_constraintTop_toTopOf="@+id/button_heat" />
@@ -73,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="11sp"
-                android:text="Switch between heating the building or the hot water tank"
+                android:text="@string/switch_between_heating_the_building_or_the_hot_water_tank"
                 app:layout_constraintBottom_toBottomOf="@+id/switch_Storage"
                 app:layout_constraintStart_toStartOf="@+id/textView_heat_button"
                 app:layout_constraintTop_toBottomOf="@+id/button_heat" />
@@ -83,7 +83,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="13sp"
-                android:text="2. Only use electricity from solar and wind to save CO2"
+                android:text="@string/_2_only_use_electricity_from_solar_and_wind_to_save_co2"
                 app:layout_constraintStart_toStartOf="@+id/textView1_consume_electricity"
                 app:layout_constraintTop_toBottomOf="@+id/switch_Storage" />
 
@@ -113,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:textSize="13sp"
-                android:text="3. Avoid electricity from gas and coal"
+                android:text="@string/_3_avoid_electricity_from_gas_and_coal"
                 app:layout_constraintStart_toStartOf="@+id/textView2_solar_wind_electricity"
                 app:layout_constraintTop_toBottomOf="@+id/solar" />
 
@@ -143,7 +143,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:textSize="13sp"
-                android:text="4. Use solar and wind when the element are under the red line in the middle of the screen "
+                android:text="@string/_4_use_solar_and_wind_when_the_element_are_under_the_red_line_in_the_middle_of_the_screen"
                 app:layout_constraintStart_toStartOf="@+id/textView3_no_coal_gas"
                 app:layout_constraintTop_toBottomOf="@+id/gas" />
 
@@ -163,7 +163,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                android:text="5. Air the room or have a shover to get a better comfort score by pressing on the flying buttons.\n  This decreases the temperature in the building and the water in the hot water tank"
+                android:text="@string/_5_air_the_room_or_have_a_shower"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/textView4_target_rectangle"
                 app:layout_constraintTop_toBottomOf="@+id/imageView_TargetRectangle" />

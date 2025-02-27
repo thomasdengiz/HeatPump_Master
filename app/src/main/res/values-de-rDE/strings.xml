@@ -11,8 +11,8 @@
     <string name="about">Über die App</string>
     <string name="exit">Beenden</string>
 
-    <string name="temperature_too_high_warning">Temperature zu hoch!</string>
-    <string name="temperature_too_low_warning">Temperature zu niedrig!</string>
+    <string name="temperature_too_high_warning">Temperatur zu hoch!</string>
+    <string name="temperature_too_low_warning">Temperatur zu niedrig!</string>
 
     <string name="water_too_much_warning">Zu viel warmes Wasser!</string>
     <string name="water_not_engough_warning">Zu wenig warmes Wasser!</string>
@@ -25,7 +25,7 @@
     <string name="last_month">Letzten Monat</string>
     <string name="overall">Insgesamt</string>
 
-    <string name="co2_savings_total_semicolon">CO₂ Einsparung gesamt:</string>
+    <string name="co2_savings_total_semicolon">CO₂ Einsparung total:</string>
     <string name="gas_savings_total_semicolon">Gas Einsparung total:</string>
     <string name="best_result_semicolon">Bestes Ergebnis:</string>
 
@@ -44,7 +44,7 @@
     <string name="level_selection">Level Auswahl</string>
 
     <string name="cap_efficiency">Effizienz verschiedener Heiztechnologien</string>
-    <string name="cap_energy_consumption">Energieverbrauch in Haushalten</string>
+    <string name="cap_energy_consumption">Energieverbrauch in Haushalten (EU)</string>
     <string name="cap_emissions">Emissionen verschiedener Heiztechnologien</string>
     <string name="cap_grid">Netzstabilisierung</string>
 
@@ -52,43 +52,54 @@
 
 
     <string name="info_efficiency_link">
-<![CDATA[
-&#8226; Wärmepumpen sind bei weitem die effizienteste Heiztechnologie.<br/><br/>
-&#8226; Sie wandeln 1 kWh Strom in 3-4 kWh Wärme um.<br/><br/>
-&#8226; Erdwärmepumpen sind effizienter als Luftwärmepumpen, aber auch teurer.<br/><br/>
-&#8226; Übrigens: Kühlschränke und Gefriergeräte nutzen die gleiche Technologie wie eine Wärmepumpe, indem sie Wärme aus dem Inneren des Geräts nach außen transportieren.<br/><br/>
-&#8226; Quellen: <a href="https://www.entega.de/blog/wirkungsgrad-waermepumpe/">Prof. Dipl. –Ing. W. Schenk, Hochschule München, 2020</a> (abgerufen am 19.10.2024).
-<a href="https://www.energie-experten.org/heizung/waermepumpe/waermepumpenheizung/wirkungsgrad">Greenhouse Media GmbH, 2022</a> (abgerufen am 19.10.2024).<br/><br/>
-]]>
-</string>
+    <![CDATA[
+    &#8226; Wärmepumpen sind mit Abstand die effizienteste Heiztechnologie.<br/><br/>
+    &#8226; Sie erzeugen aus 1 kWh Strom durchschnittlich 3–4 kWh Wärme.<br/><br/>
+    &#8226; Erdwärmepumpen sind effizienter als Luftwärmepumpen, verursachen jedoch höhere Installationskosten.<br/><br/>
+    &#8226; Übrigens: Kühlschränke und Gefrierschränke nutzen denselben thermodynamischen Prozess wie eine Wärmepumpe, indem sie Wärme aus dem Inneren des Geräts nach außen transportieren.<br/><br/>
+    &#8226; Quellen: <a href="https://www.entega.de/blog/wirkungsgrad-waermepumpe/">Prof. Dipl. –Ing. W. Schenk, Hochschule München, 2020</a> und
+    <a href="https://www.energie-experten.org/heizung/waermepumpe/waermepumpenheizung/wirkungsgrad">Greenhouse Media GmbH, 2022</a> (abgerufen am 25.02.2025).<br/><br/>
+    ]]>
+    </string>
 
     <string name="info_heating_link">
-<![CDATA[
-&#8226; In der EU wird der größte Teil der Energie in Haushalten für das Heizen von Wohnräumen verwendet, gefolgt von der Warmwasserbereitung.<br/><br/>
-&#8226; Der Haushaltssektor machte 2022 etwa 26 % des Endenergieverbrauchs in der EU aus.<br/><br/>
-&#8226; Quelle: <a href="https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20240605-2">Eurostat, 2024</a> (abgerufen am 19.10.2024).<br/><br/>
-]]>
-</string>
+    <![CDATA[
+    &#8226; In der EU entfällt der größte Teil des Energieverbrauchs der Haushalte auf das Beheizen von Wohnräumen, gefolgt von der Warmwasserbereitung.<br/><br/>
+    &#8226; Im Jahr 2022 entfielen 26 % des gesamten Endenergieverbrauchs der EU auf den Wohnsektor.<br/><br/>
+       &#8226; Quelle: <a href="https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20240605-2">Eurostat, 2024</a> (abgerufen am 25.02.2025).<br/><br/>
+    ]]>
+    </string>
 
     <string name="info_emissions_link">
-<![CDATA[
-&#8226; Der Umstieg von fossilen Brennstoffen auf eine Wärmepumpe kann die CO2-Emissionen erheblich reduzieren.<br/><br/>
-&#8226; Mit Strom aus erneuerbaren Quellen können Wärmepumpen nahezu klimaneutral betrieben werden.<br/><br/>
-&#8226; Je höher der Anteil erneuerbarer Energien im Netz, desto weniger Treibhausgaseemissionen werden verursacht.<br/><br/>
-&#8226; Quelle: <a href="https://www.waermepumpe.de/waermepumpe/klimaschutz/">Bundesverband Wärmepumpe (BWP) e.V., 2024</a> (abgerufen am 19.10.2024).<br/><br/>
-]]>
-</string>
+    <![CDATA[
+    &#8226; Der Austausch von fossilen Heizungen durch eine Wärmepumpe kann die CO₂-Emissionen erheblich senken.<br/><br/>
+    &#8226; Werden Wärmepumpen mit erneuerbarem Strom betrieben, arbeiten sie nahezu emissionsfrei.<br/><br/>
+    &#8226; Ein höherer Anteil erneuerbarer Energien im Strommix reduziert die Treibhausgasemissionen.<br/><br/>
+    &#8226; Quelle: <a href="https://www.waermepumpe.de/waermepumpe/klimaschutz/">Bundesverband Wärmepumpe (BWP) e.V., 2024</a> (abgerufen am 25.02.2025).<br/><br/>
+    ]]>
+    </string>
+
 
     <string name="info_stabilizing_grids_link">
-<![CDATA[
-&#8226; Wärmepumpen können zur Stabilisierung des Stromnetzes beitragen, indem sie das Angebot und die Nachfrage ausgleichen, insbesondere in Verbindung mit Smart-Grid-Technologien.<br/><br/>
-&#8226; Sie können Wärme speichern, wenn die Produktion erneuerbarer Energien hoch ist, und sie freigeben, wenn die Nachfrage höher ist.<br/><br/>
-&#8226; Die Integration von Wärmepumpen mit erneuerbaren Energiequellen verringert den Bedarf an fossilen Reservekraftwerken.<br/><br/>
-&#8226; Quelle: <a href="https://commons.wikimedia.org/wiki/File:Himberg_-_Hochspannungs-Freileitungen.JPG">Wikipedia - C.Stadler/Bwag, 2019</a> (abgerufen am 19.10.2024). Lizenz: <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0</a>.<br/><br/>
-]]>
+    <![CDATA[
+    &#8226; Wärmepumpen können zur Stabilität des Stromnetzes beitragen, indem sie flexibel auf Schwankungen von Angebot und Nachfrage reagieren – insbesondere in Kombination mit intelligenter Netztechnologie.<br/><br/>
+    &#8226; Wärmepumpen können ihren Energieverbrauch zeitlich verschieben, indem sie Wärme in Zeiten hoher erneuerbarer Energieproduktion speichern und sie bei höherem Bedarf nutzen.<br/><br/>
+    &#8226; Durch die Integration von Wärmepumpen mit erneuerbaren Energiequellen kann der Bedarf an fossilen Brennstoffen als Reserveenergie reduziert werden.<br/><br/>
+    &#8226; Quelle: <a href="https://commons.wikimedia.org/wiki/File:Himberg_-_Hochspannungs-Freileitungen.JPG">Wikipedia - C.Stadler/Bwag, 2019</a> (abgerufen am 25.02.2025). Lizenz: <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0</a>.<br/><br/>
+    ]]>
 </string>
+
+
 
 
     <string name="made_to_highscore">Gratulation! Du hast es in die Bestenliste geschafft!</string>
+    <string name="_1_consume_electricity_to_heat_up_the_building_or_the_hot_water_tank">1. Verwende Strom, um das Gebäude oder den Warmwasserspeicher zu heizen.</string>
+    <string name="press_this_button_to_heat">Drücke diesen Knopf, um zu heizen</string>
+    <string name="switch_between_heating_the_building_or_the_hot_water_tank">Schalte zwischen Gebäudeheizung und Warmwasserspeicher um.</string>
+    <string name="_2_only_use_electricity_from_solar_and_wind_to_save_co2">2. Nutze Strom aus Solar- und Windenergie, um CO₂ einzusparen.</string>
+    <string name="_3_avoid_electricity_from_gas_and_coal">3. Vermeide Strom aus Gas und Kohle.</string>
+    <string name="_4_use_solar_and_wind_when_the_element_are_under_the_red_line_in_the_middle_of_the_screen">4. Nutze Solar- und Windenergie, wenn das enstprechende Element unter der roten Linie in der Bildschirmmitte ist.</string>
+    <string name="_5_air_the_room_or_have_a_shower">5. Lüfte den Raum oder dusche, um eine bessere Komfortbewertung zu erhalten, indem du auf die einfliegendenden Buttons tippst.
+ \nDadurch wird  die Temperatur im Gebäude und das Wasser im Speicher reduziert.</string>
 
 </resources>

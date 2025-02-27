@@ -48,9 +48,9 @@ public class RV_Adapter_Highscore extends RecyclerView.Adapter<RV_Adapter_Highsc
     public void onBindViewHolder(@NonNull RV_Adapter_Highscore.HighscoreViewHolder holder, int position) {
         RV_Item_Highscore currentItem = highscoreList.get(position);
         holder.tv_position.setText("" + currentItem.getPosition());
-        holder.tv_playerName.setText("" + currentItem.getName());
+        holder.tv_playerName.setText(currentItem.getName());
         holder.tv_CO2SavingsScoreValue.setText("" + currentItem.getCo2Score());
-        holder.tv_Date.setText("" + currentItem.getDate());
+        holder.tv_Date.setText(currentItem.getDate());
 
     }
 
