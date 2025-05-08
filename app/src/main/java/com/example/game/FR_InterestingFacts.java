@@ -14,9 +14,15 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 
 import androidx.core.text.HtmlCompat;
+
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.game.databinding.FragmentInterestingFactsBinding;
 import java.util.Locale;
 
+
+/*
+This class is for the "Interesting Facts" fragment. It does not contain any logic. It uses the library Glide to load images and further displays hyperlinks.
+ */
 
 public class FR_InterestingFacts extends Fragment {
 
@@ -71,6 +77,8 @@ public class FR_InterestingFacts extends Fragment {
     /**
      * Load images dynamically with Glide, respecting the correct dimensions from XML.
      */
+
+
     private void loadImage(ImageView imageView, String drawableName) {
         int drawableId = getDrawableId(drawableName);
         if (drawableId != 0) {
@@ -80,6 +88,8 @@ public class FR_InterestingFacts extends Fragment {
             Glide.with(this)
                     .load(drawableId)
                     .override(width, height) // Uses the actual layout-defined size
+                    .diskCacheStrategy(DiskCacheStrategy.NONE) // Disable disk cache
+                    .skipMemoryCache(true) // Disable memory cache
                     .into(imageView);
         }
     }

@@ -10,23 +10,23 @@
         android:label="FR_Game" >
         <action
             android:id="@+id/action_FR_Game_to_dialogFR_LevelEnd"
-            app:destination="@id/dialogFR_LevelEnd" >
+            app:destination="@id/dialogFR_LevelEnd"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
             <argument
                 android:name="currentCO2SavingsThisLevel"
-                app:argType="integer"
-                 />
+                app:argType="integer" />
             <argument
                 android:name="neededCO2SavingsInTheLevel"
-                app:argType="integer"
-                 />
+                app:argType="integer" />
             <argument
                 android:name="currentLevel"
-                app:argType="integer"
-                 />
+                app:argType="integer" />
             <argument
                 android:name="comfortPercentage"
-                app:argType="integer"
-                 />
+                app:argType="integer" />
         </action>
     </fragment>
     <fragment
@@ -44,23 +44,41 @@
         android:label="FR_Menu" >
         <action
             android:id="@+id/action_FR_Menu_to_FR_Game"
-            app:destination="@id/FR_Game" />
+            app:destination="@id/FR_Game"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
 
         <action
             android:id="@+id/action_FR_Menu_to_FR_HowToPlay"
-            app:destination="@id/FR_HowToPlay" />
+            app:destination="@id/FR_HowToPlay"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_FR_Menu_to_FR_InterestingFacts"
-            app:destination="@id/FR_InterestingFacts" />
+            app:destination="@id/FR_InterestingFacts"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_FR_Menu_to_FR_Options"
-            app:destination="@id/FR_Options" />
-        <action
-            android:id="@+id/action_FR_Menu_to_FR_Test"
-            />
+            app:destination="@id/FR_Options"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+
         <action
             android:id="@+id/action_FR_Menu_to_FR_RV_Level_Selection_Menu"
-            app:destination="@id/FR_RV_Level_Selection_Menu" />
+            app:destination="@id/FR_RV_Level_Selection_Menu"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/FR_InterestingFacts"
@@ -72,7 +90,11 @@
         android:label="FR_RV_Level_Selection_Menu" >
         <action
             android:id="@+id/action_FR_RV_Level_Selection_Menu_to_FR_Game"
-            app:destination="@id/FR_Game" />
+            app:destination="@id/FR_Game"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <dialog
         android:id="@+id/dialogFR_LevelEnd"
@@ -97,9 +119,5 @@
             android:id="@+id/action_dialogFR_LevelEnd_to_FR_Menu"
             app:destination="@id/FR_Menu" />
     </dialog>
-    <fragment
-        android:id="@+id/FR_Test"
-        android:name="com.example.game.FR_Test"
-        android:label="FR_Test" />
 
 </navigation>

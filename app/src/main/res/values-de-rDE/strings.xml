@@ -58,7 +58,7 @@
     &#8226; Erdwärmepumpen sind effizienter als Luftwärmepumpen, verursachen jedoch höhere Installationskosten.<br/><br/>
     &#8226; Übrigens: Kühlschränke und Gefrierschränke nutzen denselben thermodynamischen Prozess wie eine Wärmepumpe, indem sie Wärme aus dem Inneren des Geräts nach außen transportieren.<br/><br/>
     &#8226; Quellen: <a href="https://www.entega.de/blog/wirkungsgrad-waermepumpe/">Prof. Dipl. –Ing. W. Schenk, Hochschule München, 2020</a> und
-    <a href="https://www.energie-experten.org/heizung/waermepumpe/waermepumpenheizung/wirkungsgrad">Greenhouse Media GmbH, 2022</a> (abgerufen am 25.02.2025).<br/><br/>
+    <a href="https://www.energie-experten.org/heizung/waermepumpe/waermepumpenheizung/wirkungsgrad">Greenhouse Media GmbH, 2022</a> (abgerufen am 14.04.2025).<br/><br/>
     ]]>
     </string>
 
@@ -66,7 +66,7 @@
     <![CDATA[
     &#8226; In der EU entfällt der größte Teil des Energieverbrauchs der Haushalte auf das Beheizen von Wohnräumen, gefolgt von der Warmwasserbereitung.<br/><br/>
     &#8226; Im Jahr 2022 entfielen 26 % des gesamten Endenergieverbrauchs der EU auf den Wohnsektor.<br/><br/>
-       &#8226; Quelle: <a href="https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20240605-2">Eurostat, 2024</a> (abgerufen am 25.02.2025).<br/><br/>
+       &#8226; Quelle: <a href="https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20240605-2">Eurostat, 2024</a> (abgerufen am 14.04.2025).<br/><br/>
     ]]>
     </string>
 
@@ -75,7 +75,7 @@
     &#8226; Der Austausch von fossilen Heizungen durch eine Wärmepumpe kann die CO₂-Emissionen erheblich senken.<br/><br/>
     &#8226; Werden Wärmepumpen mit erneuerbarem Strom betrieben, arbeiten sie nahezu emissionsfrei.<br/><br/>
     &#8226; Ein höherer Anteil erneuerbarer Energien im Strommix reduziert die Treibhausgasemissionen.<br/><br/>
-    &#8226; Quelle: <a href="https://www.waermepumpe.de/waermepumpe/klimaschutz/">Bundesverband Wärmepumpe (BWP) e.V., 2024</a> (abgerufen am 25.02.2025).<br/><br/>
+    &#8226; Quelle: <a href="https://www.waermepumpe.de/waermepumpe/klimaschutz/">Bundesverband Wärmepumpe (BWP) e.V., 2024</a> (abgerufen am 14.04.2025).<br/><br/>
     ]]>
     </string>
 
@@ -84,8 +84,8 @@
     <![CDATA[
     &#8226; Wärmepumpen können zur Stabilität des Stromnetzes beitragen, indem sie flexibel auf Schwankungen von Angebot und Nachfrage reagieren – insbesondere in Kombination mit intelligenter Netztechnologie.<br/><br/>
     &#8226; Wärmepumpen können ihren Energieverbrauch zeitlich verschieben, indem sie Wärme in Zeiten hoher erneuerbarer Energieproduktion speichern und sie bei höherem Bedarf nutzen.<br/><br/>
-    &#8226; Durch die Integration von Wärmepumpen mit erneuerbaren Energiequellen kann der Bedarf an fossilen Brennstoffen als Reserveenergie reduziert werden.<br/><br/>
-    &#8226; Quelle: <a href="https://commons.wikimedia.org/wiki/File:Himberg_-_Hochspannungs-Freileitungen.JPG">Wikipedia - C.Stadler/Bwag, 2019</a> (abgerufen am 25.02.2025). Lizenz: <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0</a>.<br/><br/>
+    &#8226; Schon durch einfache, freiwillige Maßnahmen zur Verschiebung ihres Energieverbrauchs können Wärmepumpen das Stromnetz wirkungsvoll entlasten und den Bedarf am Netzausbau spürbar verringern.<br/><br/>
+    &#8226; Quelle: <a href="https://www.waermepumpe.de/fileadmin/user_upload/Kurzstudie_FlexWP.pdf">Fraunhofer IEE - Flexible Wärmepumpen im Verteilnetz, 2022</a> (abgerufen am 14.04.2025).<br/><br/>
     ]]>
 </string>
 
@@ -99,7 +99,8 @@
     <string name="_2_only_use_electricity_from_solar_and_wind_to_save_co2">2. Nutze Strom aus Solar- und Windenergie, um CO₂ einzusparen.</string>
     <string name="_3_avoid_electricity_from_gas_and_coal">3. Vermeide Strom aus Gas und Kohle.</string>
     <string name="_4_use_solar_and_wind_when_the_element_are_under_the_red_line_in_the_middle_of_the_screen">4. Nutze Solar- und Windenergie, wenn das enstprechende Element unter der roten Linie in der Bildschirmmitte ist.</string>
-    <string name="_5_air_the_room_or_have_a_shower">5. Lüfte den Raum oder dusche, um eine bessere Komfortbewertung zu erhalten, indem du auf die einfliegendenden Buttons tippst.
- \nDadurch wird  die Temperatur im Gebäude und das Wasser im Speicher reduziert.</string>
+    <string name="_5_air_the_room_or_have_a_shower">5. Lüfte den Raum oder dusche für eine bessere Komfortbewertung, indem du auf die einfliegendenden \nButtons tippst.
+Dadurch wird  die Temperatur im Gebäude und das Wasser im Speicher reduziert.</string>
+    <string name="instructions">Anweisungen</string>
 
 </resources>

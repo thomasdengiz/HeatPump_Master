@@ -11,6 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+/*
+This class is an adapter for the RecyclerView of the highscore list (inside the DialogFR_LevelEnd).
+ */
 public class RV_Adapter_Highscore extends RecyclerView.Adapter<RV_Adapter_Highscore.HighscoreViewHolder> {
 
     private final ArrayList<RV_Item_Highscore> highscoreList;
@@ -60,7 +63,6 @@ public class RV_Adapter_Highscore extends RecyclerView.Adapter<RV_Adapter_Highsc
         highscoreList.addAll(newList); // Add all items from the new list
         notifyDataSetChanged(); // Notify adapter about the change
     }
-
 
 
 

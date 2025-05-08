@@ -15,6 +15,10 @@ import androidx.navigation.Navigation;
 import com.example.game.databinding.FragmentMenuBinding;
 
 
+/*
+This class is for the "Menu" fragment. It handles the navigation to other fragments.
+ */
+
 public class FR_Menu extends Fragment implements View.OnClickListener{
 
 
@@ -35,70 +39,50 @@ public class FR_Menu extends Fragment implements View.OnClickListener{
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         com.example.game.databinding.FragmentMenuBinding binding = FragmentMenuBinding.inflate(inflater, container, false);
-        // Check if the device width is 720dp or larger (tablet size) to set orientation
-        if (isTablet()) {
-            requireActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        } else {
-            requireActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
-        }
 
-        binding.buttonGame.setOnClickListener(this);
-        binding.buttonOptions.setOnClickListener(this);
-        binding.buttonHowToPlay.setOnClickListener(this);
-        binding.buttonFacts.setOnClickListener(this);
-        binding.buttonExit.setOnClickListener(this);
-        binding.buttonLevelSelection.setOnClickListener(this);
+        requireActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
+
+        binding.imagebuttonGame.setOnClickListener(this);
+        binding.imageButtonOptions.setOnClickListener(this);
+        binding.imageButtonInstructions.setOnClickListener(this);
+        binding.imagebuttonFacts.setOnClickListener(this);
+
+        binding.imageButtonLevelSelection.setOnClickListener(this);
 
 
         return binding.getRoot();
     }
 
-    private boolean isTablet() {
-        // Get display metrics
-        DisplayMetrics metrics = getResources().getDisplayMetrics();
-
-        // Calculate screen width in dp
-        float widthDp = metrics.widthPixels / metrics.density;
-
-        // Return true if width is 720dp or larger
-        return widthDp >= 720;
-    }
 
 
-
-
-
-
+    /*
+    This method handles the navigation to other fragments.
+     */
     @Override
     public void onClick(View view) {
         Log.d("FR_Menu", "Button clicked with ID: " + view.getId());
-        if(view.getId() == R.id.button_game) {
+        if(view.getId() == R.id.imagebutton_game) {
             Navigation.findNavController(requireView()).navigate(FR_MenuDirections.actionFRMenuToFRGame());
 
         }
 
-        if(view.getId() == R.id.button_how_to_play) {
+        if(view.getId() == R.id.imageButton_instructions) {
             Navigation.findNavController(requireView()).navigate(FR_MenuDirections.actionFRMenuToFRHowToPlay());
         }
 
-        if(view.getId() == R.id.button_facts) {
+        if(view.getId() == R.id.imagebutton_facts) {
             Navigation.findNavController(requireView()).navigate(FR_MenuDirections.actionFRMenuToFRInterestingFacts());
         }
 
-        if(view.getId() == R.id.button_options) {
+        if(view.getId() == R.id.imageButton_options) {
             Navigation.findNavController(requireView()).navigate(FR_MenuDirections.actionFRMenuToFROptions());
         }
 
-        if(view.getId() == R.id.button_level_selection) {
+        if(view.getId() == R.id.imageButton_level_selection) {
             Navigation.findNavController(requireView()).navigate(FR_MenuDirections.actionFRMenuToFRRVLevelSelectionMenu());
         }
 
-
-
-
-        if(view.getId() == R.id.button_exit) {
-            requireActivity().finishAndRemoveTask();
-        }
 
     }
 }

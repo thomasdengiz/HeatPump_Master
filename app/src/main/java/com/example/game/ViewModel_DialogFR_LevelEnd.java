@@ -7,16 +7,20 @@ import androidx.lifecycle.ViewModel;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
+/*
+This class is the ViewModel for the DialogFR_LevelEnd that is being displayed after the user has finished a level.
+It contains the Firebase Realtime Database query and the relevant information for it. It also manages the LiveData object for the Highscore list.
+ */
 public class ViewModel_DialogFR_LevelEnd extends ViewModel {
 
 
-    public static final String FIREBASE_URL = "https://heatinggamehighscores-default-rtdb.europe-west1.firebasedatabase.app/";
+    public static final String FIREBASE_URL = BuildConfig.FIREBASE_URL;
     public static String FIREBASE_NODE_LEVEL = "";
     public static final String FIREBASE_DATE_IN_MILLISECONDS = "date_in_milliseconds";
 
 
     public void setFirebaseNodeLevel(int levelNumber) {
-        FIREBASE_NODE_LEVEL = "level_" + levelNumber;
+        FIREBASE_NODE_LEVEL = "levels/" + levelNumber;
     }
 
     public void setPastTimeMillis (int pastDaysForDisplayingScores) {

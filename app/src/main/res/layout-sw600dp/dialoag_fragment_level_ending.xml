@@ -179,9 +179,9 @@
         android:layout_marginTop="39dp"
         android:text="You saved 10 kWh of Gas"
         android:textSize="13sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView_LevelFinishedMessageCO2"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewGasSymbol"
         app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="@+id/textView_LevelFinishedMessageCO2"
+        app:layout_constraintStart_toStartOf="@+id/imageViewGasSymbol"
         app:layout_constraintTop_toBottomOf="@+id/textView_LevelFinishedMessageCO2" />
 
     <ImageView
@@ -189,10 +189,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        app:layout_constraintEnd_toEndOf="@+id/textView_LevelFinishedMessageGas"
-        app:layout_constraintStart_toStartOf="@+id/textView_LevelFinishedMessageGas"
+        app:layout_constraintEnd_toEndOf="@+id/imageView_leaf"
+        app:layout_constraintStart_toStartOf="@+id/imageView_leaf"
         app:layout_constraintTop_toBottomOf="@+id/textView_LevelFinishedMessageGas"
-        app:layout_constraintVertical_bias="0.9"
         app:srcCompat="@drawable/gas2" />
 
     <ImageView
@@ -212,7 +211,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.18"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_HighscoreMessagePositions"
         app:srcCompat="@drawable/ic_repeat_symbol_foreground" />
@@ -303,7 +302,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:text="Position 1 last Week\nPosition 2 last Month\nPosition 3 Overall"
+        android:text="Position last Week\nPosition last Month\nPosition Overall"
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="@+id/textView_HighscoreMessage"
 

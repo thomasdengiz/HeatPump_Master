@@ -14,6 +14,11 @@ import androidx.fragment.app.Fragment;
 
 import com.example.game.databinding.FragmentOptionsBinding;
 
+
+/*
+This class is for the "Options" fragment. Here the user can change the language and the sound options.
+ */
+
 public class FR_Options extends Fragment implements View.OnClickListener {
 
 
@@ -90,7 +95,6 @@ public class FR_Options extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
-        
 
         if(view.getId() == R.id.imageButtonGermany) {
 

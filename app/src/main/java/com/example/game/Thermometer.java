@@ -12,6 +12,11 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
+
+/*
+This class defines the custom view for the thermometer. The thermometer is a central part of the game. When the heat pump uses electricity it can heat the building and thus increase the temperature of the thermometer.
+As there are standing losses (in reality) the temperature of the building is constantly slightly reducing. When the building is aired (by clicking on an incoming flying window button), the temperature is strongly reduced.
+ */
 public class Thermometer extends View {
     private Paint mInnerCirclePaint;
     private int mInnerRadius;
@@ -173,7 +178,6 @@ public class Thermometer extends View {
         double absolutValueSpanForTheWholeBar = value_positionOfTemperatureBar_22Degrees - value_positionOfTemperatureBar_20Degrees;
 
         positionOfTemperatureBar = value_positionOfTemperatureBar_20Degrees + ((setTemperatureDegreesCelsius - 20 )/2)  * absolutValueSpanForTheWholeBar;
-
 
 
         lineStartY = -100+ ((int)(bitmap.getHeight() / 4.6f) + top) + (int) (positionOfTemperatureBar * bitmap.getHeight());

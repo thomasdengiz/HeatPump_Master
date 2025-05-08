@@ -13,9 +13,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+
+/*
+This class is used to for the internal SQLite database. The database has 2 tables "Level_Elements" and "Level_Infos". The database contains level design information for the creation of the different levels (Table Level_Elements).
+Further, the database contains information about the required baseline score of a level (Table Level_Infos). This information is statically stored in the database, meaning that it is not adjusted during the game by the user. The values have been determined by the developer of the game.
+Moreover, the results of the users for each level are stored in the database dynamically after the user plays one level (Table.
+The database is read from the assets folder (app\src\main\assets)
+ */
+
 public class DB_SQLite_Helper extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "Internal_Database_SQLite_v112.db";
+    public static final String DATABASE_NAME = "internal_database.db";
     public static final int DBVERSION = 1;
 
     public static final int numberOfLevels = 8;
@@ -59,10 +67,16 @@ public class DB_SQLite_Helper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
+        //Update for the 2nd version
+        if (oldVersion < 2) {
 
+        }
     }
 
+    /*
+    This method retrieves the data from the database table "Level_Elements" for a specific level. It gets data about the level design regarding the the different game rectangles (Solar, Wind, Fossil) and their corresponding timeslots in the level.
+     */
     public int [] getDataDB_TableLevelElements (int levelNumber, String type) {
         int [] resultingValues;
 
@@ -94,6 +108,9 @@ public class DB_SQLite_Helper extends SQLiteOpenHelper {
     }
 
 
+    /*
+    This method returns the whole cursor of the database table "Level_Infos".
+     */
     public Cursor getCursor_TableLevelInfos () {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.rawQuery("select * from " +  TABLE_LEVEL_INFOS , null);
@@ -136,6 +153,9 @@ public class DB_SQLite_Helper extends SQLiteOpenHelper {
         return neededPercentageScore;
     }
 
+    /*
+    This method writes the results of the user for a level into the database.
+     */
     public void writeResults_TableInfo (double resultPercentageCurrentRun, int co2SavingsCurrentRun, double gasSavingsCurrentRun, int levelNumberCurrentRun, int nextLevelUnlockedCurrentRun) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -168,8 +188,6 @@ public class DB_SQLite_Helper extends SQLiteOpenHelper {
 
 
         //Write into db
-
-
         contentValues.put(BEST_RESULT_PERCENTAGE, resultPercentageUpdate);
         contentValues.put(CO2_SAVINGS_TOTAL_G, co2SavingsUpdate);
         contentValues.put(GAS_SAVINGS_TOTAL_KWH, gasSavingsUpdate);
@@ -206,11 +224,6 @@ public class DB_SQLite_Helper extends SQLiteOpenHelper {
 
 
     }
-
-
-
-
-
 
 
 

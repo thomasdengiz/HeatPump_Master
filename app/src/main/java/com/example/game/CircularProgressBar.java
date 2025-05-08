@@ -10,8 +10,13 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
+
+/*
+This class is used to create a circular progress bar that displays the remaining time for a level.
+ */
+
 public class CircularProgressBar extends View {
-    private final Paint backgroundPaint;  // For the grey background
+    private final Paint backgroundPaint;
     private final Paint progressPaint;
     private final RectF rectF;
     private float progress;
@@ -22,7 +27,7 @@ public class CircularProgressBar extends View {
         backgroundPaint = new Paint();
         backgroundPaint.setAntiAlias(true);
         backgroundPaint.setStyle(Paint.Style.STROKE);
-        backgroundPaint.setStrokeWidth(16); // Adjust the stroke width as needed
+        backgroundPaint.setStrokeWidth(16);
         backgroundPaint.setColor(Color.parseColor("#adadad")); //
 
         progressPaint = new Paint();

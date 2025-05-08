@@ -14,6 +14,9 @@ import com.example.game.databinding.ActivityMainBinding;
 import java.util.Locale;
 import java.util.Objects;
 
+/*
+This class is the main activity of the App. It stores the currently selected language in a SharedPreferences object and the SQLite database.
+ */
 public class MainActivity extends AppCompatActivity {
 
     public static DB_SQLite_Helper sqLite_DB;

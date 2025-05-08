@@ -1,60 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FR_Options">
+    tools:context=".FR_Options"
+    android:background="@color/fragment_background">
 
-    <!-- ScrollView for vertical scrolling -->
-    <ScrollView
+    <!-- HorizontalScrollView for side‑to‑side scrolling -->
+    <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-        <!-- The main content of the layout -->
+        <!-- Make this wrap_content width so it can expand horizontally -->
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/button_heat"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:text="@string/heat"
-                android:textSize="13sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:textSize="11sp"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView1_consume_electricity"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintWidth_percent="0.12"
                 app:layout_constraintHeight_percent="0.124"
                 app:layout_constraintHorizontal_bias="0.143"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView1_consume_electricity"
-                app:layout_constraintVertical_bias="0.01"
-                app:layout_constraintWidth_percent="0.12" />
+                app:layout_constraintVertical_bias="0.01" />
 
             <TextView
                 android:id="@+id/textView1_consume_electricity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="13sp"
                 android:text="@string/_1_consume_electricity_to_heat_up_the_building_or_the_hot_water_tank"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.079"
+                android:textSize="13sp"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.07" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.079"
+                app:layout_constraintVertical_bias="0.12" />
 
             <TextView
                 android:id="@+id/textView_heat_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:textSize="11sp"
                 android:text="@string/press_this_button_to_heat"
-                app:layout_constraintBottom_toBottomOf="@+id/button_heat"
-                app:layout_constraintStart_toEndOf="@+id/button_heat"
-                app:layout_constraintTop_toTopOf="@+id/button_heat" />
+                android:textSize="11sp"
+                app:layout_constraintStart_toEndOf="@id/button_heat"
+                app:layout_constraintTop_toTopOf="@id/button_heat"
+                app:layout_constraintBottom_toBottomOf="@id/button_heat" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switch_Storage"
@@ -63,59 +65,58 @@
                 android:rotation="90"
                 android:theme="@style/SwitchStyle"
                 android:translationZ="90dp"
-                app:layout_constraintEnd_toEndOf="@+id/button_heat"
-                app:layout_constraintHorizontal_bias="0.610"
-                app:layout_constraintStart_toStartOf="@+id/button_heat"
-                app:layout_constraintTop_toBottomOf="@+id/button_heat" />
+                app:layout_constraintStart_toStartOf="@id/button_heat"
+                app:layout_constraintEnd_toEndOf="@id/button_heat"
+                app:layout_constraintTop_toBottomOf="@id/button_heat" />
 
             <TextView
                 android:id="@+id/textView_switch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="11sp"
                 android:text="@string/switch_between_heating_the_building_or_the_hot_water_tank"
-                app:layout_constraintBottom_toBottomOf="@+id/switch_Storage"
-                app:layout_constraintStart_toStartOf="@+id/textView_heat_button"
-                app:layout_constraintTop_toBottomOf="@+id/button_heat" />
+                android:textSize="11sp"
+                app:layout_constraintStart_toStartOf="@id/textView_heat_button"
+                app:layout_constraintTop_toBottomOf="@id/button_heat"
+                app:layout_constraintBottom_toBottomOf="@id/switch_Storage" />
 
             <TextView
                 android:id="@+id/textView2_solar_wind_electricity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="13sp"
                 android:text="@string/_2_only_use_electricity_from_solar_and_wind_to_save_co2"
-                app:layout_constraintStart_toStartOf="@+id/textView1_consume_electricity"
-                app:layout_constraintTop_toBottomOf="@+id/switch_Storage" />
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/textView1_consume_electricity"
+                app:layout_constraintTop_toBottomOf="@id/switch_Storage" />
 
             <ImageView
                 android:id="@+id/solar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/game_event_rectangle_solar_1"
-                android:paddingEnd="20dp"
-                android:layout_marginTop="3dp"
-                app:layout_constraintStart_toStartOf="@+id/switch_Storage"
-                app:layout_constraintTop_toBottomOf="@+id/textView2_solar_wind_electricity" />
+                android:layout_marginStart="20dp"
+                app:layout_constraintStart_toEndOf="@id/textView2_solar_wind_electricity"
+                app:layout_constraintTop_toTopOf="@id/textView2_solar_wind_electricity"
+                app:layout_constraintBottom_toBottomOf="@id/textView2_solar_wind_electricity" />
 
             <ImageView
                 android:id="@+id/wind"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="3dp"
                 android:background="@drawable/game_event_rectangle_wind_1"
-                app:layout_constraintStart_toEndOf="@+id/solar"
-                app:layout_constraintTop_toBottomOf="@+id/textView2_solar_wind_electricity" />
+                android:layout_marginLeft="30dp"
+                app:layout_constraintStart_toEndOf="@id/solar"
+                app:layout_constraintTop_toTopOf="@id/solar"
+                app:layout_constraintBottom_toBottomOf="@id/solar" />
 
             <TextView
                 android:id="@+id/textView3_no_coal_gas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:textSize="13sp"
+                android:layout_marginTop="20dp"
                 android:text="@string/_3_avoid_electricity_from_gas_and_coal"
-                app:layout_constraintStart_toStartOf="@+id/textView2_solar_wind_electricity"
-                app:layout_constraintTop_toBottomOf="@+id/solar" />
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/textView2_solar_wind_electricity"
+                app:layout_constraintTop_toBottomOf="@id/solar" />
 
             <ImageView
                 android:id="@+id/gas"
@@ -123,85 +124,83 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/game_event_rectangle_gas_1"
                 android:paddingEnd="20dp"
-                android:layout_marginTop="3dp"
-                app:layout_constraintStart_toStartOf="@+id/switch_Storage"
-                app:layout_constraintTop_toBottomOf="@+id/textView3_no_coal_gas" />
+                app:layout_constraintStart_toStartOf="@id/solar"
+                app:layout_constraintTop_toTopOf="@id/textView3_no_coal_gas"
+                app:layout_constraintBottom_toBottomOf="@id/textView3_no_coal_gas" />
 
             <ImageView
                 android:id="@+id/coal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="3dp"
                 android:background="@drawable/game_event_rectangle_coal_1"
-                app:layout_constraintStart_toEndOf="@+id/solar"
-                app:layout_constraintTop_toBottomOf="@+id/textView3_no_coal_gas" />
+                app:layout_constraintStart_toStartOf="@id/wind"
+                app:layout_constraintTop_toTopOf="@id/gas" />
 
             <TextView
                 android:id="@+id/textView4_target_rectangle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:textSize="13sp"
+                android:layout_marginTop="20dp"
                 android:text="@string/_4_use_solar_and_wind_when_the_element_are_under_the_red_line_in_the_middle_of_the_screen"
-                app:layout_constraintStart_toStartOf="@+id/textView3_no_coal_gas"
-                app:layout_constraintTop_toBottomOf="@+id/gas" />
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/textView3_no_coal_gas"
+                app:layout_constraintTop_toBottomOf="@id/gas" />
 
             <View
                 android:id="@+id/imageView_TargetRectangle"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="3dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="15dp"
                 android:background="@drawable/rectangle"
-                app:layout_constraintHeight_percent="0.05"
-                app:layout_constraintStart_toStartOf="@+id/gas"
-                app:layout_constraintTop_toBottomOf="@+id/textView4_target_rectangle"
-                app:layout_constraintWidth_percent="0.01" />
+                app:layout_constraintStart_toEndOf="@id/textView4_target_rectangle"
+                app:layout_constraintTop_toTopOf="@id/textView4_target_rectangle"
+                app:layout_constraintBottom_toBottomOf="@id/textView4_target_rectangle"
+                app:layout_constraintWidth_percent="0.01"
+                app:layout_constraintHeight_percent="0.05" />
 
             <TextView
                 android:id="@+id/textView_air"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="18dp"
                 android:text="@string/_5_air_the_room_or_have_a_shower"
-                android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="@+id/textView4_target_rectangle"
-                app:layout_constraintTop_toBottomOf="@+id/imageView_TargetRectangle" />
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/textView4_target_rectangle"
+                app:layout_constraintTop_toBottomOf="@id/imageView_TargetRectangle" />
 
             <ImageView
                 android:id="@+id/air"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
                 android:background="@drawable/flying_button_air_1"
-                app:layout_constraintStart_toStartOf="@+id/imageView_TargetRectangle"
-                app:layout_constraintTop_toBottomOf="@+id/textView_air" />
+                android:layout_marginStart="15dp"
+                app:layout_constraintStart_toEndOf="@id/textView_air"
+                app:layout_constraintTop_toTopOf="@id/textView_air"
+                app:layout_constraintBottom_toBottomOf="@id/textView_air" />
 
             <ImageView
                 android:id="@+id/shower"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:layout_marginLeft="60dp"
                 android:background="@drawable/flying_button_shower_1"
-                app:layout_constraintStart_toEndOf="@+id/imageView_TargetRectangle"
-                app:layout_constraintTop_toBottomOf="@+id/textView_air" />
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toEndOf="@id/air"
+                app:layout_constraintTop_toTopOf="@id/air" />
 
             <TextView
                 android:id="@+id/textView_how_to_play"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
                 android:text="@string/how_to_play"
-                android:textSize="22sp"
-                app:layout_constraintBottom_toTopOf="@+id/textView1_consume_electricity"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.499"
+                android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.5" />
+                app:layout_constraintBottom_toTopOf="@id/textView1_consume_electricity"
+                app:layout_constraintHorizontal_bias="0.499"
+                app:layout_constraintVertical_bias="0.4" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </ScrollView>
-
+    </HorizontalScrollView>
 </FrameLayout>

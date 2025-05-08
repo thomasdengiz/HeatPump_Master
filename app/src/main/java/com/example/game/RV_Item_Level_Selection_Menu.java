@@ -1,5 +1,8 @@
 package com.example.game;
 
+/*
+This class is an item for the RecyclerView of the level selection fragment.
+ */
 public class RV_Item_Level_Selection_Menu {
 
     private final int levelNumber;

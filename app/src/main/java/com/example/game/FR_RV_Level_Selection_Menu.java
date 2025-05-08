@@ -19,6 +19,10 @@ import com.example.game.databinding.FragmentLevelSelectionMenuBinding;
 
 import java.util.ArrayList;
 
+/*
+This class defines the fragment for level selection. It contains a Recyclerview (RV) with all levels and statistics about the levels
+ */
+
 public class FR_RV_Level_Selection_Menu extends Fragment implements View.OnClickListener {
 
     private RV_Adapter_Level_Selection adapter;

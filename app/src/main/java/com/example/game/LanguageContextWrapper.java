@@ -6,6 +6,10 @@ import android.content.res.Configuration;
 
 import java.util.Locale;
 
+
+/*
+This class is used to change the language of the App.
+ */
 public class LanguageContextWrapper extends ContextWrapper {
 
     public LanguageContextWrapper(Context base) {

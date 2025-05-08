@@ -11,7 +11,9 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 
-
+/*
+This class is a LiveData class that is used to listen to changes in the Firebase database for the high scores of a level.
+ */
 public class LiveData_FirebaseHighScore extends LiveData<DataSnapshot> {
     private static final String LOG_TAG = "Tag_Dialog";
 

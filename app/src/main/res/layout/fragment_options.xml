@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:background="@color/fragment_background">
 
     <TextView
         android:id="@+id/textView"
@@ -29,12 +29,12 @@
 
         android:background="@drawable/flag_germany_square"
 
-        app:layout_constraintHorizontal_bias="0.23"
-        app:layout_constraintVertical_bias="0.20"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
 
     <TextView
         android:id="@+id/textView4"
@@ -58,10 +58,10 @@
         android:background="@drawable/flag_uk_square"
 
         app:layout_constraintBottom_toBottomOf="@+id/imageButtonGermany"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButtonGermany"
-        app:layout_constraintTop_toTopOf="@+id/imageButtonGermany"
-        app:layout_constraintHorizontal_bias="0.45" />
+
+
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/imageButtonGermany" />
 
 
 
@@ -90,7 +90,7 @@
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintVertical_bias="0.50"
+        app:layout_constraintVertical_bias="0.51"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,7 +100,7 @@
         android:id="@+id/imageButtonSoundOn"
         android:layout_width="70dp"
         android:layout_height="63dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/baseline_volume_on_24"
         app:layout_constraintEnd_toEndOf="@+id/imageButtonGermany"
         app:layout_constraintStart_toStartOf="@+id/imageButtonGermany"

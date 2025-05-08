@@ -2,6 +2,9 @@ package com.example.game;
 
 import androidx.annotation.NonNull;
 
+/*
+This class is an item for the RecyclerView of the highscore list (inside the DialogFR_LevelEnd).
+ */
 public class RV_Item_Highscore {
 
     private String name;

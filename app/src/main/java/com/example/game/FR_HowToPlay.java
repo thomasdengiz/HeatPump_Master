@@ -11,6 +11,10 @@ import androidx.fragment.app.Fragment;
 
 import com.example.game.databinding.FragmentHowToPlayBinding;
 
+/*
+This class is for the "How to play" fragment. It does not contain any logic
+ */
+
 public class FR_HowToPlay extends Fragment {
 
 

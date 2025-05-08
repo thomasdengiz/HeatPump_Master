@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Insets;
 import android.graphics.Point;
 import android.os.Build;
@@ -53,6 +54,10 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 
+/*
+This class is for displaying the Dialog Fragment at the end of each level. The fragment shows the results for the level and the highscores. It uses Firebase Realtime database queries and writing operations for the highscore lists.
+ */
+
 public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickListener {
 
 
@@ -95,8 +100,8 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
         Objects.requireNonNull(getDialog()).setOnShowListener(
                 dialog -> {
                     Point availableDisplaySize = getAvailableDisplaySize(requireActivity());
-                    int targetWidth = (int) (availableDisplaySize.x * .95f);
-                    int targetHeight = (int) (availableDisplaySize.y * .91f);
+                    int targetWidth = (int) (availableDisplaySize.x * .98f);
+                    int targetHeight = (int) (availableDisplaySize.y * .95f);
                     WindowManager.LayoutParams params = Objects.requireNonNull(getDialog().getWindow()).getAttributes();
                     params.width = targetWidth;
                     params.height = targetHeight;
@@ -132,10 +137,8 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
             // Handle the null case appropriately, e.g., use default values or exit the method
         }
 
+
         //Calculate and display the comfort bonus
-
-
-
 
         double actualComfortBonus = Math.round((endComfortPercentage / 100.0) * (maximumComfortBonusScorePercentage / 100.0) * FR_Game.PERFECT_CO2SCORE_GRAM);
         double perfectComfortBonus = Math.round((1.0) * (maximumComfortBonusScorePercentage / 100.0) * FR_Game.PERFECT_CO2SCORE_GRAM);
@@ -154,8 +157,8 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
 
         //Display the results
         binding.textViewComfortResult.setText("Your comfort score is " + endComfortPercentage + "%" + " --> Bonus points: " + (int) actualComfortBonus);
-        binding.textViewTotalScore.setText("Total Score: " + (int) (co2SavingsScoreCurrentRun ) + " (Result optimality: " + resultPercentage + "%)");
-        binding.textViewLevelFinishedMessageCO2.setText("You needed to save " + (int) neededCO2SavingsScore+ " g of CO₂ and you got " + (int) (co2SavingsScoreCurrentRun - actualComfortBonus  ) + " g + " + (int) actualComfortBonus + " g");
+        binding.textViewTotalScore.setText("Total Score: " + (int) (co2SavingsScoreCurrentRun ) + " (Optimality: " + resultPercentage + "%)");
+        binding.textViewLevelFinishedMessageCO2.setText("Objective: " + (int) neededCO2SavingsScore+ "g of CO₂-savings and you got " + (int) (co2SavingsScoreCurrentRun - actualComfortBonus  ) + "g + " + (int) actualComfortBonus + "g");
         double gasSavingsKWH = Math.round(((co2SavingsScoreCurrentRun - actualComfortBonus) / FR_Game.PERFECT_CO2SCORE_GRAM * FR_Game.PERFECT_GAS_SAVING_KWH) * 10.0) / 10.0;
 
         binding.textViewLevelFinishedMessageGas.setText("You saved " + gasSavingsKWH + " kWh of Gas");
@@ -163,8 +166,8 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
 
         if(FR_Options.getLanguage(requireContext()).equals("de")) {
             binding.textViewComfortResult.setText("Dein Komfort Score ist " + endComfortPercentage + "%" + " --> Bonus Punkte: " + (int) actualComfortBonus);
-            binding.textViewTotalScore.setText("Gesamtpunktzahl: " + (int) (co2SavingsScoreCurrentRun ) + " (Ergebniss Optimalität: " + resultPercentage + "%)");
-            binding.textViewLevelFinishedMessageCO2.setText("Du musstest " + (int) neededCO2SavingsScore+ " g CO₂ einsparen und du hast " + (int) (co2SavingsScoreCurrentRun -actualComfortBonus) + " g +" + (int) actualComfortBonus + " g");
+            binding.textViewTotalScore.setText("Gesamtpunktzahl: " + (int) (co2SavingsScoreCurrentRun ) + " (Optimalität: " + resultPercentage + "%)");
+            binding.textViewLevelFinishedMessageCO2.setText("Ziel: " + (int) neededCO2SavingsScore+ "g CO₂ einsparen. Du hast " + (int) (co2SavingsScoreCurrentRun -actualComfortBonus) + "g + " + (int) actualComfortBonus + "g");
             binding.textViewLevelFinishedMessageGas.setText("Du hast " + gasSavingsKWH + " kWh Gas eingespart");
 
         }
@@ -218,7 +221,7 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
 
 
         //Firebase components
-        String FIREBASE_URL = "https://heatinggamehighscores-default-rtdb.europe-west1.firebasedatabase.app/";
+        String FIREBASE_URL = BuildConfig.FIREBASE_URL;
         if (FirebaseApp.getApps(requireContext()).isEmpty()) {
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setApplicationId("1:248974012708:android:3f93234ba2066ed41643b1")
@@ -326,6 +329,9 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
     }
 
 
+    /*
+    This method compares the user's score for this level (CO2 savings) with the highscores for this level that have been saved on a Firebase Realtime Database
+     */
     private void checkHighScore(double co2SavingsScoreCurrentRun) {
         //Firebase query to get all Highscores for this level
         long millisecondsThresholdLastWeek = System.currentTimeMillis() -  (7 * 24L * 60 * 60 * 1000);
@@ -337,7 +343,8 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
         ArrayList<RV_Item_Highscore> arrayList_HighScore_LastMonth = new ArrayList<>();
         ArrayList<RV_Item_Highscore> arrayList_HighScore_Overall = new ArrayList<>();
 
-        String firebaseNodeLevel = "level_" + currentLevel;
+        String firebaseNodeLevel = "levels/" + String.valueOf(currentLevel);
+        //String firebaseNodeLevel = "level_" + currentLevel;
         rootRef_Firebase.child(firebaseNodeLevel).orderByChild(FIREBASE_DATE_IN_MILLISECONDS).addListenerForSingleValueEvent(new ValueEventListener() {
             @SuppressLint("SetTextI18n")
             @Override
@@ -364,6 +371,7 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
 
                     if (dateInMilliseconds > millisecondsThresholdLastWeek) {
                         arrayList_HighScore_LastWeek.add(new RV_Item_Highscore(name, co2Score, date, levelValue, 0));
+                        Log.e("Tag_Dialog", "Highscore iteration arrayList_HighScore_LastWeek:" + arrayList_HighScore_LastWeek.size());
                     }
 
                     if (dateInMilliseconds > millisecondsThresholdLastMonth) {
@@ -401,20 +409,22 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
                     }
                 }
 
-                if(FR_Options.getLanguage(requireContext()).equals("de")) {
-                    binding.textViewHighscoreMessagePositions.setText(
-                            "Position " + positionOfCurrentScoreInHishScoreListLastWeek + " letzte Woche\n" +
-                                    "Position " + positionOfCurrentScoreInHishScoreListLastMonth + " letzten Monat\n" +
-                                    "Position " + positionOfCurrentScoreInHishScoreListOverall + " Insgesamt"
-                    );
+                if (FR_Options.getLanguage(requireContext()).equals("de")) {
+                    String text = "Position " + positionOfCurrentScoreInHishScoreListLastWeek + " letzte Woche\n"
+                            + "Position " + positionOfCurrentScoreInHishScoreListLastMonth + " letzten Monat";
+                    if (positionOfCurrentScoreInHishScoreListOverall <= 10) {
+                        text += "\nPosition " + positionOfCurrentScoreInHishScoreListOverall + " insgesamt";
+                    }
+                    binding.textViewHighscoreMessagePositions.setText(text);
+                } else {
+                    String text = "Position " + positionOfCurrentScoreInHishScoreListLastWeek + " last Week\n"
+                            + "Position " + positionOfCurrentScoreInHishScoreListLastMonth + " last Month";
+                    if (positionOfCurrentScoreInHishScoreListOverall <= 10) {
+                        text += "\nPosition " + positionOfCurrentScoreInHishScoreListOverall + " overall";
+                    }
+                    binding.textViewHighscoreMessagePositions.setText(text);
                 }
-                else {
-                    binding.textViewHighscoreMessagePositions.setText(
-                            "Position " + positionOfCurrentScoreInHishScoreListLastWeek + " last Week\n" +
-                                    "Position " + positionOfCurrentScoreInHishScoreListLastMonth + " last Month\n" +
-                                    "Position " + positionOfCurrentScoreInHishScoreListOverall + " Overall"
-                    );
-                }
+
 
 
 
@@ -437,6 +447,9 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
 
     }
 
+    /*
+    This method creates the RecyclerView for displaying the highscores
+     */
     public void buildRecyclerView() {
         RecyclerView recyclerView_HighScore = binding.rvHighScoreStatisticsToBeDisplayed;
         recyclerView_HighScore.setHasFixedSize(true);
@@ -449,7 +462,9 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
 
 
 
-
+    /*
+    This methods handles the clicks on the buttons in the dialog
+    */
     @Override
     public void onClick(View view) {
         if (view instanceof ToggleButton clickedButton) {
@@ -537,7 +552,6 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
 
                 // Get the time in milliseconds
                 long dateInMillisecondsVariable = calendar.getTimeInMillis();
-                Log.e("LogTag_co2", "co2SavingsScoreCurrentRunScoreSubmit (submit): " + co2SavingsScoreCurrentRunScoreSubmit);
                 // Construct the data object
                 Map<String, Object> entryData = new HashMap<>();
                 entryData.put("co2_score", co2SavingsScoreCurrentRunScoreSubmit);
@@ -547,7 +561,8 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
                 entryData.put("name", name_input_text);
 
                 // Get the reference to the level node
-                String firebaseNodeLevel = "level_" + currentLevel;
+                String firebaseNodeLevel = "levels/" + String.valueOf(currentLevel);
+                //String firebaseNodeLevel = "level_" + currentLevel;
                 DatabaseReference levelRef = rootRef_Firebase.child(firebaseNodeLevel);
 
                 // Write the data to Firebase
@@ -561,12 +576,43 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
                             Log.e("Firebase", "Error writing data to Firebase: " + e.getMessage());
                         });
             });
+            // Set up the Privacy Policy button as a neutral button
+            builder.setNeutralButton("Privacy Policy", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    showPrivacyPolicyDialog();
+                }
+            });
+
             liveData.forceUpdate();
             builder.show();
         }
     }
 
+    /*
+    This method creates the dialog for the privacy policy. When you want to submit your highscore, you can read the privacy policy.
+     */
+    private void showPrivacyPolicyDialog() {
+        AlertDialog.Builder policyBuilder = new AlertDialog.Builder(getActivity());
 
+        if (FR_Options.getLanguage(requireContext()).equals("de")) {
+            policyBuilder.setTitle("Datenschutzerklärung");
+            policyBuilder.setMessage("Mit der Übermittlung deines Highscores erklärst du dich damit einverstanden, dass dein eingegebener Name, dein Score und das Datum der Übermittlung für die Bestenliste gespeichert werden. Es werden keine weiteren Daten erhoben. Falls du möchtest, dass deine Daten gelöscht werden, sende bitte eine E-Mail an thomas.dengiz@yahoo.de. Sofern der Score nach 1 Monat nicht unter den besten 10 ist, wird der Eintrag automatisch gelöscht.");
+        } else {
+            policyBuilder.setTitle("Privacy Policy");
+            policyBuilder.setMessage("By submitting a high score, you agree that your entered name, score, and submission date will be stored for leaderboard purposes. No other data is collected. If you want your data to be deleted, please send an email to thomas.dengiz@yahoo.de. If your score is not among the top 10 after one month, the entry will be automatically deleted.");
+        }
+
+        policyBuilder.setPositiveButton("OK", null);
+        AlertDialog policyDialog = policyBuilder.create();
+        policyDialog.show();
+    }
+
+
+
+    /*
+    This method is an auxiliary method for getting the size of the screen
+     */
     static Point getAvailableDisplaySize(Context context) {
         if (context instanceof Activity && Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             WindowMetrics metrics = ((Activity) context).getWindowManager().getCurrentWindowMetrics();

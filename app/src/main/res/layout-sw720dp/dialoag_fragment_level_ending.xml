@@ -13,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintWidth_percent="0.50"
-        app:layout_constraintHeight_percent="0.72"
+        app:layout_constraintHeight_percent="0.68"
         android:orientation="vertical"
         android:background="@drawable/rim"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,7 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:padding="10dp"
-        app:layout_constraintVertical_bias="0.8">
+        app:layout_constraintVertical_bias="0.6">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -179,9 +179,9 @@
         android:layout_marginTop="65dp"
         android:text="You saved 10 kWh of Gas"
         android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView_LevelFinishedMessageCO2"
+        app:layout_constraintEnd_toEndOf="@+id/imageView_leaf"
         app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="@+id/textView_LevelFinishedMessageCO2"
+        app:layout_constraintStart_toStartOf="@+id/imageView_leaf"
         app:layout_constraintTop_toBottomOf="@+id/textView_LevelFinishedMessageCO2" />
 
     <ImageView
@@ -189,10 +189,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        app:layout_constraintEnd_toEndOf="@+id/textView_LevelFinishedMessageGas"
-        app:layout_constraintStart_toStartOf="@+id/textView_LevelFinishedMessageGas"
+        app:layout_constraintEnd_toEndOf="@+id/imageView_leaf"
+        app:layout_constraintStart_toStartOf="@+id/imageView_leaf"
         app:layout_constraintTop_toBottomOf="@+id/textView_LevelFinishedMessageGas"
-        app:layout_constraintVertical_bias="0.9"
         app:srcCompat="@drawable/gas2" />
 
     <ImageView
@@ -212,7 +211,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.18"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_HighscoreMessagePositions"
         app:srcCompat="@drawable/ic_repeat_symbol_foreground" />
@@ -303,7 +302,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="23dp"
-        android:text="Position 1 last Week\nPosition 2 last Month\nPosition 3 Overall"
+        android:text="Position last Week\nPosition last Month\nPosition Overall"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="@+id/textView_HighscoreMessage"
 
@@ -330,7 +329,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="@+id/button_submit"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/button_submit"

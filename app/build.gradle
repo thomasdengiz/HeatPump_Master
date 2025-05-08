@@ -4,6 +4,18 @@ plugins {
     id 'androidx.navigation.safeargs'
 }
 
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localProperties.load(new FileInputStream(localPropertiesFile))
+}
+
+android {
+    defaultConfig {
+        buildConfigField "String", "FIREBASE_URL", "\"${localProperties.getProperty('FIREBASE_URL')}\""
+    }
+}
+
 android {
     namespace 'com.example.game'
 

@@ -14,6 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+/*
+This class is an adapter for the RecyclerView of the level selection fragment.
+ */
 public class RV_Adapter_Level_Selection extends RecyclerView.Adapter<RV_Adapter_Level_Selection.LevelSelectionViewHolder> {
 
     private final ArrayList<RV_Item_Level_Selection_Menu> levelList;

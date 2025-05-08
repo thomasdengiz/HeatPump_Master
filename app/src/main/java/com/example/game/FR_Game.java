@@ -46,6 +46,10 @@ import java.util.HashMap;
 import java.util.Objects;
 
 
+/*
+This is the main class for the game fragment. It contains the logic for the game.
+ */
+
 public class FR_Game extends Fragment  {
 
 
@@ -180,7 +184,7 @@ public class FR_Game extends Fragment  {
 
         isViewEventActive = new boolean[numberOfViewEventInArray];
 
-        //Initialize speed multiplicator values for the animated game elements for all levels --> Put later in database
+        //Initialize speed multiplicator values for the animated game elements for all levels
         speedMultiplicatorLevel = new double [numberOfLevels];
         speedMultiplicatorLevel [0] = 1.00;
         speedMultiplicatorLevel [1] = 0.90;
@@ -319,7 +323,7 @@ public class FR_Game extends Fragment  {
                 }
             }
 
-            // the code to execute repeatedly
+            // the code to execute repeatedly if the Repeatlistener is hold pressed
             if(heatBuilding) {
                 thermometer.changeTemperature(0.6);
                 RepeatListener.setCurrentlyActiveGameRectangle(currentlyActiveEventRectangleInTarget);
@@ -335,7 +339,6 @@ public class FR_Game extends Fragment  {
             view.performClick();
 
         }));
-
 
 
 
@@ -368,6 +371,7 @@ public class FR_Game extends Fragment  {
         binding.progressBarTimeLeft.setProgressDrawable(progressDrawable_TimeLeft);
 
 
+        //Set the inital values of the progress bars for CO2, comofort and time
         binding.progressBarCO2Savings.setProgress(50);
         binding.progressBarComfortLevel.setProgress(50);
         binding.progressBarTimeLeft.setProgress(100);
@@ -388,11 +392,8 @@ public class FR_Game extends Fragment  {
         return binding.getRoot();
 
 
-
-
-
-
     }//end onCreateView
+
 
     /*
     Returns the active element in the target rectangle and possibly performs a game step (checking which element is in the rectangle and performing actions accordingly)
@@ -482,7 +483,9 @@ public class FR_Game extends Fragment  {
 
 
 
-
+    /*
+    This method starts the level
+     */
     public void startRound () {
         if (currentLevel ==-1) {
             currentLevel = 1;
@@ -544,6 +547,9 @@ public class FR_Game extends Fragment  {
 
 
 
+    /*
+    This method updates the screen of the fragment. It is repeatedly called after every time step of the game
+     */
     @SuppressLint("SetTextI18n")
     private void updateScreen() {
 
@@ -731,7 +737,7 @@ public class FR_Game extends Fragment  {
 
 
         /*
-        Iterate through all elements
+        Iterate through all game event elements
          */
         for (int currentElement =0; currentElement <arrayList_GameEventRectangles.size(); currentElement++) {
 
@@ -802,7 +808,7 @@ public class FR_Game extends Fragment  {
             }
 
 
-            //Shift the view to the right border of the display
+            //Shift the view to the right border of the display. This is done before the view is being displayed to the user such that it can flow from right to left in the game
             if (currentTimeSlot == arrayList_GameEventRectangles.get(currentElement).getStartingTimeSlot() - 10) {
                 arrayList_GameEventRectangles.get(currentElement).setTranslationX(arrayList_GameEventRectangles.get(currentElement).getWidth());
             }
@@ -854,9 +860,11 @@ public class FR_Game extends Fragment  {
     }
 
 
-
+    /*
+    This method counts down the time left in the game by using a CountDownTimer. It is called every time step of the game.
+    It also reduces the water and temperature level constantly and in an intensified way if the corresponding flying buttons are pressed.
+    */
     private void countDownTime(){
-
 
         cdt = new CountDownTimer(DURATION, DELAY_COUNT_DOWN_TIMER) {
             boolean delay = true;
@@ -922,6 +930,10 @@ public class FR_Game extends Fragment  {
 
 
 
+    /*
+    This method is called when the time of a level is finished. It stops the count down timer and navigates to the DialogFragment.
+     */
+
     private void levelFinished() {
         // Stop the CountDownTimer
         if (cdt != null) {
@@ -943,7 +955,7 @@ public class FR_Game extends Fragment  {
 
 
     /*
-    Method for generating the flying button depending on the 2 types shower and air
+    Method for generating the flying button depending on the 2 types: shower and air
      */
     private void generateFlyingButton(String typeOfFlyingButton) {
         final ImageView flyingButton = new ImageView(getContext());

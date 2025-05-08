@@ -2,6 +2,7 @@ package com.example.game;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
@@ -13,10 +14,9 @@ import androidx.core.content.ContextCompat;
  * It cyclically runs a clickListener, emulating keyboard-like behaviour. First
  * click is fired immediately, next one after the initialInterval, and subsequent
  * ones after the normalInterval.
+ * It is used for the heating button of the game fragment. When the user keeps pushing this
+ * bottom, the building or the hot water tank are heated.
  *
- * <p>Interval is scheduled after the onClick completes, so it has to run fast.
- * If it runs slow, it does not generate skipped onClicks. Can be rewritten to
- * achieve this.
  */
 public class RepeatListener implements View.OnTouchListener {
 
@@ -70,6 +70,11 @@ public class RepeatListener implements View.OnTouchListener {
         this.context = context;
     }
 
+    /*
+    This method handles the touch event of the heat button. It changes the background of the button and the
+    backgrounds of the currently active game rectangle (if the corresponding one is under the target rectangle of the game).
+     */
+
     @SuppressLint("ClickableViewAccessibility")
     public boolean onTouch(View view, MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
@@ -79,6 +84,10 @@ public class RepeatListener implements View.OnTouchListener {
                 handler.postDelayed(handlerRunnable, initialInterval);
                 touchedView = view;
                 touchedView.setPressed(true);
+
+                // Change background when pressed
+                touchedView.setBackground(ContextCompat.getDrawable(context, R.drawable.heat_button_background_pressed));
+
                 clickListener.onClick(view);
 
                 if (currentlyActiveGameRectangle !=null) {
@@ -98,6 +107,14 @@ public class RepeatListener implements View.OnTouchListener {
                 return true;
             case MotionEvent.ACTION_UP:
 
+                if (touchedView != null) {
+                    touchedView.setPressed(false);
+                    handler.removeCallbacks(handlerRunnable);
+
+                    // Restore normal background
+                    touchedView.setBackground(ContextCompat.getDrawable(context, R.drawable.heat_button_background_normal));
+                }
+
                 if (currentlyActiveGameRectangle !=null) {
                     if(currentlyActiveGameRectangle.getEventType().equals(FR_Game.VIEW_EVENT_RECTANGLE_SOLAR)) {
                         currentlyActiveGameRectangle.setBackground(ContextCompat.getDrawable(context, R.drawable.game_event_rectangle_solar_1));
@@ -112,6 +129,7 @@ public class RepeatListener implements View.OnTouchListener {
                         currentlyActiveGameRectangle.setBackground(ContextCompat.getDrawable(context, R.drawable.game_event_rectangle_coal_1));
                     }
                 }
+                return true;
             case MotionEvent.ACTION_CANCEL:
                 handler.removeCallbacks(handlerRunnable);
                 touchedView.setPressed(false);
@@ -122,6 +140,9 @@ public class RepeatListener implements View.OnTouchListener {
         return false;
     }
 
+    /*
+    This method set the currently active game rectangle of the game fragment, such that this information is known by the RepeatListener.
+     */
     public static void setCurrentlyActiveGameRectangle(View_Game_Event_Rectangle currentlyActiveGameRectangle) {
         RepeatListener.currentlyActiveGameRectangle = currentlyActiveGameRectangle;
     }

@@ -4,6 +4,10 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.View;
 
+/*
+This class defines a custom simple rectangular view of the different View_Game_Event_Rectangle (Solar, Wind, Fossil). The game events
+are moving from right to left in the upper part of the game fragment and the user has to heat at the correct time slot when a View_Game_Event_Rectangle is under the red line in the middle of the screen.
+ */
 @SuppressLint("ViewConstructor")
 public class View_Game_Event_Rectangle extends View {
 

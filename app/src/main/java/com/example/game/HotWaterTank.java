@@ -13,6 +13,11 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
+/*
+This class defines the custom view for the hot water tank. The hot water tank is a central part of the game. When the heat pump uses electricity it can heat the hot water tank.
+As there are standing losses (in reality) the amount of hot water is constantly slightly reducing. When a shower is taken (by clicking on an incoming flying shower button), the amount of hot water is strongly reduced
+ */
+
 public class HotWaterTank extends View {
     private Paint mInnerCirclePaint;
     private int innerCircleCenter;
@@ -70,8 +75,7 @@ public class HotWaterTank extends View {
         mInnerCirclePaint.setColor(hotWaterColor);
         mInnerCirclePaint.setStyle(Paint.Style.FILL);
 
-
-
+        //Use of a custom bitmap for the hot water tank
         bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.hot_water_tank_container_thick);
     }
 
@@ -145,17 +149,20 @@ public class HotWaterTank extends View {
     protected void onDraw(@NonNull Canvas canvas) {
         super.onDraw(canvas);
 
-        drawThermometer(canvas);
+        drawHowWaterTank(canvas);
     }
 
 
-    private void drawThermometer(Canvas canvas) {
+    private void drawHowWaterTank(Canvas canvas) {
 
         canvas.drawLine(innerCircleCenter , lineStartY, innerCircleCenter, lineEndY, mInnerCirclePaint);
         canvas.drawBitmap(bitmap, left, top, new Paint());
 
     }
 
+    /*
+    This method is used to change the position of the water bar in the hot water tank.
+     */
     public void changeVolumeBar( double percentageChangeOfTheWholeBar) {
         double appliedPercentageChangeOfTheWholeBar = percentageChangeOfTheWholeBar / 100;
         if (appliedPercentageChangeOfTheWholeBar>1) {

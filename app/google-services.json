@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "248974012708",
-    "project_id": "heatinggamehighscores",
-    "storage_bucket": "heatinggamehighscores.appspot.com"
+    "project_number": "369298477320",
+    "firebase_url": "https://heatinggamehighscores-dba4c-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "heatinggamehighscores-dba4c",
+    "storage_bucket": "heatinggamehighscores-dba4c.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:248974012708:android:3f93234ba2066ed41643b1",
+        "mobilesdk_app_id": "1:369298477320:android:3c49c39fbdf1acf10bdcbd",
         "android_client_info": {
           "package_name": "com.example.game"
         }
@@ -15,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCABthrgCzl5S_SWIxdx2I4A2YDlZBZ0Rk"
+          "current_key": "AIzaSyB6gflHpL2K5ph8GdqXNTO-pTwCd0opgog"
         }
       ],
       "services": {
