@@ -14,7 +14,6 @@
         android:id="@+id/imageView_TargetRectangle"
         android:layout_width="0dp"
         android:layout_height="0dp"
-
         android:translationZ="4dp"
         android:background="@drawable/rectangle"
         app:layout_constraintBottom_toBottomOf="parent"

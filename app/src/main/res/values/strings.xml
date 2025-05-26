@@ -98,8 +98,9 @@
     <string name="_2_only_use_electricity_from_solar_and_wind_to_save_co2">2. Only use electricity from solar and wind to save CO₂.</string>
     <string name="_3_avoid_electricity_from_gas_and_coal">3. Do not use electricity generated from gas or coal.</string>
     <string name="_4_use_solar_and_wind_when_the_element_are_under_the_red_line_in_the_middle_of_the_screen">4. Use solar and wind power when the solar and wind indicators are below the red line in the center of the screen.</string>
-    <string name="_5_air_the_room_or_have_a_shower">5. To improve your comfort score, air the room or take a shower by tapping the floating buttons.\n This will lower the temperature in the building and the hot water in the tank.</string>
-
+    <string name="_5_comfort_limits">5. Make sure the temperature is within the comfort range (20-22° C) \nand the hot water in the tank is available but does not exceed the capacity of the tank.</string>
+    <string name="_6_air_the_room_or_have_a_shower">6. To improve your comfort score, air the room or take a shower by tapping the floating buttons.\n This will lower the temperature in the building and the hot water in the tank.</string>
     <string name="instructions">Instructions</string>
+
 
 </resources>

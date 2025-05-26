@@ -8,16 +8,15 @@
     tools:context=".FR_Options"
     android:background="@color/fragment_background">
 
-    <!-- HorizontalScrollView for side‑to‑side scrolling -->
-    <HorizontalScrollView
+    <!-- Changed to vertical ScrollView -->
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-        <!-- Make this wrap_content width so it can expand horizontally -->
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <Button
                 android:id="@+id/button_heat"
@@ -159,33 +158,70 @@
                 app:layout_constraintHeight_percent="0.05" />
 
             <TextView
+                android:id="@+id/textView5_comfortLimits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/_5_comfort_limits"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@id/textView4_target_rectangle"
+                app:layout_constraintTop_toBottomOf="@id/textView4_target_rectangle" />
+
+
+
+            <ImageView
+                android:id="@+id/imageViewThermometer"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginTop="3dp"
+                android:src="@drawable/figure_thermometer"
+                app:layout_constraintStart_toEndOf="@+id/textView5_comfortLimits"
+                app:layout_constraintTop_toBottomOf="@+id/textView4_target_rectangle" />
+
+            <ImageView
+                android:id="@+id/imageViewHotWaterTank"
+                android:layout_width="50dp"
+                android:layout_height="65dp"
+                android:layout_marginStart="4dp"
+                android:src="@drawable/figure_hot_water_tank"
+                app:layout_constraintStart_toEndOf="@+id/imageViewThermometer"
+                app:layout_constraintTop_toTopOf="@+id/imageViewThermometer" />
+
+
+
+            <TextView
                 android:id="@+id/textView_air"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:text="@string/_5_air_the_room_or_have_a_shower"
+                android:text="@string/_6_air_the_room_or_have_a_shower"
                 android:textSize="13sp"
+                android:layout_marginTop="1dp"
                 app:layout_constraintStart_toStartOf="@id/textView4_target_rectangle"
-                app:layout_constraintTop_toBottomOf="@id/imageView_TargetRectangle" />
+                app:layout_constraintTop_toBottomOf="@+id/imageViewThermometer" />
+
+
 
             <ImageView
                 android:id="@+id/air"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/flying_button_air_1"
-                android:layout_marginStart="15dp"
-                app:layout_constraintStart_toEndOf="@id/textView_air"
-                app:layout_constraintTop_toTopOf="@id/textView_air"
-                app:layout_constraintBottom_toBottomOf="@id/textView_air" />
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/textView_air"
+                app:layout_constraintStart_toStartOf="@+id/textView_air"
+                app:layout_constraintTop_toBottomOf="@+id/textView_air" />
 
             <ImageView
                 android:id="@+id/shower"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/flying_button_shower_1"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="17dp"
                 app:layout_constraintStart_toEndOf="@id/air"
                 app:layout_constraintTop_toTopOf="@id/air" />
+
+
+
 
             <TextView
                 android:id="@+id/textView_how_to_play"
@@ -202,5 +238,5 @@
                 app:layout_constraintVertical_bias="0.4" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </HorizontalScrollView>
+    </ScrollView>
 </FrameLayout>

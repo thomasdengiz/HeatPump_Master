@@ -99,8 +99,9 @@
     <string name="_2_only_use_electricity_from_solar_and_wind_to_save_co2">2. Nutze Strom aus Solar- und Windenergie, um CO₂ einzusparen.</string>
     <string name="_3_avoid_electricity_from_gas_and_coal">3. Vermeide Strom aus Gas und Kohle.</string>
     <string name="_4_use_solar_and_wind_when_the_element_are_under_the_red_line_in_the_middle_of_the_screen">4. Nutze Solar- und Windenergie, wenn das enstprechende Element unter der roten Linie in der Bildschirmmitte ist.</string>
-    <string name="_5_air_the_room_or_have_a_shower">5. Lüfte den Raum oder dusche für eine bessere Komfortbewertung, indem du auf die einfliegendenden \nButtons tippst.
+    <string name="_6_air_the_room_or_have_a_shower">6. Lüfte den Raum oder dusche für eine bessere Komfortbewertung, indem du auf die einfliegendenden \nButtons tippst.
 Dadurch wird  die Temperatur im Gebäude und das Wasser im Speicher reduziert.</string>
     <string name="instructions">Anweisungen</string>
+    <string name="_5_comfort_limits">5. Stelle sicher, dass die Temperatur im Komfortbereich (20-22° C) liegt \nund genügend Warmwasser im Tank verfügbar ist, ohne dessen Kapazität zu überschreiten.</string>
 
 </resources>

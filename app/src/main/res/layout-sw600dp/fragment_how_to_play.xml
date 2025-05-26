@@ -165,40 +165,73 @@
                 app:layout_constraintWidth_percent="0.01" />
 
             <TextView
+                android:id="@+id/textView5_comfortLimits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_5_comfort_limits"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@id/textView4_target_rectangle"
+                app:layout_constraintTop_toBottomOf="@+id/imageView_TargetRectangle" />
+
+
+            <ImageView
+                android:id="@+id/imageViewThermometer"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:src="@drawable/figure_thermometer"
+                app:layout_constraintStart_toEndOf="@+id/textView5_comfortLimits"
+                app:layout_constraintTop_toTopOf="@+id/imageView_TargetRectangle" />
+
+            <ImageView
+                android:id="@+id/imageViewHotWaterTank"
+                android:layout_width="65dp"
+                android:layout_height="85dp"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/figure_hot_water_tank"
+                app:layout_constraintStart_toEndOf="@+id/imageViewThermometer"
+                app:layout_constraintTop_toTopOf="@+id/imageViewThermometer" />
+
+
+
+            <TextView
                 android:id="@+id/textView_air"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="@string/_5_air_the_room_or_have_a_shower"
+                android:text="@string/_6_air_the_room_or_have_a_shower"
                 android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@+id/textView4_target_rectangle"
-                app:layout_constraintTop_toBottomOf="@+id/imageView_TargetRectangle" />
+                android:layout_marginTop="2dp"
+                app:layout_constraintStart_toStartOf="@id/textView4_target_rectangle"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewThermometer" />
+
+
 
             <ImageView
                 android:id="@+id/air"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:background="@drawable/flying_button_air_1"
-                app:layout_constraintStart_toStartOf="@+id/imageView_TargetRectangle"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/textView_air"
+                app:layout_constraintStart_toStartOf="@+id/textView_air"
                 app:layout_constraintTop_toBottomOf="@+id/textView_air" />
 
             <ImageView
                 android:id="@+id/shower"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="65dp"
                 android:background="@drawable/flying_button_shower_1"
-                app:layout_constraintStart_toEndOf="@+id/imageView_TargetRectangle"
-                app:layout_constraintTop_toBottomOf="@+id/textView_air" />
+                android:layout_marginStart="17dp"
+                app:layout_constraintStart_toEndOf="@id/air"
+                app:layout_constraintTop_toTopOf="@id/air" />
+
+
 
             <TextView
                 android:id="@+id/textView_how_to_play"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/how_to_play"
-                android:textSize="28sp"
+                android:textSize="29sp"
                 app:layout_constraintBottom_toTopOf="@+id/textView1_consume_electricity"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.499"

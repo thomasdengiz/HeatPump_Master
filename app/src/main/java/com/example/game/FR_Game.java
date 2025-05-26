@@ -449,7 +449,7 @@ public class FR_Game extends Fragment  {
 
 
                 if (activeElementType.equals(VIEW_EVENT_RECTANGLE_GAS) ) {
-                    currentPointsThisLevel = currentPointsThisLevel - 3;
+                    currentPointsThisLevel = currentPointsThisLevel - 2;
 
                     binding.textViewPointsSymbol.setText("--");
                     binding.textViewPointsSymbol.setTextSize(TypedValue.COMPLEX_UNIT_SP, 50);
@@ -462,7 +462,7 @@ public class FR_Game extends Fragment  {
                 }
 
                 if ( activeElementType.equals(VIEW_EVENT_RECTANGLE_COAL)) {
-                    currentPointsThisLevel = currentPointsThisLevel - 5;
+                    currentPointsThisLevel = currentPointsThisLevel - 4;
 
                     binding.textViewPointsSymbol.setText("---");
                     binding.textViewPointsSymbol.setTextSize(TypedValue.COMPLEX_UNIT_SP, 50);
@@ -494,9 +494,9 @@ public class FR_Game extends Fragment  {
         perfectScoreInTheLevel = MainActivity.sqLite_DB.getBaselineScoreForTheLevel(currentLevel);
         neededCO2SavingsInTheLevel = (int) ((MainActivity.sqLite_DB.getNeededPercentageScoreForTheLevel(currentLevel)/100) * PERFECT_CO2SCORE_GRAM + ((DialogFR_LevelEnd.desiredComfortBonusScorePercentage/100) * PERFECT_CO2SCORE_GRAM));
 
-        int[] pvValuesForTheLevel = MainActivity.sqLite_DB.getDataDB_TableLevelElements(currentLevel, DB_SQLite_Helper.PV);
-        int[] windValuesForTheLevel = MainActivity.sqLite_DB.getDataDB_TableLevelElements(currentLevel, DB_SQLite_Helper.WIND);
-        int[] fossilValuesForTheLevel = MainActivity.sqLite_DB.getDataDB_TableLevelElements(currentLevel, DB_SQLite_Helper.FOSSIL);
+        int[] pvValuesForTheLevel = MainActivity.sqLite_DB.getDataDB_TableLevelElements(currentLevel, DB_SQLite_Asset_Helper.PV);
+        int[] windValuesForTheLevel = MainActivity.sqLite_DB.getDataDB_TableLevelElements(currentLevel, DB_SQLite_Asset_Helper.WIND);
+        int[] fossilValuesForTheLevel = MainActivity.sqLite_DB.getDataDB_TableLevelElements(currentLevel, DB_SQLite_Asset_Helper.FOSSIL);
 
         currentTimeLeftInTheLevel_MILLIS =TIME_OF_A_LEVEL_IN_SECONDS * 1000;
         currentTimeSlot =0;
@@ -603,12 +603,12 @@ public class FR_Game extends Fragment  {
         //Check temperature and hot water level
         if (binding.thermometer.getPositionOfTemperatureBar() > binding.thermometer.value_positionOfTemperatureBar_20Degrees) {
             binding.textViewWarningTemperature.setText(getString(R.string.temperature_too_low_warning));
-            currentComfortHelpValue = currentComfortHelpValue - 0.6;
+            currentComfortHelpValue = currentComfortHelpValue - 0.4;
             visibilityWarningThermometer = true;
         }
         if (binding.thermometer.getPositionOfTemperatureBar() < binding.thermometer.value_positionOfTemperatureBar_22Degrees) {
             binding.textViewWarningTemperature.setText(getString(R.string.temperature_too_high_warning));
-            currentComfortHelpValue = currentComfortHelpValue - 0.6;
+            currentComfortHelpValue = currentComfortHelpValue - 0.4;
             visibilityWarningThermometer = true;
         }
 
@@ -621,14 +621,14 @@ public class FR_Game extends Fragment  {
 
         if (binding.hotWaterTank.getPositionOfWaterBar() > binding.hotWaterTank.value_positionOfWaterBar_Empty) {
             binding.textViewWarningHotWater.setText(getString(R.string.water_not_engough_warning));
-            currentComfortHelpValue = currentComfortHelpValue - 0.6;
+            currentComfortHelpValue = currentComfortHelpValue - 0.3;
             binding.imageViewWarning.setVisibility(View.VISIBLE);
             visibilityWarningHotWaterTank = true;
         }
 
         if (binding.hotWaterTank.getPositionOfWaterBar() < binding.hotWaterTank.value_positionOfWaterBar_Full) {
             binding.textViewWarningHotWater.setText(getString(R.string.water_too_much_warning));
-            currentComfortHelpValue = currentComfortHelpValue - 0.6;
+            currentComfortHelpValue = currentComfortHelpValue - 0.3;
             binding.imageViewWarning.setVisibility(View.VISIBLE);
             visibilityWarningHotWaterTank = true;
         }

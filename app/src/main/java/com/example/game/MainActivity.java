@@ -19,7 +19,7 @@ This class is the main activity of the App. It stores the currently selected lan
  */
 public class MainActivity extends AppCompatActivity {
 
-    public static DB_SQLite_Helper sqLite_DB;
+    public static DB_SQLite_Asset_Helper sqLite_DB;
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(view);
 
-        sqLite_DB = new DB_SQLite_Helper(this);
+        sqLite_DB = new DB_SQLite_Asset_Helper(this);
     }
 
 
