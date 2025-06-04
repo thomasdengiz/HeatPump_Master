@@ -164,7 +164,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="You needed to save x g of CO2 and you got y g"
-        android:textSize="13sp"
+        android:textSize="14sp"
         android:layout_marginTop="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
@@ -178,7 +178,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="39dp"
         android:text="You saved 10 kWh of Gas"
-        android:textSize="13sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/imageViewGasSymbol"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="@+id/imageViewGasSymbol"
@@ -222,7 +222,7 @@
         android:layout_height="wrap_content"
         android:text="@string/repeat_level"
         android:textStyle="bold"
-        android:textSize="13sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView_RepeatSymbol"
         app:layout_constraintStart_toStartOf="@+id/imageView_RepeatSymbol"
         app:layout_constraintTop_toBottomOf="@+id/imageView_RepeatSymbol" />
@@ -244,11 +244,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/menu"
+        android:textSize="14sp"
         android:textStyle="bold"
-        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView_goToMenu"
         app:layout_constraintStart_toStartOf="@+id/imageView_goToMenu"
-        app:layout_constraintTop_toBottomOf="@+id/imageView_goToMenu" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView_RepeatSymbol" />
 
 
     <TextView
@@ -257,7 +257,7 @@
         android:layout_height="wrap_content"
         android:text="@string/next_level"
         android:textStyle="bold"
-        android:textSize="13sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView_NextLevelSymbol"
         app:layout_constraintStart_toStartOf="@+id/imageView_NextLevelSymbol"
         app:layout_constraintTop_toBottomOf="@+id/imageView_NextLevelSymbol" />
@@ -280,7 +280,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Top Scores for this Level"
-        android:textSize="16sp"
+        android:textSize="17sp"
         android:layout_marginBottom="3dp"
         app:layout_constraintBottom_toTopOf="@+id/right_outer_constraintLayout"
         app:layout_constraintEnd_toEndOf="@+id/right_outer_constraintLayout"
@@ -291,7 +291,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/made_to_highscore"
-        android:textSize="13sp"
+        android:textSize="14sp"
         android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="@+id/textView_LevelFinishedMessageCO2"
         app:layout_constraintStart_toStartOf="@+id/textView_LevelFinishedMessageCO2"
@@ -303,7 +303,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
         android:text="Position last Week\nPosition last Month\nPosition Overall"
-        android:textSize="13sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/textView_HighscoreMessage"
 
         app:layout_constraintStart_toStartOf="@+id/textView_HighscoreMessage"
@@ -315,11 +315,11 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/submit"
-        android:textSize="11sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView_HighscoreMessagePositions"
         app:layout_constraintEnd_toStartOf="@+id/right_outer_constraintLayout"
         app:layout_constraintHeight_percent="0.10"
-        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.31"
         app:layout_constraintStart_toEndOf="@+id/textView_HighscoreMessagePositions"
         app:layout_constraintTop_toTopOf="@+id/textView_HighscoreMessagePositions"
         app:layout_constraintWidth_percent="0.11" />
@@ -341,7 +341,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
         android:text="Your comfort score is 77% --> Bonus points: 1024"
-        android:textSize="13sp"
+        android:textSize="14sp"
         android:textColor="#FF5733"
         app:layout_constraintEnd_toEndOf="@+id/textView_LevelFinishedMessageCO2"
         app:layout_constraintHorizontal_bias="0.46"
@@ -355,10 +355,26 @@
         android:layout_marginTop="14dp"
         android:text="Total Score: 10243 g"
         app:layout_constraintHorizontal_bias="0.7"
-        android:textSize="13sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/textView_LevelFinishedMessageCO2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_comfortResult" />
+
+    <TextView
+        android:id="@+id/textViewAllLevelsFinished"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/all_levels_finished_message"
+        android:textAlignment="center"
+        android:visibility="invisible"
+        android:textSize="17sp"
+        android:textColor="#49bf82"
+        app:layout_constraintBottom_toTopOf="@+id/textView_TopScores"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView_CloseSymbol"
+        app:layout_constraintTop_toTopOf="@+id/textView_LevelFinished" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

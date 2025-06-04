@@ -70,6 +70,8 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
 
     public static int  maximumComfortBonusScorePercentage = 15;
 
+    public static boolean isDialogShown = false;
+
     private String name_input_text = "";
 
     private RV_Adapter_Highscore adapter_HighScore;
@@ -109,6 +111,10 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
                 }
         );
 
+        isDialogShown = true;
+
+
+
     }
 
 
@@ -119,7 +125,6 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
         binding = DialoagFragmentLevelEndingBinding.inflate(inflater, container, false);
 
         //Get the passed parameters from FR_Game using safeArgs
-
         double co2SavingsScoreCurrentRun = 0; // Initialize with a default value
         double neededCO2SavingsScore = 0; // Initialize with a default value
         int endComfortPercentage = 0; // Initialize with a default value
@@ -134,12 +139,11 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
             currentLevel = DialogFR_LevelEndArgs.fromBundle(args).getCurrentLevel();
         } else {
             Log.e("DialogFR_LevelEnd", "Arguments are null. Unable to retrieve data.");
-            // Handle the null case appropriately, e.g., use default values or exit the method
         }
 
 
-        //Calculate and display the comfort bonus
 
+        //Calculate and display the comfort bonus
         double actualComfortBonus = Math.round((endComfortPercentage / 100.0) * (maximumComfortBonusScorePercentage / 100.0) * FR_Game.PERFECT_CO2SCORE_GRAM);
         double perfectComfortBonus = Math.round((1.0) * (maximumComfortBonusScorePercentage / 100.0) * FR_Game.PERFECT_CO2SCORE_GRAM);
         co2SavingsScoreCurrentRun = co2SavingsScoreCurrentRun + actualComfortBonus;
@@ -174,18 +178,32 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
 
         this.co2SavingsScoreCurrentRunScoreSubmit =co2SavingsScoreCurrentRun;
 
+
+
         //Check if the level was successful
+        binding.textViewAllLevelsFinished.setVisibility(View.INVISIBLE);
         int nextLevelUnlockedBecauseOfCurrentRun = 0;
+
         if (co2SavingsScoreCurrentRun>= neededCO2SavingsScore) {
             //Level passed
             binding.imageViewCloseSymbol.setVisibility(View.INVISIBLE);
             binding.imageViewCheckmark.setVisibility(View.VISIBLE);
             nextLevelUnlockedBecauseOfCurrentRun = 1;
 
-            if (currentLevel<FR_Game.numberOfLevels) {
+            if (currentLevel<MainActivity.sqLite_DB.getNumberOfLevels()) {
                 binding.imageViewNextLevelSymbol.setClickable(true);
                 binding.imageViewNextLevelSymbol.setEnabled(true);
                 binding.imageViewNextLevelSymbol.setAlpha(1.0f);
+            }
+
+            //The last level has been successfully passed
+            if (currentLevel>=MainActivity.sqLite_DB.getNumberOfLevels()) {
+                binding.textViewNextLevel.setAlpha(0.5f);
+                binding.imageViewNextLevelSymbol.setClickable(false);
+                binding.imageViewNextLevelSymbol.setEnabled(false);
+                binding.imageViewNextLevelSymbol.setAlpha(0.5f);
+
+                binding.textViewAllLevelsFinished.setVisibility(View.VISIBLE);
             }
 
         }
@@ -203,9 +221,8 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
         }
 
 
-        //Update sql database with the results
-        MainActivity.sqLite_DB.writeResults_TableInfo(resultPercentage, (int) co2SavingsScoreCurrentRun, gasSavingsKWH, this.currentLevel, nextLevelUnlockedBecauseOfCurrentRun);
-
+        //Update shared preferences with the results
+        MainActivity.writeResultsToSharedPreferences (getContext(), resultPercentage, (int) co2SavingsScoreCurrentRun, gasSavingsKWH, this.currentLevel, nextLevelUnlockedBecauseOfCurrentRun, MainActivity.sqLite_DB.getNumberOfLevels());
 
 
         //Initialize highScore array list and the RV adapter
@@ -577,7 +594,7 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
                         });
             });
             // Set up the Privacy Policy button as a neutral button
-            builder.setNeutralButton("Privacy Policy", new DialogInterface.OnClickListener() {
+            builder.setNeutralButton(R.string.privacy_policy, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     showPrivacyPolicyDialog();
@@ -630,6 +647,13 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
             display.getSize(size);
             return size;
         }
+    }
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        isDialogShown = false;
     }
 
 

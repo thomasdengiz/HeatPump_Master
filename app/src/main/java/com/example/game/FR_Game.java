@@ -3,15 +3,17 @@ package com.example.game;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
-import android.media.MediaPlayer;
+import android.media.AudioAttributes;
+
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.LayoutInflater;
@@ -43,6 +45,7 @@ import com.example.game.databinding.FragmentGameBinding;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 
@@ -59,7 +62,6 @@ public class FR_Game extends Fragment  {
 
     public static final int DELAY_IN_MILLIS = 100;
     public static final int TIME_OF_A_LEVEL_IN_SECONDS = 30;
-    public static final int numberOfLevels = 8;
 
     public static final int PERFECT_CO2SCORE_GRAM = 13566;
     public static final double PERFECT_GAS_SAVING_KWH = 65.5;
@@ -74,7 +76,7 @@ public class FR_Game extends Fragment  {
     private int currentTimeSlot;
 
     private final Handler handler = new Handler();
-    private MediaPlayer mediaPlayer;
+
     private int currentComfort;
     private double currentComfortHelpValue;
 
@@ -158,13 +160,16 @@ public class FR_Game extends Fragment  {
 
 
     // Variables for the audio files
-    private static final long PLAY_INTERVAL_AUDIO_MILLISECONDS = 4000;
-    private final HashMap<String, Long> lastPlayTimes = new HashMap<>();
+    private static final long PLAY_INTERVAL_AUDIO_MILLISECONDS = 8000;
+
+    private final Map<Integer, Long> lastPlayTimesSounds = new HashMap<>();
+
+    private SoundPool soundPool;
+    private final Map<Integer, Integer> soundMap = new HashMap<>();
+
 
 
     private boolean helpIndicatorPointsAlreadyCountedDuringCurrentTimeSlot = false;
-
-
 
     public FR_Game() {
         // Required empty public constructor
@@ -185,15 +190,11 @@ public class FR_Game extends Fragment  {
         isViewEventActive = new boolean[numberOfViewEventInArray];
 
         //Initialize speed multiplicator values for the animated game elements for all levels
-        speedMultiplicatorLevel = new double [numberOfLevels];
-        speedMultiplicatorLevel [0] = 1.00;
-        speedMultiplicatorLevel [1] = 0.90;
-        speedMultiplicatorLevel [2] = 0.8;
-        speedMultiplicatorLevel [3] = 0.70;
-        speedMultiplicatorLevel [4] = 0.60;
-        speedMultiplicatorLevel [5] = 0.50;
-        speedMultiplicatorLevel [6] = 0.45;
-        speedMultiplicatorLevel [7] = 0.4;
+        speedMultiplicatorLevel = new double [MainActivity.sqLite_DB.getNumberOfLevels()];
+        for (int i = 0; i<speedMultiplicatorLevel.length; i++) {
+            speedMultiplicatorLevel[i] = MainActivity.sqLite_DB.getSpeedMultiplicator(i+1);
+        }
+
 
         double averageNumberOfFlyingButtonPerLevelAir = 2.5;
         double averageNumberOfFlyingButtonPerLevelShower = 2.5;
@@ -203,9 +204,44 @@ public class FR_Game extends Fragment  {
         probabilityForFlyingButtonShowerCurrentTimeslot = averageNumberOfFlyingButtonPerLevelShower /totalTimeSlotsForTheLevel;
         probabilityForFlyingButtonAirCurrentTimeslot = averageNumberOfFlyingButtonPerLevelAir /totalTimeSlotsForTheLevel;
 
-        // Initialize MediaPlayer
-        mediaPlayer = new MediaPlayer();
 
+        //Initialize SoundPool
+        initSoundPool(getContext());
+
+    }
+
+
+    /*
+    This method initializes the SoundPool by preloading the audio files for the sound effects from res/raw folder
+     */
+    private void initSoundPool(Context context) {
+        AudioAttributes audioAttributes = new AudioAttributes.Builder()
+                .setUsage(AudioAttributes.USAGE_GAME)
+                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                .build();
+
+        soundPool = new SoundPool.Builder()
+                .setMaxStreams(4)
+                .setAudioAttributes(audioAttributes)
+                .build();
+
+        int[] rawResIds = new int[] {
+                R.raw.app_game_shower_1,
+                R.raw.app_game_warning_1,
+                R.raw.app_game_wind_1,
+                R.raw.app_game_window_1
+        };
+
+        for (int resId : rawResIds) {
+            int soundId = soundPool.load(context, resId, 1);
+            soundMap.put(resId, soundId);
+            lastPlayTimesSounds.put(Integer.valueOf(String.valueOf(resId)), 0L); // Initialize cooldown map
+        }
+
+        for (int resId : rawResIds) {
+            // Ensure there’s a record—even if never played—so getOrDefault(resId,0L) finds something:
+            lastPlayTimesSounds.put(resId, 0L);
+        }
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -489,6 +525,12 @@ public class FR_Game extends Fragment  {
     public void startRound () {
         if (currentLevel ==-1) {
             currentLevel = 1;
+        }
+
+        DialogFR_LevelEnd.isDialogShown = false;
+
+        if (currentLevel >MainActivity.sqLite_DB.getNumberOfLevels()) {
+            currentLevel = MainActivity.sqLite_DB.getNumberOfLevels();
         }
 
         perfectScoreInTheLevel = MainActivity.sqLite_DB.getBaselineScoreForTheLevel(currentLevel);
@@ -857,7 +899,11 @@ public class FR_Game extends Fragment  {
 
         }
 
+
     }
+
+
+
 
 
     /*
@@ -929,6 +975,16 @@ public class FR_Game extends Fragment  {
 
 
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if (currentTimeSlot >= totalTimeSlotsForTheLevel && DialogFR_LevelEnd.isDialogShown==false) {
+            levelFinished();
+        }
+    }
+
+
 
     /*
     This method is called when the time of a level is finished. It stops the count down timer and navigates to the DialogFragment.
@@ -948,7 +1004,6 @@ public class FR_Game extends Fragment  {
                 currentLevel,
                 currentComfort
         );
-
         navController.navigate(action);
 
     }
@@ -1099,33 +1154,28 @@ public class FR_Game extends Fragment  {
     }
 
 
+
+
     /*
-     This method plays an audio file. It ensures that the same audio file is not played within the time interval PLAY_INTERVAL_AUDIO_MILLISECONDS, but allows other sounds to play simultaneously.
+    Method for playing a single audio file. If the audio file has been played during the last PLAY_INTERVAL_AUDIO_MILLISECONDS, it won't be repeated
      */
-    private void playAudioFile(final int resourceId) {
-        String audioName = requireContext().getResources().getResourceName(resourceId);
-        long currentTime = System.currentTimeMillis();
+    private void playAudioFile(int resId) {
+        if (!FR_Options.getSoundOn(requireContext())) return;
 
-        // Check if sound is enabled in the options
-        if (FR_Options.getSoundOn(requireContext())) {
-            // Check if enough time has passed since the last play of this particular audio file
-            Long lastPlayTime = lastPlayTimes.getOrDefault(audioName, 0L);
-            if (lastPlayTime != null && currentTime - lastPlayTime >= PLAY_INTERVAL_AUDIO_MILLISECONDS) {
+        long now = System.currentTimeMillis();
+        long lastTime = lastPlayTimesSounds.getOrDefault(resId, 0L);
 
-                // Create a new MediaPlayer for this sound
-                final MediaPlayer mediaPlayer = MediaPlayer.create(getContext(), resourceId); // Declare mediaPlayer as final
-                if (mediaPlayer != null) {
-                    mediaPlayer.start();
+        if (now - lastTime < PLAY_INTERVAL_AUDIO_MILLISECONDS) return;
 
-                    // Set the completion listener to release the MediaPlayer after the sound finishes playing
-                    mediaPlayer.setOnCompletionListener(mp -> mediaPlayer.release());
-
-                    // Update last play time for this audio file
-                    lastPlayTimes.put(audioName, currentTime);
-                }
-            }
+        Integer soundId = soundMap.get(resId);
+        if (soundId != null) {
+            soundPool.play(soundId, 1f, 1f, 1, 0, 1f);
+            lastPlayTimesSounds.put(Integer.valueOf(String.valueOf(resId)), now);
         }
     }
+
+
+
 
 
     @Override
@@ -1158,10 +1208,11 @@ public class FR_Game extends Fragment  {
         cdt.cancel();
         handler.removeCallbacksAndMessages(null);
 
-        // Release the MediaPlayer resources
-        if (mediaPlayer != null) {
-            mediaPlayer.release();
-            mediaPlayer = null;
+        if (soundPool != null) {
+            soundPool.release();
+            soundPool = null;
         }
+
+
     }
 }

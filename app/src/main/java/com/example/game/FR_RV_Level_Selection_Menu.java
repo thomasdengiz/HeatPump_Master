@@ -1,6 +1,8 @@
 package com.example.game;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -61,22 +63,38 @@ public class FR_RV_Level_Selection_Menu extends Fragment implements View.OnClick
 
         levelList = new ArrayList<>();
 
-        //Database query and processing to get the level information data;
-        Cursor res = MainActivity.sqLite_DB.getCursor_TableLevelInfos();
-        if(res!=null && res.getCount()>0) {
-            while (res.moveToNext()) {
-                int levelNumber = Integer.parseInt(res.getString(0));
-                double bestResultThisLevel = Double.parseDouble(res.getString(2));
-                int totalCO2SavingsThisLevel = Integer.parseInt(res.getString(3));
-                int gasSavingsTotalThisLevel = (int) Math.round(Double.parseDouble(res.getString(4)));
-                int levelUnlockedInt = Integer.parseInt(res.getString(1));
-                boolean levelUnlocked = levelUnlockedInt == 1;
-                boolean   isSelected = false;
+        //Shared preferences query and processing to get the level information data;
+        SharedPreferences prefs = requireContext().getSharedPreferences("user_level_progress", Context.MODE_PRIVATE);
+        int totalLevels = MainActivity.sqLite_DB.getNumberOfLevels();
 
-                RV_Item_Level_Selection_Menu levelItem = new RV_Item_Level_Selection_Menu(levelNumber, bestResultThisLevel,totalCO2SavingsThisLevel, gasSavingsTotalThisLevel ,levelUnlocked, isSelected);
-                levelList.add(levelItem);
+        levelList.clear();
+        for (int levelNumber = 1; levelNumber <= totalLevels; levelNumber++) {
+            String keyBase = "level_" + levelNumber;
+
+            float bestResultThisLevel = (float) (Math.round(prefs.getFloat(keyBase + "_percentage", 0f) * 10.0) / 10.0);
+            int totalCO2SavingsThisLevel = prefs.getInt(keyBase + "_co2", 0);
+            long gasLongBits = prefs.getLong(keyBase + "_gas", Double.doubleToRawLongBits(0.0));
+            double gasSavingsTotalThisLevel = Double.longBitsToDouble(gasLongBits);
+            boolean levelUnlocked;
+            if (levelNumber == 1) {
+                levelUnlocked = prefs.getBoolean(keyBase + "_unlocked", true);  // Level 1 defaults to unlocked
+            } else {
+                levelUnlocked = prefs.getBoolean(keyBase + "_unlocked", false); // Other levels default to locked
             }
+
+
+            RV_Item_Level_Selection_Menu levelItem = new RV_Item_Level_Selection_Menu(
+                    levelNumber,
+                    bestResultThisLevel,
+                    totalCO2SavingsThisLevel,
+                    (int) Math.round(gasSavingsTotalThisLevel),
+                    levelUnlocked,
+                    false // or your logic here
+            );
+
+            levelList.add(levelItem);
         }
+
 
         adapter = new RV_Adapter_Level_Selection(levelList, getContext());
 

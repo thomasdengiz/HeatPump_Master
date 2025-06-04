@@ -6,6 +6,8 @@
     tools:context=".FR_Options"
     android:background="@color/fragment_background">
 
+
+
     <!-- HorizontalScrollView for scrolling horizontally -->
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -46,7 +48,8 @@
                     android:id="@+id/tv_facts_efficiency"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textSize="9dp"
+                    android:textSize="10dp"
+                    android:lineSpacingExtra="3dp"
                     android:text="@string/info_efficiency_link"
                     android:textColor="@android:color/black"/>
             </LinearLayout>
@@ -83,7 +86,8 @@
                     android:layout_height="match_parent"
                     android:text="@string/info_heating_link"
                     android:textColor="@android:color/black"
-                    android:textSize="9dp"
+                    android:textSize="10dp"
+                    android:lineSpacingExtra="3dp"
 
                     />
             </LinearLayout>
@@ -115,7 +119,8 @@
                     android:id="@+id/tv_facts_emissions"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textSize="9dp"
+                    android:textSize="10dp"
+                    android:lineSpacingExtra="3dp"
                     android:text="@string/info_emissions_link"
                     android:textColor="@android:color/black"
                     />
@@ -152,7 +157,8 @@
                     android:text="@string/info_stabilizing_grids_link"
                     android:layout_marginTop="8dp"
                     android:textColor="@android:color/black"
-                    android:textSize="9sp" />
+                    android:textSize="10dp"
+                    android:lineSpacingExtra="3dp"/>
             </LinearLayout>
         </LinearLayout>
     </HorizontalScrollView>

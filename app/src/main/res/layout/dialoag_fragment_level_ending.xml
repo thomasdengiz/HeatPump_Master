@@ -143,6 +143,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/textView_LevelFinished"
         android:contentDescription="@null"
+        android:layout_marginStart="-4dp"
         app:layout_constraintStart_toEndOf="@+id/textView_LevelFinished"
         app:layout_constraintTop_toTopOf="@+id/textView_LevelFinished"
         app:layout_constraintVertical_bias="0.512"
@@ -152,8 +153,9 @@
         android:id="@+id/imageView_Checkmark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/textView_LevelFinished"
         android:contentDescription="@null"
+        android:layout_marginStart="-4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_LevelFinished"
         app:layout_constraintStart_toEndOf="@+id/textView_LevelFinished"
         app:layout_constraintTop_toTopOf="@+id/textView_LevelFinished"
         app:srcCompat="@drawable/ic_check_mark_foreground" />
@@ -360,10 +362,24 @@
         android:layout_marginTop="7dp"
         android:text="Total Score: 10243 g"
         app:layout_constraintHorizontal_bias="0.7"
-        android:textSize="11sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/textView_LevelFinishedMessageCO2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_comfortResult" />
+
+    <TextView
+        android:id="@+id/textViewAllLevelsFinished"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/all_levels_finished_message"
+        android:textAlignment="center"
+        android:visibility="invisible"
+        android:textSize="13sp"
+        android:textColor="#49bf82"
+        app:layout_constraintBottom_toTopOf="@+id/textView_TopScores"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView_Checkmark"
+        app:layout_constraintTop_toTopOf="@+id/textView_LevelFinished" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

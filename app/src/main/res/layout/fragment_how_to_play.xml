@@ -180,9 +180,9 @@
 
             <ImageView
                 android:id="@+id/imageViewHotWaterTank"
-                android:layout_width="50dp"
+                android:layout_width="45dp"
                 android:layout_height="65dp"
-                android:layout_marginStart="4dp"
+                android:layout_marginStart="3dp"
                 android:src="@drawable/figure_hot_water_tank"
                 app:layout_constraintStart_toEndOf="@+id/imageViewThermometer"
                 app:layout_constraintTop_toTopOf="@+id/imageViewThermometer" />

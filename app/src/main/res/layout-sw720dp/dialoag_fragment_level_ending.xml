@@ -244,11 +244,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/menu"
-        android:textStyle="bold"
         android:textSize="17sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageView_goToMenu"
         app:layout_constraintStart_toStartOf="@+id/imageView_goToMenu"
-        app:layout_constraintTop_toBottomOf="@+id/imageView_goToMenu" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView_RepeatSymbol" />
 
 
     <TextView
@@ -354,11 +354,27 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:text="Total Score: 10243 g"
-        android:textSize="17sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/textView_comfortResult"
         app:layout_constraintHorizontal_bias="0.7"
         app:layout_constraintStart_toStartOf="@+id/textView_comfortResult"
         app:layout_constraintTop_toBottomOf="@+id/textView_comfortResult" />
+
+    <TextView
+        android:id="@+id/textViewAllLevelsFinished"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/all_levels_finished_message"
+        android:textAlignment="center"
+        android:visibility="invisible"
+        android:textSize="21sp"
+        android:textColor="#49bf82"
+        app:layout_constraintBottom_toTopOf="@+id/textView_TopScores"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView_CloseSymbol"
+        app:layout_constraintTop_toTopOf="@+id/textView_LevelFinished" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

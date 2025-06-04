@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
@@ -11,11 +13,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
+
 import com.bumptech.glide.Glide;
 
 import androidx.core.text.HtmlCompat;
 
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.target.Target;
 import com.example.game.databinding.FragmentInterestingFactsBinding;
 import java.util.Locale;
 
@@ -71,6 +76,17 @@ public class FR_InterestingFacts extends Fragment {
         binding.tvFactsGrid.setText(HtmlCompat.fromHtml(formattedTextGrid, HtmlCompat.FROM_HTML_MODE_LEGACY));
         binding.tvFactsGrid.setMovementMethod(LinkMovementMethod.getInstance());
 
+
+        // One-time hint using Toast
+        SharedPreferences prefs = requireContext().getSharedPreferences("scroll_hint_interesting_facts", Context.MODE_PRIVATE);
+        boolean shown = prefs.getBoolean("scroll_hint_interesting_facts", false);
+
+        if (!shown) {
+            Toast.makeText(getContext(), getString(R.string.hint_scroll_right), Toast.LENGTH_LONG).show();
+            prefs.edit().putBoolean("scroll_hint_interesting_facts", true).apply();
+        }
+
+
         return binding.getRoot();
     }
 
@@ -82,17 +98,14 @@ public class FR_InterestingFacts extends Fragment {
     private void loadImage(ImageView imageView, String drawableName) {
         int drawableId = getDrawableId(drawableName);
         if (drawableId != 0) {
-            int width = imageView.getLayoutParams().width;  // Get width from XML
-            int height = imageView.getLayoutParams().height; // Get height from XML
-
             Glide.with(this)
                     .load(drawableId)
-                    .override(width, height) // Uses the actual layout-defined size
-                    .diskCacheStrategy(DiskCacheStrategy.NONE) // Disable disk cache
-                    .skipMemoryCache(true) // Disable memory cache
+                    .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
+                    .dontTransform()
                     .into(imageView);
         }
     }
+
 
 
     /**

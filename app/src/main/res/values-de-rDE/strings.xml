@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Wärmepumpen Regelung Spiel</string>
+    <string name="app_name">HeatPump Meister</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="start_game">Starte Spiel</string>
@@ -53,39 +53,38 @@
 
     <string name="info_efficiency_link">
     <![CDATA[
-    &#8226; Wärmepumpen sind mit Abstand die effizienteste Heiztechnologie.<br/><br/>
-    &#8226; Sie erzeugen aus 1 kWh Strom durchschnittlich 3–4 kWh Wärme.<br/><br/>
-    &#8226; Erdwärmepumpen sind effizienter als Luftwärmepumpen, verursachen jedoch höhere Installationskosten.<br/><br/>
-    &#8226; Übrigens: Kühlschränke und Gefrierschränke nutzen denselben thermodynamischen Prozess wie eine Wärmepumpe, indem sie Wärme aus dem Inneren des Geräts nach außen transportieren.<br/><br/>
+    &#8226; Wärmepumpen sind mit Abstand die effizienteste Heiztechnologie.<br/>
+    &#8226; Sie erzeugen aus 1 kWh Strom durchschnittlich 3 bis 4 kWh Wärme.<br/>
+    &#8226; Erd-Wärmepumpen sind effizienter als Luftwärmepumpen, aber teurer in der Installation.<br/>
+    &#8226; Kühlschränke und Gefrierschränke funktionieren thermodynamisch wie Wärmepumpen: Sie transportieren Wärme von innen nach außen.<br/>
     &#8226; Quellen: <a href="https://www.entega.de/blog/wirkungsgrad-waermepumpe/">Prof. Dipl. –Ing. W. Schenk, Hochschule München, 2020</a> und
-    <a href="https://www.energie-experten.org/heizung/waermepumpe/waermepumpenheizung/wirkungsgrad">Greenhouse Media GmbH, 2022</a> (abgerufen am 14.04.2025).<br/><br/>
+    <a href="https://www.energie-experten.org/heizung/waermepumpe/waermepumpenheizung/wirkungsgrad">Greenhouse Media GmbH, 2022</a> (abgerufen am 14.04.2025).<br/>
     ]]>
     </string>
 
     <string name="info_heating_link">
     <![CDATA[
-    &#8226; In der EU entfällt der größte Teil des Energieverbrauchs der Haushalte auf das Beheizen von Wohnräumen, gefolgt von der Warmwasserbereitung.<br/><br/>
-    &#8226; Im Jahr 2022 entfielen 26 % des gesamten Endenergieverbrauchs der EU auf den Wohnsektor.<br/><br/>
-       &#8226; Quelle: <a href="https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20240605-2">Eurostat, 2024</a> (abgerufen am 14.04.2025).<br/><br/>
+    &#8226; In der EU entfällt der größte Teil des Energieverbrauchs der Haushalte auf das Beheizen von Wohnräumen, gefolgt von der Warmwasserbereitung.<br/>
+    &#8226; Im Jahr 2022 entfielen 26 % des gesamten Endenergieverbrauchs der EU auf den Wohnsektor.<br/>
+       &#8226; Quelle: <a href="https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20240605-2">Eurostat, 2024</a> (abgerufen am 14.04.2025).<br/>
     ]]>
     </string>
 
     <string name="info_emissions_link">
     <![CDATA[
-    &#8226; Der Austausch von fossilen Heizungen durch eine Wärmepumpe kann die CO₂-Emissionen erheblich senken.<br/><br/>
-    &#8226; Werden Wärmepumpen mit erneuerbarem Strom betrieben, arbeiten sie nahezu emissionsfrei.<br/><br/>
-    &#8226; Ein höherer Anteil erneuerbarer Energien im Strommix reduziert die Treibhausgasemissionen.<br/><br/>
-    &#8226; Quelle: <a href="https://www.waermepumpe.de/waermepumpe/klimaschutz/">Bundesverband Wärmepumpe (BWP) e.V., 2024</a> (abgerufen am 14.04.2025).<br/><br/>
+    &#8226; Der Austausch von fossilen Heizungen durch eine Wärmepumpe kann die CO₂-Emissionen erheblich senken.<br/>
+    &#8226; Werden Wärmepumpen mit erneuerbarem Strom betrieben, arbeiten sie nahezu emissionsfrei. Ein höherer Anteil erneuerbarer Energien im Strommix reduziert die Treibhausgasemissionen.<br/>
+    &#8226; Quelle: <a href="https://www.waermepumpe.de/waermepumpe/klimaschutz/">Bundesverband Wärmepumpe (BWP) e.V., 2024</a> (abgerufen am 14.04.2025).<br/>
     ]]>
     </string>
 
 
     <string name="info_stabilizing_grids_link">
     <![CDATA[
-    &#8226; Wärmepumpen können zur Stabilität des Stromnetzes beitragen, indem sie flexibel auf Schwankungen von Angebot und Nachfrage reagieren – insbesondere in Kombination mit intelligenter Netztechnologie.<br/><br/>
-    &#8226; Wärmepumpen können ihren Energieverbrauch zeitlich verschieben, indem sie Wärme in Zeiten hoher erneuerbarer Energieproduktion speichern und sie bei höherem Bedarf nutzen.<br/><br/>
-    &#8226; Schon durch einfache, freiwillige Maßnahmen zur Verschiebung ihres Energieverbrauchs können Wärmepumpen das Stromnetz wirkungsvoll entlasten und den Bedarf am Netzausbau spürbar verringern.<br/><br/>
-    &#8226; Quelle: <a href="https://www.waermepumpe.de/fileadmin/user_upload/Kurzstudie_FlexWP.pdf">Fraunhofer IEE - Flexible Wärmepumpen im Verteilnetz, 2022</a> (abgerufen am 14.04.2025).<br/><br/>
+    &#8226; Wärmepumpen können das Stromnetz stabilisieren, vor allem in Verbindung mit intelligenter Netztechnik.<br/>
+    &#8226; Wärmepumpen können Energie flexibel nutzen, indem sie Wärme bei hoher Stromerzeugung aus Erneuerbaren speichern und später bereitstellen.<br/>
+    &#8226; Durch Verschiebung ihres Energieverbrauchs können Wärmepumpen das Stromnetz entlasten und den Bedarf am Netzausbau verringern.<br/>
+    &#8226; Quelle: <a href="https://www.waermepumpe.de/fileadmin/user_upload/Kurzstudie_FlexWP.pdf">Fraunhofer IEE - Flexible Wärmepumpen im Verteilnetz, 2022</a> (abgerufen am 14.04.2025).<br/>
     ]]>
 </string>
 
@@ -102,6 +101,11 @@
     <string name="_6_air_the_room_or_have_a_shower">6. Lüfte den Raum oder dusche für eine bessere Komfortbewertung, indem du auf die einfliegendenden \nButtons tippst.
 Dadurch wird  die Temperatur im Gebäude und das Wasser im Speicher reduziert.</string>
     <string name="instructions">Anweisungen</string>
-    <string name="_5_comfort_limits">5. Stelle sicher, dass die Temperatur im Komfortbereich (20-22° C) liegt \nund genügend Warmwasser im Tank verfügbar ist, ohne dessen Kapazität zu überschreiten.</string>
+    <string name="_5_comfort_limits">5. Stelle sicher, dass die Temperatur im Komfortbereich (20—22° C) liegt und \ngenügend Warmwasser im Tank ist, ohne dessen Kapazität zu überschreiten.</string>
+    <string name="all_levels_finished_message">Du hast alle Levels beendet!\nGratulation 🏆</string>
+
+    <string name="hint_scroll_right">Scrolle nach rechts→</string>
+    <string name="hint_scroll_down">Evtl. musst du runter scrollen ↓</string>
+    <string name="privacy_policy">Datenschutzerklärung</string>
 
 </resources>

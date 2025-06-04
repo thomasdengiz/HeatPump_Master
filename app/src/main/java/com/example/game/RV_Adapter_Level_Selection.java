@@ -99,7 +99,7 @@ public class RV_Adapter_Level_Selection extends RecyclerView.Adapter<RV_Adapter_
         }
 
         holder.levelImage.setBackgroundResource(levelResourceIdentifier);
-        holder.tv_bestResultThisLevel.setText(context.getString(R.string.best_result_semicolon) +" "+  levelList.get(position).getBestResultThisLevel()+ " %");
+        holder.tv_bestResultThisLevel.setText(context.getString(R.string.best_result_semicolon) + " " + String.format("%.1f", levelList.get(position).getBestResultThisLevel()) + " %");
         holder.tv_CO2SavingsTotalThisLevel.setText(context.getString(R.string.co2_savings_total_semicolon) +" "+ levelList.get(position).getTotalCO2SavingsThisLevel()+ " g");
         holder.tv_gasSavingsTotalThisLevel.setText(context.getString(R.string.gas_savings_total_semicolon) +" "+ levelList.get(position).getGasSavingsTotalThisLevel() + " kWh");
 

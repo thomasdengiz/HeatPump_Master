@@ -32,7 +32,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/cap_efficiency"
-                    android:textSize="21sp"
+                    android:textSize="22sp"
                     android:textStyle="bold" />
 
                 <ImageView
@@ -46,7 +46,8 @@
                     android:id="@+id/tv_facts_efficiency"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textSize="15dp"
+                    android:textSize="17dp"
+                    android:lineSpacingExtra="4dp"
                     android:text="@string/info_efficiency_link"
                     android:textColor="@android:color/black"/>
             </LinearLayout>
@@ -65,7 +66,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/cap_energy_consumption"
-                    android:textSize="21sp"
+                    android:textSize="22sp"
                     android:textStyle="bold" />
 
                 <ImageView
@@ -79,7 +80,8 @@
                     android:id="@+id/tv_facts_heating"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textSize="15dp"
+                    android:textSize="17dp"
+                    android:lineSpacingExtra="4dp"
                     android:text="@string/info_heating_link"
                     android:textColor="@android:color/black"
 
@@ -100,7 +102,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/cap_emissions"
-                    android:textSize="21sp"
+                    android:textSize="22sp"
                     android:textStyle="bold" />
 
                 <ImageView
@@ -114,7 +116,8 @@
                     android:id="@+id/tv_facts_emissions"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textSize="15dp"
+                    android:textSize="17dp"
+                    android:lineSpacingExtra="4dp"
                     android:text="@string/info_emissions_link"
                     android:textColor="@android:color/black"
                     />
@@ -134,7 +137,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/cap_grid"
-                    android:textSize="21sp"
+                    android:textSize="22sp"
                     android:textStyle="bold" />
 
                 <ImageView
@@ -151,7 +154,8 @@
                     android:text="@string/info_stabilizing_grids_link"
                     android:layout_marginTop="9dp"
                     android:textColor="@android:color/black"
-                    android:textSize="15sp" />
+                    android:textSize="17dp"
+                    android:lineSpacingExtra="4dp" />
             </LinearLayout>
         </LinearLayout>
     </HorizontalScrollView>
