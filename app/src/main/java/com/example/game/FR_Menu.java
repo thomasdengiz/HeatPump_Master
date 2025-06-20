@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
@@ -51,6 +52,18 @@ public class FR_Menu extends Fragment implements View.OnClickListener{
         binding.imageButtonLevelSelection.setOnClickListener(this);
 
 
+        //Exit the game what happens when back is pressed
+        requireActivity().getOnBackPressedDispatcher().addCallback(
+                getViewLifecycleOwner(),
+                new OnBackPressedCallback(true) {
+                    @Override
+                    public void handleOnBackPressed() {
+                        requireActivity().finish();
+                    }
+                }
+        );
+
+
         return binding.getRoot();
     }
 
@@ -61,7 +74,6 @@ public class FR_Menu extends Fragment implements View.OnClickListener{
      */
     @Override
     public void onClick(View view) {
-        Log.d("FR_Menu", "Button clicked with ID: " + view.getId());
         if(view.getId() == R.id.imagebutton_game) {
             Navigation.findNavController(requireView()).navigate(FR_MenuDirections.actionFRMenuToFRGame());
 

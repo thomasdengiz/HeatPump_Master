@@ -22,12 +22,14 @@ import android.view.WindowMetrics;
 import android.widget.EditText;
 import android.widget.ToggleButton;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -81,7 +83,6 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
 
     private  int currentLevel;
 
-
     //Firebase components
     private ViewModel_DialogFR_LevelEnd viewModel;
     LiveData_FirebaseHighScore liveData;
@@ -110,13 +111,18 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
                     getDialog().getWindow().setAttributes(params);
                 }
         );
-
         isDialogShown = true;
-
-
-
     }
 
+    /*
+    This method makes sure that the app naivates back to FR_Menu when the back button is pressed
+     */
+    @Override
+    public void onCancel(@NonNull DialogInterface dialog) {
+        super.onCancel(dialog);
+        NavHostFragment.findNavController(this)
+                .navigate(R.id.action_dialogFR_LevelEnd_to_FR_Menu);
+    }
 
 
     @SuppressLint("SetTextI18n")
@@ -142,7 +148,6 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
         }
 
 
-
         //Calculate and display the comfort bonus
         double actualComfortBonus = Math.round((endComfortPercentage / 100.0) * (maximumComfortBonusScorePercentage / 100.0) * FR_Game.PERFECT_CO2SCORE_GRAM);
         double perfectComfortBonus = Math.round((1.0) * (maximumComfortBonusScorePercentage / 100.0) * FR_Game.PERFECT_CO2SCORE_GRAM);
@@ -162,7 +167,7 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
         //Display the results
         binding.textViewComfortResult.setText("Your comfort score is " + endComfortPercentage + "%" + " --> Bonus points: " + (int) actualComfortBonus);
         binding.textViewTotalScore.setText("Total Score: " + (int) (co2SavingsScoreCurrentRun ) + " (Optimality: " + resultPercentage + "%)");
-        binding.textViewLevelFinishedMessageCO2.setText("Objective: " + (int) neededCO2SavingsScore+ "g of CO₂-savings and you got " + (int) (co2SavingsScoreCurrentRun - actualComfortBonus  ) + "g + " + (int) actualComfortBonus + "g");
+        binding.textViewLevelFinishedMessageCO2.setText("Objective: " + (int) neededCO2SavingsScore+ " g of CO₂-savings and you got " + (int) (co2SavingsScoreCurrentRun - actualComfortBonus  ) + " g + " + (int) actualComfortBonus + "g");
         double gasSavingsKWH = Math.round(((co2SavingsScoreCurrentRun - actualComfortBonus) / FR_Game.PERFECT_CO2SCORE_GRAM * FR_Game.PERFECT_GAS_SAVING_KWH) * 10.0) / 10.0;
 
         binding.textViewLevelFinishedMessageGas.setText("You saved " + gasSavingsKWH + " kWh of Gas");
@@ -171,13 +176,12 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
         if(FR_Options.getLanguage(requireContext()).equals("de")) {
             binding.textViewComfortResult.setText("Dein Komfort Score ist " + endComfortPercentage + "%" + " --> Bonus Punkte: " + (int) actualComfortBonus);
             binding.textViewTotalScore.setText("Gesamtpunktzahl: " + (int) (co2SavingsScoreCurrentRun ) + " (Optimalität: " + resultPercentage + "%)");
-            binding.textViewLevelFinishedMessageCO2.setText("Ziel: " + (int) neededCO2SavingsScore+ "g CO₂ einsparen. Du hast " + (int) (co2SavingsScoreCurrentRun -actualComfortBonus) + "g + " + (int) actualComfortBonus + "g");
+            binding.textViewLevelFinishedMessageCO2.setText("Ziel: " + (int) neededCO2SavingsScore+ " g CO₂ einsparen. Du hast " + (int) (co2SavingsScoreCurrentRun -actualComfortBonus) + " g + " + (int) actualComfortBonus + "g");
             binding.textViewLevelFinishedMessageGas.setText("Du hast " + gasSavingsKWH + " kWh Gas eingespart");
 
         }
 
         this.co2SavingsScoreCurrentRunScoreSubmit =co2SavingsScoreCurrentRun;
-
 
 
         //Check if the level was successful
@@ -247,7 +251,6 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
             FirebaseApp.initializeApp(requireContext(), options);
         }
 
-
         rootRef_Firebase = FirebaseDatabase.getInstance(FIREBASE_URL).getReference();
         rootRef_Firebase.keepSynced(true);
 
@@ -291,7 +294,8 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
                 });
 
                 // Iterate through the sorted list
-                int position = 1; // Initialize position
+                int position = 1;
+
                 for (DataSnapshot ds : snapshotList) {
                     // Extract data from each snapshot
                     String name = ds.child(FIREBASE_NAME).getValue(String.class);
@@ -310,12 +314,7 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
                 }
             }
 
-
             //Filter the arrayList such that it only contains the n best items with highest co2Score
-
-            // Convert the filtered list back to ArrayList if required
-            // Limit to the first n items
-            // Collect the result into a new List
             arrayList_HighScore = arrayList_HighScore.stream()
                     .sorted(Comparator.comparingInt(RV_Item_Highscore::getCo2Score).reversed()) // Sort by co2Score in descending order
                     .limit(numberOfDisplayedHighScoreEntries).collect(Collectors.toCollection(ArrayList::new));
@@ -324,10 +323,7 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
             // Notify the adapter of the dataset changes
             adapter_HighScore.updateData(arrayList_HighScore);
 
-
         });
-
-
 
         //Register the listeners for the clicks
         binding.imageViewRepeatSymbol.setOnClickListener(this);
@@ -361,13 +357,16 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
         ArrayList<RV_Item_Highscore> arrayList_HighScore_Overall = new ArrayList<>();
 
         String firebaseNodeLevel = "levels/" + String.valueOf(currentLevel);
-        //String firebaseNodeLevel = "level_" + currentLevel;
+
         rootRef_Firebase.child(firebaseNodeLevel).orderByChild(FIREBASE_DATE_IN_MILLISECONDS).addListenerForSingleValueEvent(new ValueEventListener() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+
                 //Find out position of the current co2SavingsScoreCurrentRun regarding all entries for the week, month and overall
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
+
                     String name = ds.child(FIREBASE_NAME).getValue(String.class);
 
                     // Use a default value if co2ScoreHighScoreEntry is null
@@ -384,11 +383,9 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
                     Long dateInMillisecondsFirebaseEntryLong = ds.child(FIREBASE_DATE_IN_MILLISECONDS).getValue(Long.class);
                     long dateInMilliseconds = (dateInMillisecondsFirebaseEntryLong != null) ? dateInMillisecondsFirebaseEntryLong : 0L;  // Default to 0L if null
 
-                    Log.e("Tag_Dialog", "Highscore iteration name:" + name);
 
                     if (dateInMilliseconds > millisecondsThresholdLastWeek) {
                         arrayList_HighScore_LastWeek.add(new RV_Item_Highscore(name, co2Score, date, levelValue, 0));
-                        Log.e("Tag_Dialog", "Highscore iteration arrayList_HighScore_LastWeek:" + arrayList_HighScore_LastWeek.size());
                     }
 
                     if (dateInMilliseconds > millisecondsThresholdLastMonth) {
@@ -443,15 +440,12 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
                 }
 
 
-
-
                 //If the current score is in the top 10 in one category, display the "Submit" button and handle the clicking event:
                 if (positionOfCurrentScoreInHishScoreListLastWeek<=10) {
                     binding.buttonSubmit.setEnabled(true);
                     binding.buttonSubmit.setClickable(true);
                     binding.buttonSubmit.setAlpha(1.0f);
                 }
-
 
 
             }
@@ -464,6 +458,7 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
 
     }
 
+
     /*
     This method creates the RecyclerView for displaying the highscores
      */
@@ -472,11 +467,9 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
         recyclerView_HighScore.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager_HighScore = new LinearLayoutManager(this.getContext());
 
-
         recyclerView_HighScore.setLayoutManager(layoutManager_HighScore);
         recyclerView_HighScore.setAdapter(adapter_HighScore);
     }
-
 
 
     /*
@@ -487,12 +480,15 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
         if (view instanceof ToggleButton clickedButton) {
             //Only one Toggle Button should be activated at a time
             if (clickedButton == binding.tbuttonHighScoreLastWeek) {
+                binding.tbuttonHighScoreLastWeek.setChecked(true);
                 binding.tbuttonHighScoreLastMonth.setChecked(false);
                 binding.tbuttonHighScoreOverall.setChecked(false);
             } else if (clickedButton == binding.tbuttonHighScoreLastMonth) {
+                binding.tbuttonHighScoreLastMonth.setChecked(true);
                 binding.tbuttonHighScoreLastWeek.setChecked(false);
                 binding.tbuttonHighScoreOverall.setChecked(false);
             } else if (clickedButton == binding.tbuttonHighScoreOverall) {
+                binding.tbuttonHighScoreOverall.setChecked(true);
                 binding.tbuttonHighScoreLastWeek.setChecked(false);
                 binding.tbuttonHighScoreLastMonth.setChecked(false);
             }
@@ -507,6 +503,7 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
             if (binding.tbuttonHighScoreOverall.isChecked()) {
                 this.pastDaysForDisplayingScores = 10000;
             }
+
         }
 
         NavController navController = Navigation.findNavController(requireActivity(), R.id.navHostfragment);
@@ -579,7 +576,6 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
 
                 // Get the reference to the level node
                 String firebaseNodeLevel = "levels/" + String.valueOf(currentLevel);
-                //String firebaseNodeLevel = "level_" + currentLevel;
                 DatabaseReference levelRef = rootRef_Firebase.child(firebaseNodeLevel);
 
                 // Write the data to Firebase
@@ -587,6 +583,8 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
                         .addOnSuccessListener(aVoid -> {
                             // Data was successfully written
                             Log.d("Firebase", "Data successfully written to Firebase");
+                            binding.tbuttonHighScoreLastWeek.performClick();
+                            binding.tbuttonHighScoreLastWeek.setChecked(true);
                         })
                         .addOnFailureListener(e -> {
                             // Handle any errors
@@ -611,20 +609,13 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
      */
     private void showPrivacyPolicyDialog() {
         AlertDialog.Builder policyBuilder = new AlertDialog.Builder(getActivity());
-
-        if (FR_Options.getLanguage(requireContext()).equals("de")) {
-            policyBuilder.setTitle("Datenschutzerklärung");
-            policyBuilder.setMessage("Mit der Übermittlung deines Highscores erklärst du dich damit einverstanden, dass dein eingegebener Name, dein Score und das Datum der Übermittlung für die Bestenliste gespeichert werden. Es werden keine weiteren Daten erhoben. Falls du möchtest, dass deine Daten gelöscht werden, sende bitte eine E-Mail an thomas.dengiz@yahoo.de. Sofern der Score nach 1 Monat nicht unter den besten 10 ist, wird der Eintrag automatisch gelöscht.");
-        } else {
-            policyBuilder.setTitle("Privacy Policy");
-            policyBuilder.setMessage("By submitting a high score, you agree that your entered name, score, and submission date will be stored for leaderboard purposes. No other data is collected. If you want your data to be deleted, please send an email to thomas.dengiz@yahoo.de. If your score is not among the top 10 after one month, the entry will be automatically deleted.");
-        }
+        policyBuilder.setTitle(R.string.privacy_policy);
+        policyBuilder.setMessage(R.string.privacy_policy_message);
 
         policyBuilder.setPositiveButton("OK", null);
         AlertDialog policyDialog = policyBuilder.create();
         policyDialog.show();
     }
-
 
 
     /*
@@ -655,7 +646,4 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
         super.onDestroy();
         isDialogShown = false;
     }
-
-
 }
-

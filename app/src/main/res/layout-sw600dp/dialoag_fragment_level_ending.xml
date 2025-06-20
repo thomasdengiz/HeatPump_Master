@@ -200,7 +200,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/textView_RepeatLevel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintHorizontal_bias="0.31"
         app:layout_constraintStart_toStartOf="@+id/textView_LevelFinishedMessageCO2"
         app:layout_constraintTop_toTopOf="@+id/imageView_RepeatSymbol"
         app:srcCompat="@drawable/ic_arrow_forward_foreground" />
@@ -209,7 +209,7 @@
         android:id="@+id/imageView_RepeatSymbol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintHorizontal_bias="0.17"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"

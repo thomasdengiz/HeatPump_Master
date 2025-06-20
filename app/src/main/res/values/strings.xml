@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HeatPump Meister</string>
+    <string name="app_name">HeatPump Master</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="start_game">Start Game</string>
     <string name="options">Options</string>
@@ -102,8 +102,11 @@
     <string name="instructions">Instructions</string>
     <string name="all_levels_finished_message">You have finished all levels!\nCongratulations 🏆</string>
 
-    <string name="hint_scroll_right">You can scroll right to see more →</string>
+    <string name="hint_scroll_right">You can scroll right to see more →\nScroll the text down to see the sources↓</string>
     <string name="hint_scroll_down">You may need to scroll down ↓</string>
     <string name="privacy_policy">Privacy Policy</string>
+
+    <string name="privacy_policy_message">By submitting a high score, you agree that your entered name, score, and submission date will be stored for leaderboard purposes. No other data is collected. If you want your data to be deleted, please send an E-Mail to thomas.dengiz@yahoo.de. If your score is not among the top 10 after one month, the entry will be automatically deleted.</string>
+
 
 </resources>

@@ -22,7 +22,6 @@ This class is for the "Options" fragment. Here the user can change the language 
 public class FR_Options extends Fragment implements View.OnClickListener {
 
 
-
     /*
     String specifying the language of the App
      */

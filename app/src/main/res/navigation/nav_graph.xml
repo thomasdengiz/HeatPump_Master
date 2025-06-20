@@ -115,9 +115,12 @@
         <action
             android:id="@+id/action_dialogFR_LevelEnd_to_FR_Game"
             app:destination="@id/FR_Game" />
+
         <action
             android:id="@+id/action_dialogFR_LevelEnd_to_FR_Menu"
-            app:destination="@id/FR_Menu" />
+            app:destination="@id/FR_Menu"
+            app:popUpTo="@id/FR_Game"
+            app:popUpToInclusive="true" />
     </dialog>
 
 </navigation>

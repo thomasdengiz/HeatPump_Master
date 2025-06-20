@@ -35,21 +35,17 @@ public class LiveData_FirebaseHighScore extends LiveData<DataSnapshot> {
 
     @Override
     protected void onActive() {
-        Log.d(LOG_TAG, "LiveData: onActive");
         query.addValueEventListener(listener);
     }
 
     @Override
     protected void onInactive() {
-        Log.d(LOG_TAG, "LiveData: onInactive");
         query.removeEventListener(listener);
     }
 
     private class MyValueEventListener implements ValueEventListener {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-
             setValue(dataSnapshot);
         }
 

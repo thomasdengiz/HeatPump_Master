@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">HeatPump Meister</string>
+    <string name="app_name">HeatPump Master</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="start_game">Starte Spiel</string>
@@ -104,8 +104,10 @@ Dadurch wird  die Temperatur im Gebäude und das Wasser im Speicher reduziert.</
     <string name="_5_comfort_limits">5. Stelle sicher, dass die Temperatur im Komfortbereich (20—22° C) liegt und \ngenügend Warmwasser im Tank ist, ohne dessen Kapazität zu überschreiten.</string>
     <string name="all_levels_finished_message">Du hast alle Levels beendet!\nGratulation 🏆</string>
 
-    <string name="hint_scroll_right">Scrolle nach rechts→</string>
+    <string name="hint_scroll_right">Scrolle nach rechts→. Scrolle beim Text nach unten↓</string>
     <string name="hint_scroll_down">Evtl. musst du runter scrollen ↓</string>
     <string name="privacy_policy">Datenschutzerklärung</string>
+
+    <string name="privacy_policy_message">Mit der Übermittlung deines Highscores erklärst du dich damit einverstanden, dass dein eingegebener Name, dein Score und das Datum der Übermittlung für die Bestenliste gespeichert werden. Es werden keine weiteren Daten erhoben. Falls du möchtest, dass deine Daten gelöscht werden, sende bitte eine E-Mail an thomas.dengiz@yahoo.de. Sofern der Score nach einem Monat nicht unter den Top 10 ist, wird der Eintrag automatisch gelöscht.</string>
 
 </resources>
