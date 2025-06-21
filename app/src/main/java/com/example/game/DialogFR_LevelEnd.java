@@ -22,7 +22,6 @@ import android.view.WindowMetrics;
 import android.widget.EditText;
 import android.widget.ToggleButton;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
