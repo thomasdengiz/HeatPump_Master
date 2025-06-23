@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/FR_Game"
-        android:name="com.example.game.FR_Game"
+        android:name="io.thomasdengiz.heatPumpMaster.FR_Game"
         android:label="FR_Game" >
         <action
             android:id="@+id/action_FR_Game_to_dialogFR_LevelEnd"
@@ -31,16 +31,16 @@
     </fragment>
     <fragment
         android:id="@+id/FR_Options"
-        android:name="com.example.game.FR_Options"
+        android:name="io.thomasdengiz.heatPumpMaster.FR_Options"
         android:label="FR_Options" />
 
     <fragment
         android:id="@+id/FR_HowToPlay"
-        android:name="com.example.game.FR_HowToPlay"
+        android:name="io.thomasdengiz.heatPumpMaster.FR_HowToPlay"
         android:label="FR_HighScores" />
     <fragment
         android:id="@+id/FR_Menu"
-        android:name="com.example.game.FR_Menu"
+        android:name="io.thomasdengiz.heatPumpMaster.FR_Menu"
         android:label="FR_Menu" >
         <action
             android:id="@+id/action_FR_Menu_to_FR_Game"
@@ -82,11 +82,11 @@
     </fragment>
     <fragment
         android:id="@+id/FR_InterestingFacts"
-        android:name="com.example.game.FR_InterestingFacts"
+        android:name="io.thomasdengiz.heatPumpMaster.FR_InterestingFacts"
         android:label="FR_InterestingFacts" />
     <fragment
         android:id="@+id/FR_RV_Level_Selection_Menu"
-        android:name="com.example.game.FR_RV_Level_Selection_Menu"
+        android:name="io.thomasdengiz.heatPumpMaster.FR_RV_Level_Selection_Menu"
         android:label="FR_RV_Level_Selection_Menu" >
         <action
             android:id="@+id/action_FR_RV_Level_Selection_Menu_to_FR_Game"
@@ -98,7 +98,7 @@
     </fragment>
     <dialog
         android:id="@+id/dialogFR_LevelEnd"
-        android:name="com.example.game.DialogFR_LevelEnd"
+        android:name="io.thomasdengiz.heatPumpMaster.DialogFR_LevelEnd"
         android:label="DialogFR_LevelEnd" >
         <argument
             android:name="currentCO2SavingsThisLevel"

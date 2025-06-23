@@ -1,10 +1,9 @@
-package com.example.game;
+package io.thomasdengiz.heatPumpMaster;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +16,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.game.databinding.FragmentLevelSelectionMenuBinding;
+import io.thomasdengiz.heatPumpMaster.databinding.FragmentLevelSelectionMenuBinding;
 
 import java.util.ArrayList;
 

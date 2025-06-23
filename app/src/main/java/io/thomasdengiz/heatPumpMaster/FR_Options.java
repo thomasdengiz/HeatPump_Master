@@ -1,4 +1,4 @@
-package com.example.game;
+package io.thomasdengiz.heatPumpMaster;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.game.databinding.FragmentOptionsBinding;
+import io.thomasdengiz.heatPumpMaster.databinding.FragmentOptionsBinding;
 
 
 /*

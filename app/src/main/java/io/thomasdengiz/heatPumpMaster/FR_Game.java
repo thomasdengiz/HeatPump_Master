@@ -1,4 +1,4 @@
-package com.example.game;
+package io.thomasdengiz.heatPumpMaster;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
@@ -41,7 +41,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
-import com.example.game.databinding.FragmentGameBinding;
+import io.thomasdengiz.heatPumpMaster.databinding.FragmentGameBinding;
 
 import java.util.ArrayList;
 import java.util.HashMap;

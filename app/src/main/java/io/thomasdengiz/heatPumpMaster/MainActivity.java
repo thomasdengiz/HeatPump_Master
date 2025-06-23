@@ -1,4 +1,4 @@
-package com.example.game;
+package io.thomasdengiz.heatPumpMaster;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -9,7 +9,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.game.databinding.ActivityMainBinding;
+import io.thomasdengiz.heatPumpMaster.databinding.ActivityMainBinding;
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        com.example.game.databinding.ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+        io.thomasdengiz.heatPumpMaster.databinding.ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(view);

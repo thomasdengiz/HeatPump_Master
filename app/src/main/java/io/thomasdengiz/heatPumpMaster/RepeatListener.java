@@ -1,8 +1,7 @@
-package com.example.game;
+package io.thomasdengiz.heatPumpMaster;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;

@@ -1,9 +1,7 @@
-package com.example.game;
+package io.thomasdengiz.heatPumpMaster;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import com.example.game.databinding.FragmentMenuBinding;
+import io.thomasdengiz.heatPumpMaster.databinding.FragmentMenuBinding;
 
 
 /*
@@ -39,7 +37,7 @@ public class FR_Menu extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        com.example.game.databinding.FragmentMenuBinding binding = FragmentMenuBinding.inflate(inflater, container, false);
+        io.thomasdengiz.heatPumpMaster.databinding.FragmentMenuBinding binding = FragmentMenuBinding.inflate(inflater, container, false);
 
         requireActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 

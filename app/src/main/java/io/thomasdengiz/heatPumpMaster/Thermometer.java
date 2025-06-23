@@ -1,4 +1,4 @@
-package com.example.game;
+package io.thomasdengiz.heatPumpMaster;
 
 import android.content.Context;
 import android.content.res.TypedArray;

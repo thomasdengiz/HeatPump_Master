@@ -17,12 +17,12 @@ android {
 }
 
 android {
-    namespace 'com.example.game'
+    namespace "io.thomasdengiz.heatPumpMaster"
 
     compileSdk = 34
 
     defaultConfig {
-        applicationId "com.example.game"
+        applicationId "io.thomasdengiz.heatPumpMaster"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

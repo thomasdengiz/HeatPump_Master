@@ -1,4 +1,4 @@
-package com.example.game;
+package io.thomasdengiz.heatPumpMaster;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -19,9 +19,8 @@ import com.bumptech.glide.Glide;
 
 import androidx.core.text.HtmlCompat;
 
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.Target;
-import com.example.game.databinding.FragmentInterestingFactsBinding;
+import io.thomasdengiz.heatPumpMaster.databinding.FragmentInterestingFactsBinding;
 import java.util.Locale;
 
 
@@ -83,8 +82,15 @@ public class FR_InterestingFacts extends Fragment {
 
         if (!shown) {
             Toast.makeText(getContext(), getString(R.string.hint_scroll_right), Toast.LENGTH_LONG).show();
+
+            new android.os.Handler().postDelayed(() ->
+                            Toast.makeText(getContext(), getString(R.string.hint_scroll_right), Toast.LENGTH_LONG).show(),
+                    3500
+            );
+
             prefs.edit().putBoolean("scroll_hint_interesting_facts", true).apply();
         }
+
 
 
         return binding.getRoot();

@@ -1,4 +1,4 @@
-package com.example.game;
+package io.thomasdengiz.heatPumpMaster;
 
 /*
 This class is an item for the RecyclerView of the level selection fragment.

@@ -1,6 +1,5 @@
-package com.example.game;
+package io.thomasdengiz.heatPumpMaster;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;

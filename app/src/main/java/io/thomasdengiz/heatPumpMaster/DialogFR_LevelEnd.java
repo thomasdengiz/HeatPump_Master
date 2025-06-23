@@ -1,4 +1,4 @@
-package com.example.game;
+package io.thomasdengiz.heatPumpMaster;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -32,7 +32,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.game.databinding.DialoagFragmentLevelEndingBinding;
+import io.thomasdengiz.heatPumpMaster.databinding.DialoagFragmentLevelEndingBinding;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.database.DataSnapshot;

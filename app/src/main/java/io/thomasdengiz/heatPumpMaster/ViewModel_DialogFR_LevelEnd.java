@@ -1,6 +1,4 @@
-package com.example.game;
-
-import android.util.Log;
+package io.thomasdengiz.heatPumpMaster;
 
 import androidx.lifecycle.ViewModel;
 
