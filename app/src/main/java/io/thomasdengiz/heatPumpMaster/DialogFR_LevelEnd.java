@@ -166,7 +166,7 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
         //Display the results
         binding.textViewComfortResult.setText("Your comfort score is " + endComfortPercentage + "%" + " --> Bonus points: " + (int) actualComfortBonus);
         binding.textViewTotalScore.setText("Total Score: " + (int) (co2SavingsScoreCurrentRun ) + " (Optimality: " + resultPercentage + "%)");
-        binding.textViewLevelFinishedMessageCO2.setText("Objective: " + (int) neededCO2SavingsScore+ " g of CO₂-savings and you got " + (int) (co2SavingsScoreCurrentRun - actualComfortBonus  ) + " g + " + (int) actualComfortBonus + "g");
+        binding.textViewLevelFinishedMessageCO2.setText("Objective: " + (int) neededCO2SavingsScore+ " g of CO₂-savings and you got " + (int) (co2SavingsScoreCurrentRun - actualComfortBonus  ) + " g + " + (int) actualComfortBonus + " g");
         double gasSavingsKWH = Math.round(((co2SavingsScoreCurrentRun - actualComfortBonus) / FR_Game.PERFECT_CO2SCORE_GRAM * FR_Game.PERFECT_GAS_SAVING_KWH) * 10.0) / 10.0;
 
         binding.textViewLevelFinishedMessageGas.setText("You saved " + gasSavingsKWH + " kWh of Gas");
@@ -175,7 +175,7 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
         if(FR_Options.getLanguage(requireContext()).equals("de")) {
             binding.textViewComfortResult.setText("Dein Komfort Score ist " + endComfortPercentage + "%" + " --> Bonus Punkte: " + (int) actualComfortBonus);
             binding.textViewTotalScore.setText("Gesamtpunktzahl: " + (int) (co2SavingsScoreCurrentRun ) + " (Optimalität: " + resultPercentage + "%)");
-            binding.textViewLevelFinishedMessageCO2.setText("Ziel: " + (int) neededCO2SavingsScore+ " g CO₂ einsparen. Du hast " + (int) (co2SavingsScoreCurrentRun -actualComfortBonus) + " g + " + (int) actualComfortBonus + "g");
+            binding.textViewLevelFinishedMessageCO2.setText("Ziel: " + (int) neededCO2SavingsScore+ " g CO₂ einsparen. Du hast " + (int) (co2SavingsScoreCurrentRun -actualComfortBonus) + " g + " + (int) actualComfortBonus + " g");
             binding.textViewLevelFinishedMessageGas.setText("Du hast " + gasSavingsKWH + " kWh Gas eingespart");
 
         }
