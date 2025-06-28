@@ -4,7 +4,6 @@ This project includes a pre-populated SQLite database defining the levels and th
 
 Below is a description of each table and its columns.
 
----
 
 ## 📋 Table: Level_Elements
 
@@ -12,7 +11,6 @@ Below is a description of each table and its columns.
 |----------|----------|-------------------------------------------------|
 | Level    | INTEGER  | Level number (part of primary key)              |
 | Timeslot | INTEGER  | Timeslot identifier within the level (part of primary key) |
-| Second   | INTEGER  | Specific second within the timeslot (not important for the game; just for overview)         |
 | PV       | INTEGER  | Value related to photovoltaic electricity game event rectangles |
 | Wind     | INTEGER  | Value related to wind energy electricity game event rectangles |
 | Fossil   | INTEGER  | Value related to fossil fuel electricity game event rectangles |
