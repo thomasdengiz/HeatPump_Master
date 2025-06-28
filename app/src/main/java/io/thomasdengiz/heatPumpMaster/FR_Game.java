@@ -1160,7 +1160,7 @@ public class FR_Game extends Fragment  {
     Method for playing a single audio file. If the audio file has been played during the last PLAY_INTERVAL_AUDIO_MILLISECONDS, it won't be repeated
      */
     private void playAudioFile(int resId) {
-        if (!FR_Options.getSoundOn(requireContext())) return;
+        if (!FR_Settings.getSoundOn(requireContext())) return;
 
         long now = System.currentTimeMillis();
         long lastTime = lastPlayTimesSounds.getOrDefault(resId, 0L);

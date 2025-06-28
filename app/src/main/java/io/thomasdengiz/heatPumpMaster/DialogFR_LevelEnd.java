@@ -172,7 +172,7 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
         binding.textViewLevelFinishedMessageGas.setText("You saved " + gasSavingsKWH + " kWh of Gas");
 
 
-        if(FR_Options.getLanguage(requireContext()).equals("de")) {
+        if(FR_Settings.getLanguage(requireContext()).equals("de")) {
             binding.textViewComfortResult.setText("Dein Komfort Score ist " + endComfortPercentage + "%" + " --> Bonus Punkte: " + (int) actualComfortBonus);
             binding.textViewTotalScore.setText("Gesamtpunktzahl: " + (int) (co2SavingsScoreCurrentRun ) + " (Optimalität: " + resultPercentage + "%)");
             binding.textViewLevelFinishedMessageCO2.setText("Ziel: " + (int) neededCO2SavingsScore+ " g CO₂ einsparen. Du hast " + (int) (co2SavingsScoreCurrentRun -actualComfortBonus) + " g + " + (int) actualComfortBonus + " g");
@@ -422,7 +422,7 @@ public class DialogFR_LevelEnd extends DialogFragment implements View.OnClickLis
                     }
                 }
 
-                if (FR_Options.getLanguage(requireContext()).equals("de")) {
+                if (FR_Settings.getLanguage(requireContext()).equals("de")) {
                     String text = "Position " + positionOfCurrentScoreInHishScoreListLastWeek + " letzte Woche\n"
                             + "Position " + positionOfCurrentScoreInHishScoreListLastMonth + " letzten Monat";
                     if (positionOfCurrentScoreInHishScoreListOverall <= 10) {

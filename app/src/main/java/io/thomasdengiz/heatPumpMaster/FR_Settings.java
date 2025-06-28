@@ -19,7 +19,7 @@ import io.thomasdengiz.heatPumpMaster.databinding.FragmentOptionsBinding;
 This class is for the "Options" fragment. Here the user can change the language and the sound options.
  */
 
-public class FR_Options extends Fragment implements View.OnClickListener {
+public class FR_Settings extends Fragment implements View.OnClickListener {
 
 
     /*
@@ -35,7 +35,7 @@ public class FR_Options extends Fragment implements View.OnClickListener {
     private static final String SOUND_ON = "SOUND_ON";
     private static final String SHARED_PREFS_NAME= "SHARED_PREFS_NAME";
 
-    public FR_Options() {
+    public FR_Settings() {
         // Required empty public constructor
     }
 

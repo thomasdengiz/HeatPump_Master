@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/FR_Options"
-        android:name="io.thomasdengiz.heatPumpMaster.FR_Options"
+        android:name="io.thomasdengiz.heatPumpMaster.FR_Settings"
         android:label="FR_Options" />
 
     <fragment
